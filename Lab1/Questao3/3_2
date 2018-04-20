@@ -1,0 +1,153 @@
+.data
+	const: .float 1.0 1.0 3.0
+	const_complex: .float 1.0 4.0 5.0
+	r1: .asciz "R(1)="
+	r2: .asciz "\nR(2)="
+	soma: .asciz "+"
+	subtrai: .asciz "-"
+	imaginario: .asciz "i"
+	complexo: .asciz "Raizes complexas:\n"
+	real: .asciz "Raizes reais:\n"
+.text
+
+main:
+	la t0, const
+	addi sp, sp, -12
+	flw ft1, 0(t0)
+	flw ft2, 4(t0)
+	flw ft3, 8(t0)
+	
+	fsw ft1, 0(sp)
+	fsw ft2, 4(sp)
+	fsw ft3, 8(sp)
+	jal ra, baskara
+	
+	add a2, a0, zero
+	j print
+	
+baskara:
+	flw fs2, 0(sp)	#fs2 recebe a
+	flw fs3, 4(sp)	#fs3 recebe b
+	flw fs4, 8(sp)	#fs4 recebe c
+	addi sp, sp, 12	
+				#Inicio do calculo de delta
+	fmul.s ft0, fs3, fs3	#ft0 <- b^2
+	
+	fmul.s ft1, fs2, fs4	#ft1 <- a*c
+	li t0, 4
+	fcvt.s.w ft2, t0
+	fmul.s ft1, ft1, ft2	#ft1 <- 4*a*c
+	fsub.s fs5, ft0, ft1	#fs5 <- b^2-4*a*c
+	
+	li t0, 0
+	fcvt.s.w ft0, t0 
+	flt.s t0, fs5, ft0	# t0=1 se fs5(delta)<0, t0=0 c.c.
+	beqz t0, reais
+	jal zero, complexas
+		
+reais:	#calculo das raizes reais
+	addi sp, sp, -8
+	li a0, 1
+	
+	fsqrt.s ft0, fs5	#ft0 <- sqrt(delta)
+	fdiv.s ft0, ft0, fs2	#ft0 <- sqrt(delta)/a
+	li t0, 2
+	fcvt.s.w ft2, t0
+	fdiv.s ft0, ft0, ft2	#ft0 <- sqrt(delta)/(2*a)
+	
+	fneg.s ft1, fs3		#ft1 <- (-b)
+	fdiv.s ft1, ft1, ft2	#ft1 <- (-b)/2
+	fdiv.s ft1, ft1, fs2	#ft1 <- (-b)/(2*a)
+	
+	fadd.s ft2, ft0, ft1	#ft2 <- raiz com operacao add
+	fsub.s ft3, ft1, ft0	#ft3 <- raiz com operacao sub
+	
+	fsw ft2, 0(sp)		#guarda raiz 1 na pilha
+	fsw ft3, 4(sp)		#guarda raiz 2 na pilha
+	
+	jr ra
+	
+complexas:	#calculo das raizes complexas
+	addi sp, sp, -8
+	li a0, 2
+	
+	fneg.s fs5, fs5		#delta <- (-delta) para ficar positivo
+	
+	fsqrt.s ft0, fs5	#ft0 <- sqrt(delta)
+	fdiv.s ft0, ft0, fs2	#ft0 <- sqrt(delta)/a
+	li t0, 2
+	fcvt.s.w ft2, t0
+	fdiv.s ft0, ft0, ft2	#ft0 <- sqrt(delta)/(2*a)
+	
+	fneg.s ft1, fs3		#ft1 <- (-b)
+	fdiv.s ft1, ft1, ft2	#ft1 <- (-b)/2
+	fdiv.s ft1, ft1, fs2	#ft1 <- (-b)/(2*a)
+	
+	fsw ft1, 0(sp)		#guarda parte real da raiz na pilha
+	fsw ft0, 4(sp)		#guarda parte imaginaria da raiz na pilha
+			
+print:
+	add t0, a2, zero	#recebe o parametro que define se as raizes na pilha sao reais ou complexas
+	li t1, 1
+	beq t0, t1, print_reais
+	jal zero, print_complexas
+	
+print_reais:
+	li a7, 4
+	la a0, real
+	ecall
+	li a7, 4
+	la a0, r1
+	ecall		#print primeira raiz
+	li a7, 2
+	flw fa0, 0(sp)
+	ecall
+	li a7, 4
+	la a0, r2
+	ecall		#print segunda raiz
+	li a7, 2
+	flw fa0, 4(sp)
+	ecall
+	addi sp, sp, 8
+	
+	j exit
+	
+print_complexas:
+	li a7, 4
+	la a0, complexo
+	ecall
+	li a7, 4	
+	la a0, r1
+	ecall		#print primeira raiz
+	li a7, 2
+	flw fa0, 0(sp)
+	ecall
+	li a7, 4
+	la a0, soma
+	ecall
+	li a7, 2
+	flw fa0, 4(sp)
+	ecall
+	li a7, 4
+	la a0, imaginario
+	ecall
+	li a7, 4
+	la a0, r2
+	ecall		#print segunda raiz
+	li a7, 2
+	flw fa0, 0(sp)
+	ecall
+	li a7, 4
+	la a0, subtrai
+	ecall
+	li a7, 2
+	flw fa0, 4(sp)
+	ecall
+	li a7, 4
+	la a0, imaginario
+	ecall
+	addi sp, sp, 8
+
+exit:
+	li a7, 10
+	ecall
