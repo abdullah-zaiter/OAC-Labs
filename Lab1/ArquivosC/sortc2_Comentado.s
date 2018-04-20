@@ -7,24 +7,18 @@
 #.rodata adicionar dados como somente leitura
 #.align	2
 #avanca o ponteiro de locacao para garantir oa linhamento na memoria,  word ->(2) double-> (3), sao potencias de 2
-.data
-.LC1:	.string	"%d\t"
-.LC0:
-	.word	5
-	.word	8
-	.word	3
-	.word	4
-	.word	7
-	.word	6
-	.word	8
-	.word	0
-	.word	1
-	.word	9
-#	.text
-#	.align	2
-	.globl	main
-#	.type	main, @function
-.text
+
+.LC1:
+	.string	"%d\t"
+	#declarando string
+	.text
+	#indica para o montador adicionar o codigo posterior como seçao de texto (programa e nao dados)
+	.align	2
+	.globl	show
+	#faz com que o nome seja externo, caso for definido
+#	.type	show, @function	
+	#setta o tipo show como funcao, fornece a compatibilidade com outros 
+
 show:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -41,13 +35,9 @@ show:
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	mv	a1,a5
-	#lui	a5,%hi(.LC1)
-	#addi	a0,a5,%lo(.LC1)
-	la  a5, .LC1
-	li  a7, 1          # service 1 is print integer
-    	add a0, a5, zero
-	ecall
-	#call	print
+	lui	a5,%hi(.LC1)
+	addi	a0,a5,%lo(.LC1)
+	call	printf
 	lw	a5,-20(s0)
 	addi	a5,a5,1
 	sw	a5,-20(s0)
@@ -56,16 +46,17 @@ show:
 	lw	a5,-40(s0)
 	blt	a4,a5,.L3
 	li	a0,10
-	li  a7, 11          
-    	#add a0, a5, zero
-	ecall
-	#call	putchar
+	call	putchar
 	nop
 	lw	ra,44(sp)
 	lw	s0,40(sp)
 	addi	sp,sp,48
 	jr	ra
-
+	.size	show, .-show
+	#usada para idicar ao compilador quanto de tamanho que o simbulo esta usando
+	.align	2
+	.globl	swap
+#	.type	swap, @function
 swap:
 	addi	sp,sp,-48
 	sw	s0,44(sp)
@@ -100,6 +91,10 @@ swap:
 	lw	s0,44(sp)
 	addi	sp,sp,48
 	jr	ra
+	.size	swap, .-swap
+	.align	2
+	.globl	sort
+#	.type	sort, @function
 sort:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -149,16 +144,32 @@ sort:
 	lw	s0,40(sp)
 	addi	sp,sp,48
 	jr	ra
-
+	.size	sort, .-sort
+	.section	.rodata
+	#define o tipo do bloco do codigo, no caso rodata = dados somente para leitura
+	.align	2
+.LC0:
+	.word	5
+	.word	8
+	.word	3
+	.word	4
+	.word	7
+	.word	6
+	.word	8
+	.word	0
+	.word	1
+	.word	9
+	.text
+	.align	2
+	.globl	main
+#	.type	main, @function
 main:
 	addi	sp,sp,-64
 	sw	ra,60(sp)
 	sw	s0,56(sp)
 	addi	s0,sp,64
-	#lui	a5,%hi(.LC0) 
-	#lw	t3,%lo(.LC0)(a5)
-	la 	a5, .LC0
-	lw	t3, 0(a5)
+	lui	a5,%hi(.LC0)
+	lw	t3,%lo(.LC0)(a5)
 	addi	a4,a5,%lo(.LC0)
 	lw	t1,4(a4)
 	addi	a4,a5,%lo(.LC0)

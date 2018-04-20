@@ -2,7 +2,7 @@
 	.option nopic
 	.data
 	.align	2
-	.type	v, @object
+#	.type	v, @object
 	.size	v, 40
 v:
 	.word	9
@@ -19,10 +19,13 @@ v:
 	.align	2
 .LC0:
 	.string	"%d\t"
-	.text
-	.align	2
+#	.text
+#	.align	2
 	.globl	show
-	.type	show, @function
+#	.type	show, @function
+
+.text
+
 show:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -39,9 +42,14 @@ show:
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	mv	a1,a5
-	lui	a5,%hi(.LC0)
-	addi	a0,a5,%lo(.LC0)
-	call	printf
+#	lui	a5,%hi(.LC0)
+#	addi	a0,a5,%lo(.LC0)
+	la a5, .LC0
+#	call	printf
+	li  a7, 1 
+    	add a0, a5, zero
+	ecall
+	
 	lw	a5,-20(s0)
 	addi	a5,a5,1
 	sw	a5,-20(s0)
@@ -50,16 +58,19 @@ show:
 	lw	a5,-40(s0)
 	blt	a4,a5,.L3
 	li	a0,10
-	call	putchar
+	#call	putchar
+	li  a7, 11         
+	ecall
+
 	nop
 	lw	ra,44(sp)
 	lw	s0,40(sp)
 	addi	sp,sp,48
 	jr	ra
 	.size	show, .-show
-	.align	2
+#	.align	2
 	.globl	swap
-	.type	swap, @function
+#	.type	swap, @function
 swap:
 	addi	sp,sp,-48
 	sw	s0,44(sp)
@@ -95,9 +106,9 @@ swap:
 	addi	sp,sp,48
 	jr	ra
 	.size	swap, .-swap
-	.align	2
+#	.align	2
 	.globl	sort
-	.type	sort, @function
+#	.type	sort, @function
 sort:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -148,9 +159,9 @@ sort:
 	addi	sp,sp,48
 	jr	ra
 	.size	sort, .-sort
-	.align	2
+#	.align	2
 	.globl	main
-	.type	main, @function
+#	.type	main, @function
 main:
 	addi	sp,sp,-16
 	sw	ra,12(sp)
