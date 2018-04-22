@@ -1,0 +1,9 @@
+	Diretivas			-O0				-O1				-O2				-O3				-Os
+SORTC						
+Número Instruções		1828			812				606				588				885
+Tamanho bytes		2503 bytes		2.047 bytes		1.854 bytes		1.840 bytes		1.987 bytes
+						
+						
+SORTC2						
+Número Instruções		1913			844				639				620				980
+Tamanho bytes		3.012 bytes		2.286 bytes		2.101 bytes		2.087 bytes		1.978 bytes

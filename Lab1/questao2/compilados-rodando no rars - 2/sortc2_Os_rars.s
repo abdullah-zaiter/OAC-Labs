@@ -15,6 +15,44 @@ printf: li a7,1
 putchar: li a7,11
 	ecall
 	ret
+
+
+memcpy:
+	or	a3,a0,a1
+	andi	a3,a3,3
+	mv	a4,a0
+	mv	a5,a1
+	bnez	a3,.L20
+	andi	a3,a2,3
+	beqz	a3,.L30
+
+.L20:
+	add	a2,a1,a2
+.L40:
+	bne	a5,a2,.L7
+	ret
+.L30:
+	andi	a2,a2,-4
+	add	a2,a1,a2
+.L50:
+	bne	a5,a2,.L60
+	ret
+.L60:
+	lw	a3,0(a5)
+	addi	a4,a4,4
+	addi	a5,a5,4
+	sw	a3,-4(a4)
+	j	.L50
+.L70:
+	lbu	a3,0(a5)
+	addi	a4,a4,1
+	addi	a5,a5,1
+	sb	a3,-1(a4)
+	j	.L40
+	.size	memcpy, .-memcpy
+
+
+
 show:
 	addi	sp,sp,-32
 	sw	s0,24(sp)
