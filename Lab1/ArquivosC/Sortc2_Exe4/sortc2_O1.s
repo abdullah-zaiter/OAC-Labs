@@ -4,6 +4,12 @@
 	#.align	2
 	.globl	show
 	#.type	show, @function
+
+
+.LC1:
+	.string	"%d\t"
+	.ident	"GCC: (GNU) 7.2.0"
+
 .LC0:
 	.word	5
 	.word	8
@@ -15,9 +21,10 @@
 	.word	0
 	.word	1
 	.word	9
+	.text
 	.section	.rodata.str1.4,"aMS",progbits,1
 	#.align	2	
-	
+
 show:
 	addi	sp,sp,-16
 	sw	ra,12(sp)
@@ -119,6 +126,7 @@ sort:
 	.globl	main
 	#.type	main, @function
 main:
+	.set	.LANCHOR0,. + 0
 	addi	sp,sp,-64
 	sw	ra,60(sp)
 	lui	a5,%hi(.LANCHOR0)
@@ -158,8 +166,19 @@ main:
 	.size	main, .-main
 	.section	.rodata
 	#.align	2
-	.set	.LANCHOR0,. + 0
+	
+	
+printf: 
+	li a7,1 #print int
+	mv a0,a1	#print a0 parameter
+	ecall
 
-.LC1:
-	.string	"%d\t"
-	.ident	"GCC: (GNU) 7.2.0"
+	li a7,11 #prints char
+	li a0,9	#prints char 9
+	ecall
+	ret
+	
+putchar: 
+	li a7,11 #prints char
+	ecall
+	ret
