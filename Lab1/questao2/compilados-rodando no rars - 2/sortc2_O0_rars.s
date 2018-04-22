@@ -1,29 +1,30 @@
-	.file	"sortc.c"
+	.file	"sortc2.c"
 	.option nopic
-	.data
-	.align	2
-#	.type	v, @object
-	.size	v, 40
-v:
-	.word	9
-	.word	2
-	.word	5
-	.word	1
-	.word	8
-	.word	2
-	.word	4
-	.word	3
-	.word	6
-	.word	7
 	.section	.rodata
-	.align	2
-.LC0:
+#	.align	2
+.data
+.LC1:
 	.string	"%d\t"
-	.text
+#	.text
 #	.align	2
 	.globl	show
 #	.type	show, @function
-	
+.LC0:
+	.word	5
+	.word	8
+	.word	3
+	.word	4
+	.word	7
+	.word	6
+	.word	8
+	.word	0
+	.word	1
+	.word	9
+	.text
+#	.align	2
+	.globl	main
+#	.type	main, @function
+.text
 printf: li a7,1
 	mv a0,a1
 	ecall
@@ -35,7 +36,6 @@ printf: li a7,1
 putchar: li a7,11
 	ecall
 	ret
-
 show:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -45,6 +45,7 @@ show:
 	sw	a1,-40(s0)
 	sw	zero,-20(s0)
 	j	.L2
+	
 .L3:
 	lw	a5,-20(s0)
 	slli	a5,a5,2
@@ -52,8 +53,8 @@ show:
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	mv	a1,a5
-	lui	a5,%hi(.LC0)
-	addi	a0,a5,%lo(.LC0)
+	lui	a5,%hi(.LC1)
+	addi	a0,a5,%lo(.LC1)
 	call	printf
 	lw	a5,-20(s0)
 	addi	a5,a5,1
@@ -161,30 +162,64 @@ sort:
 	addi	sp,sp,48
 	jr	ra
 	.size	sort, .-sort
+	.section	.rodata
 #	.align	2
-	.globl	main
-#	.type	main, @function
+
 main:
-	addi	sp,sp,-16
-	sw	ra,12(sp)
-	sw	s0,8(sp)
-	addi	s0,sp,16
+	addi	sp,sp,-64
+	sw	ra,60(sp)
+	sw	s0,56(sp)
+	addi	s0,sp,64
+	lui	a5,%hi(.LC0)	
+#	lw	t3,%lo(.LC0)(a5)
+	addi	t1, a5, %lo(.LC0)
+	lw  t3, 0(t1)
+#	la 	a5, .LC0
+#	mv	t3, a5
+	addi	a4,a5,%lo(.LC0)
+	lw	t1,4(a4)
+	addi	a4,a5,%lo(.LC0)
+	lw	a7,8(a4)
+	addi	a4,a5,%lo(.LC0)
+	lw	a6,12(a4)
+	addi	a4,a5,%lo(.LC0)
+	lw	a0,16(a4)
+	addi	a4,a5,%lo(.LC0)
+	lw	a1,20(a4)
+	addi	a4,a5,%lo(.LC0)
+	lw	a2,24(a4)
+	addi	a4,a5,%lo(.LC0)
+	lw	a3,28(a4)
+	addi	a4,a5,%lo(.LC0)
+	lw	a4,32(a4)
+	addi	a5,a5,%lo(.LC0)
+	lw	a5,36(a5)
+	sw	t3,-56(s0)
+	sw	t1,-52(s0)
+	sw	a7,-48(s0)
+	sw	a6,-44(s0)
+	sw	a0,-40(s0)
+	sw	a1,-36(s0)
+	sw	a2,-32(s0)
+	sw	a3,-28(s0)
+	sw	a4,-24(s0)
+	sw	a5,-20(s0)
+	addi	a5,s0,-56
 	li	a1,10
-	lui	a5,%hi(v)
-	addi	a0,a5,%lo(v)
+	mv	a0,a5
 	call	show
+	addi	a5,s0,-56
 	li	a1,10
-	lui	a5,%hi(v)
-	addi	a0,a5,%lo(v)
+	mv	a0,a5
 	call	sort
+	addi	a5,s0,-56
 	li	a1,10
-	lui	a5,%hi(v)
-	addi	a0,a5,%lo(v)
+	mv	a0,a5
 	call	show
 	nop
-	lw	ra,12(sp)
-	lw	s0,8(sp)
-	addi	sp,sp,16
+	lw	ra,60(sp)
+	lw	s0,56(sp)
+	addi	sp,sp,64
 	jr	ra
 	.size	main, .-main
 	.ident	"GCC: (GNU) 7.2.0"

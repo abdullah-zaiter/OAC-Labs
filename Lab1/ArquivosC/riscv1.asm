@@ -20,9 +20,6 @@ v:
 .LC0:
 	.string	"%d\t"
 	.text
-#	.align	2
-	.globl	show
-#	.type	show, @function
 	
 printf: li a7,1
 	mv a0,a1
@@ -35,7 +32,10 @@ printf: li a7,1
 putchar: li a7,11
 	ecall
 	ret
-
+	
+#	.align	2
+	.globl	show
+#	.type	show, @function
 show:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -51,10 +51,12 @@ show:
 	lw	a4,-36(s0)
 	add	a5,a4,a5
 	lw	a5,0(a5)
+	
 	mv	a1,a5
 	lui	a5,%hi(.LC0)
 	addi	a0,a5,%lo(.LC0)
 	call	printf
+	
 	lw	a5,-20(s0)
 	addi	a5,a5,1
 	sw	a5,-20(s0)

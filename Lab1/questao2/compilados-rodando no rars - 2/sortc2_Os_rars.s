@@ -1,9 +1,58 @@
 	.file	"sortc2.c"
 	.option nopic
 	.text
-	.align	2
+#	.align	2
 	.globl	show
-	.type	show, @function
+#	.type	show, @function
+printf: li a7,1
+	mv a0,a1
+	ecall
+	li a7,11
+	li a0,9
+	ecall
+	ret
+	
+putchar: li a7,11
+	ecall
+	ret
+
+
+memcpy:
+	or	a3,a0,a1
+	andi	a3,a3,3
+	mv	a4,a0
+	mv	a5,a1
+	bnez	a3,.L20
+	andi	a3,a2,3
+	beqz	a3,.L30
+
+.L20:
+	add	a2,a1,a2
+.L40:
+	bne	a5,a2,.L7
+	ret
+.L30:
+	andi	a2,a2,-4
+	add	a2,a1,a2
+.L50:
+	bne	a5,a2,.L60
+	ret
+.L60:
+	lw	a3,0(a5)
+	addi	a4,a4,4
+	addi	a5,a5,4
+	sw	a3,-4(a4)
+	j	.L50
+.L70:
+	lbu	a3,0(a5)
+	addi	a4,a4,1
+	addi	a5,a5,1
+	sb	a3,-1(a4)
+	j	.L40
+	.size	memcpy, .-memcpy
+
+
+
 show:
 	addi	sp,sp,-32
 	sw	s0,24(sp)
@@ -33,9 +82,9 @@ show:
 	addi	s1,s1,4
 	j	.L2
 	.size	show, .-show
-	.align	2
+#	.align	2
 	.globl	swap
-	.type	swap, @function
+#	.type	swap, @function
 swap:
 	slli	a1,a1,2
 	add	a5,a0,a1
@@ -47,9 +96,9 @@ swap:
 	sw	a4,0(a0)
 	ret
 	.size	swap, .-swap
-	.align	2
+#	.align	2
 	.globl	sort
-	.type	sort, @function
+#	.type	sort, @function
 sort:
 	addi	sp,sp,-32
 	sw	s1,20(sp)
@@ -94,15 +143,15 @@ sort:
 	addi	s2,s2,-1
 	j	.L8
 	.size	sort, .-sort
-	.section	.text.startup,"ax",@progbits
-	.align	2
+	.section	.text.startup,"ax",progbits
+#	.align	2
 	.globl	main
-	.type	main, @function
+#	.type	main, @function
 main:
 	addi	sp,sp,-64
-	lui	a1,%hi(.LANCHOR0)
+	lui	a1,%hi(.LC0)
 	li	a2,40
-	addi	a1,a1,%lo(.LANCHOR0)
+	addi	a1,a1,%lo(.LC0)
 	addi	a0,sp,8
 	sw	ra,60(sp)
 	call	memcpy
@@ -120,8 +169,10 @@ main:
 	jr	ra
 	.size	main, .-main
 	.section	.rodata
-	.align	2
+#	.align	2
 	.set	.LANCHOR0,. + 0
+
+.data
 .LC0:
 	.word	5
 	.word	8
@@ -133,7 +184,7 @@ main:
 	.word	0
 	.word	1
 	.word	9
-	.section	.rodata.str1.4,"aMS",@progbits,1
+	.section	.rodata.str1.4,"aMS",progbits,1
 	.align	2
 .LC1:
 	.string	"%d\t"

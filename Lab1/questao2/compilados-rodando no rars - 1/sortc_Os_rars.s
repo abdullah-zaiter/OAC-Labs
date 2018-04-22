@@ -1,9 +1,22 @@
-	.file	"sortc2.c"
+	.file	"sortc.c"
 	.option nopic
 	.text
-	.align	2
+#	.align	2
 	.globl	show
-	.type	show, @function
+#	.type	show, @function
+	
+printf: li a7,1
+	mv a0,a1
+	ecall
+	li a7,11
+	li a0,9
+	ecall
+	ret
+	
+putchar: li a7,11
+	ecall
+	ret
+
 show:
 	addi	sp,sp,-32
 	sw	s0,24(sp)
@@ -14,7 +27,7 @@ show:
 	mv	s2,a1
 	mv	s1,a0
 	li	s0,0
-	lui	s3,%hi(.LC1)
+	lui	s3,%hi(.LC0)
 .L2:
 	blt	s0,s2,.L3
 	lw	s0,24(sp)
@@ -27,15 +40,15 @@ show:
 	tail	putchar
 .L3:
 	lw	a1,0(s1)
-	addi	a0,s3,%lo(.LC1)
+	addi	a0,s3,%lo(.LC0)
 	addi	s0,s0,1
 	call	printf
 	addi	s1,s1,4
 	j	.L2
 	.size	show, .-show
-	.align	2
+#	.align	2
 	.globl	swap
-	.type	swap, @function
+#	.type	swap, @function
 swap:
 	slli	a1,a1,2
 	add	a5,a0,a1
@@ -47,9 +60,9 @@ swap:
 	sw	a4,0(a0)
 	ret
 	.size	swap, .-swap
-	.align	2
+#	.align	2
 	.globl	sort
-	.type	sort, @function
+#	.type	sort, @function
 sort:
 	addi	sp,sp,-32
 	sw	s1,20(sp)
@@ -94,47 +107,46 @@ sort:
 	addi	s2,s2,-1
 	j	.L8
 	.size	sort, .-sort
-	.section	.text.startup,"ax",@progbits
-	.align	2
+#	.section	.text.startup,"ax",@progbits
+#	.align	2
 	.globl	main
-	.type	main, @function
+#	.type	main, @function
 main:
-	addi	sp,sp,-64
-	lui	a1,%hi(.LANCHOR0)
-	li	a2,40
-	addi	a1,a1,%lo(.LANCHOR0)
-	addi	a0,sp,8
-	sw	ra,60(sp)
-	call	memcpy
-	addi	a0,sp,8
+	addi	sp,sp,-16
+	sw	s0,8(sp)
+	lui	s0,%hi(v)
+	addi	a0,s0,%lo(v)
 	li	a1,10
+	sw	ra,12(sp)
 	call	show
-	addi	a0,sp,8
+	addi	a0,s0,%lo(v)
 	li	a1,10
 	call	sort
-	addi	a0,sp,8
+	addi	a0,s0,%lo(v)
+	lw	s0,8(sp)
+	lw	ra,12(sp)
 	li	a1,10
-	call	show
-	lw	ra,60(sp)
-	addi	sp,sp,64
-	jr	ra
+	addi	sp,sp,16
+	tail	show
 	.size	main, .-main
-	.section	.rodata
+	.data
 	.align	2
 	.set	.LANCHOR0,. + 0
-.LC0:
-	.word	5
-	.word	8
-	.word	3
-	.word	4
-	.word	7
-	.word	6
-	.word	8
-	.word	0
-	.word	1
+#	.type	v, @object
+	.size	v, 40
+v:
 	.word	9
-	.section	.rodata.str1.4,"aMS",@progbits,1
+	.word	2
+	.word	5
+	.word	1
+	.word	8
+	.word	2
+	.word	4
+	.word	3
+	.word	6
+	.word	7
+#	.section	.rodata.str1.4,"aMS",@progbits,1
 	.align	2
-.LC1:
+.LC0:
 	.string	"%d\t"
 	.ident	"GCC: (GNU) 7.2.0"
