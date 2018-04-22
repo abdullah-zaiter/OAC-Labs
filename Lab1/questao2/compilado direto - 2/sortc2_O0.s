@@ -1,30 +1,13 @@
-.file	"sortc2.c"
-#especifica o nome do codigo fonte correspondente ao codigo de assembly
-.option nopic
-#.option modifica opcoes especificas do risc-v, o parametro nopic ativa ou desativa ou desativa geracao de codigo independente.. falam que é perigoso de mexer no meio do codigo
-.section	.rodata
-#.section faz com o montador comece a montar a partir da secao do paramentro
-#.rodata adicionar dados como somente leitura
-#.align	2
-#avanca o ponteiro de locacao para garantir oa linhamento na memoria,  word ->(2) double-> (3), sao potencias de 2
-.data
-.LC1:	.string	"%d\t"
-.LC0:
-	.word	5
-	.word	8
-	.word	3
-	.word	4
-	.word	7
-	.word	6
-	.word	8
-	.word	0
-	.word	1
-	.word	9
-#	.text
-#	.align	2
-	.globl	main
-#	.type	main, @function
-.text
+	.file	"sortc2.c"
+	.option nopic
+	.section	.rodata
+	.align	2
+.LC1:
+	.string	"%d\t"
+	.text
+	.align	2
+	.globl	show
+	.type	show, @function
 show:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -41,13 +24,9 @@ show:
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	mv	a1,a5
-	#lui	a5,%hi(.LC1)
-	#addi	a0,a5,%lo(.LC1)
-	la  a5, .LC1
-	li  a7, 1          # service 1 is print integer
-    	add a0, a5, zero
-	ecall
-	#call	print
+	lui	a5,%hi(.LC1)
+	addi	a0,a5,%lo(.LC1)
+	call	printf
 	lw	a5,-20(s0)
 	addi	a5,a5,1
 	sw	a5,-20(s0)
@@ -56,16 +35,16 @@ show:
 	lw	a5,-40(s0)
 	blt	a4,a5,.L3
 	li	a0,10
-	li  a7, 11          
-    	#add a0, a5, zero
-	ecall
-	#call	putchar
+	call	putchar
 	nop
 	lw	ra,44(sp)
 	lw	s0,40(sp)
 	addi	sp,sp,48
 	jr	ra
-
+	.size	show, .-show
+	.align	2
+	.globl	swap
+	.type	swap, @function
 swap:
 	addi	sp,sp,-48
 	sw	s0,44(sp)
@@ -100,6 +79,10 @@ swap:
 	lw	s0,44(sp)
 	addi	sp,sp,48
 	jr	ra
+	.size	swap, .-swap
+	.align	2
+	.globl	sort
+	.type	sort, @function
 sort:
 	addi	sp,sp,-48
 	sw	ra,44(sp)
@@ -149,16 +132,31 @@ sort:
 	lw	s0,40(sp)
 	addi	sp,sp,48
 	jr	ra
-
+	.size	sort, .-sort
+	.section	.rodata
+	.align	2
+.LC0:
+	.word	5
+	.word	8
+	.word	3
+	.word	4
+	.word	7
+	.word	6
+	.word	8
+	.word	0
+	.word	1
+	.word	9
+	.text
+	.align	2
+	.globl	main
+	.type	main, @function
 main:
 	addi	sp,sp,-64
 	sw	ra,60(sp)
 	sw	s0,56(sp)
 	addi	s0,sp,64
-	#lui	a5,%hi(.LC0) 
-	#lw	t3,%lo(.LC0)(a5)
-	la 	a5, .LC0
-	lw	t3, 0(a5)
+	lui	a5,%hi(.LC0)
+	lw	t3,%lo(.LC0)(a5)
 	addi	a4,a5,%lo(.LC0)
 	lw	t1,4(a4)
 	addi	a4,a5,%lo(.LC0)
@@ -206,5 +204,3 @@ main:
 	jr	ra
 	.size	main, .-main
 	.ident	"GCC: (GNU) 7.2.0"
-	#serve somente para adicionar "tags", neste caso serve somente para mencionar o compilador usado
-
