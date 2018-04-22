@@ -55,10 +55,10 @@
 ######### Macro que verifica se eh a DE2 ###############
 .macro DE2(%salto)
 	li s11, 0x10008000
-	bne $gp,s11,%salto
+	bne gp,s11,%salto
 .end_macro
 
-.data   # endereço 0x9000 0000
+.data   # endereï¿½o 0x9000 0000
 
 # Tabela de caracteres desenhados segundo a fonte do ZX-Spectrum
 LabelTabChar:
@@ -145,7 +145,7 @@ eventQueueEndPtr:       .word 0x90000E00
 
 ##### Preparado para considerar ecall similar a jal ra, ktext  para o pipeline
 
-### Obs.: a forma 'LABEL: instrução' embora fique feio facilita o debug no Rars, por favor não reformatar!!!
+### Obs.: a forma 'LABEL: instruï¿½ï¿½o' embora fique feio facilita o debug no Rars, por favor nï¿½o reformatar!!!
 
 .text
 
@@ -770,11 +770,11 @@ loopReadInt: 	beq	s8,zero, fimReadInt	# Leu todos os digitos
 	addi	s8, s8, -1			# reduz o contador de digitos 
 	j loopReadInt				# volta para buscar proximo digito
 
-naoehReadInt:	j instructionException		# gera erro "instruçao" invalida
+naoehReadInt:	j instructionException		# gera erro "instruï¿½ao" invalida
 
 ehnegReadInt:	sub a0,zero,a0		# se for negativo
 
-ehposReadInt:					# se for positivo só retorna
+ehposReadInt:					# se for positivo sï¿½ retorna
 
 fimReadInt:	lw 	ra, 0(sp)		# recupera ra
 	addi 	sp, sp, 4			# libera espaco
@@ -914,7 +914,7 @@ printFloat:	addi 	sp, sp, -4
 		sw 	ra, 0(sp)
 		la 	s0, TempBuffer
 
-		# Encontra o sinal do número e coloca no Buffer
+		# Encontra o sinal do nï¿½mero e coloca no Buffer
 		li 	t0, '+'			# define sinal '+'
 		mfc1 	s1, fa0			# recupera o numero float
 		andi 	s1, s1, 0x80000000		# mascara com 1000
@@ -939,7 +939,7 @@ ehposprintFloat: sb 	t0, 0(s0)			# coloca sinal no buffer
 		
 		# Eh um numero float normal  t0 eh o expoente e t1 eh a mantissa
 		# Encontra o E tal que 10^E <= x <10^(E+1)
-		abs.s 	fa0, fa0		# fa0 recebe o módulo  de x
+		abs.s 	fa0, fa0		# fa0 recebe o mï¿½dulo  de x
 		lui 	t0, 0x3F80
 		mtc1 	t0, f1		# f1 recebe o numero 1.0
 		lui 	t0, 0x4120
@@ -947,13 +947,13 @@ ehposprintFloat: sb 	t0, 0(s0)			# coloca sinal no buffer
 		
 		c.lt.s 	1, fa0, f1		# fa0 < 1.0 ? Flag 1 indica se fa0<1 ou seja E deve ser negativo
 		bc1t 	1, menor1printFloat
-		mov.s 	f2, f10		# f2  fator de multiplicaçao = 10
+		mov.s 	f2, f10		# f2  fator de multiplicaï¿½ao = 10
 		j 	cont2printFloat		# vai para expoente positivo
 menor1printFloat: fdiv.s f2,f1,f10		# f2 fator multiplicativo = 0.1
 
 			# calcula o expoente negativo de 10
 cont1printFloat: 	mov.s 	f4, fa0			# inicia com o numero x 
-		 	mov.s 	f3, f1			# contador começa em 1
+		 	mov.s 	f3, f1			# contador comeï¿½a em 1
 loop1printFloat: 	fdiv.s 	f4, f4, f2			# divide o numero pelo fator multiplicativo
 		 	c.le.s 	0, f4, f1			# o numero eh > que 1? entao fim
 		 	bc1f 	0, fimloop1printFloat
@@ -964,17 +964,17 @@ fimloop1printFloat: 	fdiv.s 	f4, f4, f2			# ajusta o numero
 
 			# calcula o expoente positivo de 10
 cont2printFloat:	mov.s 	f4, fa0			# inicia com o numero x 
-		 	mtc1 	zero, f3			# contador começa em 0
+		 	mtc1 	zero, f3			# contador comeï¿½a em 0
 loop2printFloat:  	c.lt.s 	0, f4, f10			# resultado eh < que 10? entao fim
 		 	fdiv.s 	f4, f4, f2			# divide o numero pelo fator multiplicativo
 		 	bc1t 	0 ,intprintFloat
 		 	add.s 	f3, f3, f1			# incrementa o contador
 		 	j 	loop2printFloat
 
-		# Neste ponto tem-se no flag 1 se fa0<1, em f3 o expoente de 10 e fa0 0 módulo do numero e s1 o sinal
-		# e em f4 um número entre 1 e 10 que multiplicado por Ef3 deve voltar ao numero		
+		# Neste ponto tem-se no flag 1 se fa0<1, em f3 o expoente de 10 e fa0 0 mï¿½dulo do numero e s1 o sinal
+		# e em f4 um nï¿½mero entre 1 e 10 que multiplicado por Ef3 deve voltar ao numero		
 		
-	  		# imprime parte inteira (o sinal já está no buffer)
+	  		# imprime parte inteira (o sinal jï¿½ estï¿½ no buffer)
 intprintFloat:		mul.s 		f4, f4, f2		# ajusta o numero
 		  	floor.w.s 	f5, f4		# menor inteiro
 		  	mfc1 		t0, f5		# passa para t5
@@ -987,7 +987,7 @@ intprintFloat:		mul.s 		f4, f4, f2		# ajusta o numero
 		  	sb 	t0, 0(s0)			# coloca no buffer
 		  	addi 	s0, s0, 1			# incrementa o buffer
 		  
-		  	# f4 contem a mantissa com 1 casa não decimal
+		  	# f4 contem a mantissa com 1 casa nï¿½o decimal
 		  	li 		t1, 8				# contador de digitos  -  8 casas decimais
 loopfracprintFloat:  	beq 		t1, zero, fimfracprintFloat	# fim dos digitos?
 		  	floor.w.s 	f5, f4			# menor inteiro
@@ -1034,7 +1034,7 @@ expposprintFloat: 	sb 	t0, 0(s0)				# coloca no buffer
 ehExp0printFloat: 	beq 	t1, zero, eh0printFloat	# Verifica se eh zero
 		
 ehDesnormprintFloat: 	la 	a0, NumDesnormP		# string numero desnormalizado positivo
-			beq 	s1, zero, fimprintFloat	# o sinal eh 1? entao é negativo
+			beq 	s1, zero, fimprintFloat	# o sinal eh 1? entao ï¿½ negativo
 		 	la 	a0, NumDesnormN		# string numero desnormalizado negativo
 			j 	fimprintFloat			# imprime a string
 
@@ -1248,7 +1248,7 @@ fimreadFloat: 	lw 	ra, 0(sp)		# recupera ra
 #  a0    =    Sucesso? 0 : 1              #
 ############################################
 #sdRead:		DE2(sdReadDE2)
-#		# Faz a leitura do arquivo imagem (raw) do cartão SD: "SD.bin" 
+#		# Faz a leitura do arquivo imagem (raw) do cartï¿½o SD: "SD.bin" 
 #		mv 	t0, a0		# Salva Endereco de Origem
 #		mv 	t1, a1		# Salva Endereco de Destino
 #		mv 	t2, a2		# Salva o numero de bytes a serem lidos
