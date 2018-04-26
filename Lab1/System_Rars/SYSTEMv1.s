@@ -23,7 +23,7 @@
 .eqv TecladoxMouse      0xFF200110
 .eqv BufferMouse        0xFF200114
 
-.eqv AudioBase		0xFF200160
+.eqv AudioBase			0xFF200160
 .eqv AudioINL           0xFF200160
 .eqv AudioINR           0xFF200164
 .eqv AudioOUTL          0xFF200168
@@ -57,7 +57,7 @@
 	bne $gp,0x10008000,%salto
 .end_macro
 
-.kdata   # endereço 0x9000 0000
+.kdata   # endereï¿½o 0x9000 0000
 
 # Tabela de caracteres desenhados segundo a fonte do ZX-Spectrum
 LabelTabChar:
@@ -144,7 +144,7 @@ eventQueueEndPtr:       .word 0x90000E00
 
 ##### Preparado para considerar syscall similar a jal ktext  para o pipeline
 
-### Obs.: a forma 'LABEL: instrução' embora fique feio facilita o debug no Rars, por favor não reformatar!!!
+### Obs.: a forma 'LABEL: instruï¿½ï¿½o' embora fique feio facilita o debug no Rars, por favor nï¿½o reformatar!!!
 
 .ktext
 #	mfc0 $t0,$12
@@ -160,7 +160,7 @@ exceptionHandling:  addi    $sp, $sp, -8 # aloca espaco
     sw      $ra, 4($sp)			# salva $ra
 
     addi    $k0, $zero, 32              # default syscall exception=8*4
-    mfc0    $k0, $13                    # nao esta implementada no pipeline, então usa o default 32
+    mfc0    $k0, $13                    # nao esta implementada no pipeline, entï¿½o usa o default 32
     nop                                 # nao retirar!
     andi    $k0, $k0, 0x007C		# mascarar 0000000001111100
     srl     $k0, $k0, 2			# retira os 2 bits iniciais
@@ -366,7 +366,7 @@ eventQueueIncrementPointerIf:   la      $v0, eventQueueBeginAddr
 #    			sw      $zero, 0x20($t9)		# Limpa o LCD
 #    			lb      $t1, 0($t0)                 	# le primeiro caractere
 #    			
-#instructionExceptionLoop:	beq     $t1, $zero, instructionExceptionVGA     # se leu zero é o fim da string
+#instructionExceptionLoop:	beq     $t1, $zero, instructionExceptionVGA     # se leu zero ï¿½ o fim da string
 #    				sb      $t1, 0($t9)				# mostra o caractere no LCD
 #    				addi    $t0, $t0, 1				# endereco do proximo caractere a ser lido
 #    				addi    $t9, $t9, 1				# endereco do proximo caractere a ser escrito
@@ -1022,11 +1022,11 @@ loopReadInt: 	beq	$v1,$zero, fimReadInt	# Leu todos os digitos
 	addi	$v1, $v1, -1			# reduz o contador de digitos 
 	j loopReadInt				# volta para buscar proximo digito
 
-naoehReadInt:	j instructionException		# gera erro "instruçao" invalida
+naoehReadInt:	j instructionException		# gera erro "instruï¿½ao" invalida
 
 ehnegReadInt:	sub $v0,$zero,$v0		# se for negativo
 
-ehposReadInt:					# se for positivo só retorna
+ehposReadInt:					# se for positivo sï¿½ retorna
 
 fimReadInt:	lw 	$ra, 0($sp)		# recupera $ra
 	addi 	$sp, $sp, 4			# libera espaco
@@ -1199,7 +1199,7 @@ printFloat:	addi 	$sp, $sp, -4
 		sw 	$ra, 0($sp)
 		la 	$s0, TempBuffer
 
-		# Encontra o sinal do número e coloca no Buffer
+		# Encontra o sinal do nï¿½mero e coloca no Buffer
 		li 	$t0, '+'			# define sinal '+'
 		mfc1 	$s1, $f12			# recupera o numero float
 		andi 	$s1, $s1, 0x80000000		# mascara com 1000
@@ -1224,7 +1224,7 @@ ehposprintFloat: sb 	$t0, 0($s0)			# coloca sinal no buffer
 		
 		# Eh um numero float normal  $t0 eh o expoente e $t1 eh a mantissa
 		# Encontra o E tal que 10^E <= x <10^(E+1)
-		abs.s 	$f0, $f12		# $f0 recebe o módulo  de x
+		abs.s 	$f0, $f12		# $f0 recebe o mï¿½dulo  de x
 		lui 	$t0, 0x3F80
 		mtc1 	$t0, $f1		# $f1 recebe o numero 1.0
 		lui 	$t0, 0x4120
@@ -1232,13 +1232,13 @@ ehposprintFloat: sb 	$t0, 0($s0)			# coloca sinal no buffer
 		
 		c.lt.s 	1, $f0, $f1		# $f0 < 1.0 ? Flag 1 indica se $f0<1 ou seja E deve ser negativo
 		bc1t 	1, menor1printFloat
-		mov.s 	$f2, $f10		# $f2  fator de multiplicaçao = 10
+		mov.s 	$f2, $f10		# $f2  fator de multiplicaï¿½ao = 10
 		j 	cont2printFloat		# vai para expoente positivo
 menor1printFloat: div.s $f2,$f1,$f10		# $f2 fator multiplicativo = 0.1
 
 			# calcula o expoente negativo de 10
 cont1printFloat: 	mov.s 	$f4, $f0			# inicia com o numero x 
-		 	mov.s 	$f3, $f1			# contador começa em 1
+		 	mov.s 	$f3, $f1			# contador comeï¿½a em 1
 loop1printFloat: 	div.s 	$f4, $f4, $f2			# divide o numero pelo fator multiplicativo
 		 	c.le.s 	0, $f4, $f1			# o numero eh > que 1? entao fim
 		 	bc1f 	0, fimloop1printFloat
@@ -1249,17 +1249,17 @@ fimloop1printFloat: 	div.s 	$f4, $f4, $f2			# ajusta o numero
 
 			# calcula o expoente positivo de 10
 cont2printFloat:	mov.s 	$f4, $f0			# inicia com o numero x 
-		 	mtc1 	$zero, $f3			# contador começa em 0
+		 	mtc1 	$zero, $f3			# contador comeï¿½a em 0
 loop2printFloat:  	c.lt.s 	0, $f4, $f10			# resultado eh < que 10? entao fim
 		 	div.s 	$f4, $f4, $f2			# divide o numero pelo fator multiplicativo
 		 	bc1t 	0 ,intprintFloat
 		 	add.s 	$f3, $f3, $f1			# incrementa o contador
 		 	j 	loop2printFloat
 
-		# Neste ponto tem-se no flag 1 se $f0<1, em $f3 o expoente de 10 e $f0 0 módulo do numero e $s1 o sinal
-		# e em $f4 um número entre 1 e 10 que multiplicado por E$f3 deve voltar ao numero		
+		# Neste ponto tem-se no flag 1 se $f0<1, em $f3 o expoente de 10 e $f0 0 mï¿½dulo do numero e $s1 o sinal
+		# e em $f4 um nï¿½mero entre 1 e 10 que multiplicado por E$f3 deve voltar ao numero		
 		
-	  		# imprime parte inteira (o sinal já está no buffer)
+	  		# imprime parte inteira (o sinal jï¿½ estï¿½ no buffer)
 intprintFloat:		mul.s 		$f4, $f4, $f2		# ajusta o numero
 		  	floor.w.s 	$f5, $f4		# menor inteiro
 		  	mfc1 		$t0, $f5		# passa para $t5
@@ -1272,7 +1272,7 @@ intprintFloat:		mul.s 		$f4, $f4, $f2		# ajusta o numero
 		  	sb 	$t0, 0($s0)			# coloca no buffer
 		  	addi 	$s0, $s0, 1			# incrementa o buffer
 		  
-		  	# $f4 contem a mantissa com 1 casa não decimal
+		  	# $f4 contem a mantissa com 1 casa nï¿½o decimal
 		  	li 		$t1, 8				# contador de digitos  -  8 casas decimais
 loopfracprintFloat:  	beq 		$t1, $zero, fimfracprintFloat	# fim dos digitos?
 		  	floor.w.s 	$f5, $f4			# menor inteiro
@@ -1318,7 +1318,7 @@ expposprintFloat: 	sb 	$t0, 0($s0)				# coloca no buffer
 ehExp0printFloat: 	beq 	$t1, $zero, eh0printFloat	# Verifica se eh zero
 		
 ehDesnormprintFloat: 	la 	$a0, NumDesnormP		# string numero desnormalizado positivo
-			beq 	$s1, $zero, fimprintFloat	# o sinal eh 1? entao é negativo
+			beq 	$s1, $zero, fimprintFloat	# o sinal eh 1? entao ï¿½ negativo
 		 	la 	$a0, NumDesnormN		# string numero desnormalizado negativo
 			j 	fimprintFloat			# imprime a string
 
@@ -1532,7 +1532,7 @@ fimreadFloat: 	lw 	$ra, 0($sp)		# recupera $ra
 #  $v0    =    Sucesso? 0 : 1              #
 ############################################
 #sdRead:		DE2(sdReadDE2)
-#		# Faz a leitura do arquivo imagem (raw) do cartão SD: "SD.bin" 
+#		# Faz a leitura do arquivo imagem (raw) do cartï¿½o SD: "SD.bin" 
 #		move 	$t0, $a0		# Salva Endereco de Origem
 #		move 	$t1, $a1		# Salva Endereco de Destino
 #		move 	$t2, $a2		# Salva o numero de bytes a serem lidos

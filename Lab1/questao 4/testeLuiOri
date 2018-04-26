@@ -1,0 +1,6 @@
+
+
+lui	t0, 0x12FF0
+#slli	t0, t0, 4
+ori	t0, t0,0x0663
+
