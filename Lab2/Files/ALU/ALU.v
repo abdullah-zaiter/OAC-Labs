@@ -15,15 +15,11 @@ module ALU (
 	output reg [31:0] oResult
 	);
 
-//wire [4:0] iControl=AND;
+//wire [4:0] iControl=OPLUI;
 
 assign oZero = (oResult == ZERO);
 
-wire [63:0] mul, mulu, mulsu;
-assign mul = iA*iB;
-assign mulu = $unsigned(iA)*$unsigned(iB);
-assign mulsu= $unsigned(iA)*iB;
-
+wire [63:0] aux;
 always @(*)
 begin
     case (iControl)
@@ -54,13 +50,25 @@ begin
 		OPLUI:
 			oResult  = {iA[31:12],12'b0};
 		OPMUL:
-			oResult  = mul[31:0];
+		begin
+			aux = (iA*iB);
+			oResult  = aux[31:0];
+		end
 		OPMULH:
-			oResult  = mul[63:32];
+		begin
+			aux = (iA*iB);
+			oResult  = aux[63:32];
+		end
 		OPMULHU:
-			oResult  = mulu[63:32];
+		begin
+			aux = ($unsigned(iA)*$unsigned(iB));
+			oResult  = aux[63:32];
+		end
 		OPMULHSU:
-			oResult  = mulsu[63:32];	
+		begin
+			aux = ($unsigned(iA)*iB);
+			oResult  = aux[63:32];	
+		end
 		OPDIV:
 			oResult  = iA / iB;
 		OPDIVU:

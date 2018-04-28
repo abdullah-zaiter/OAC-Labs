@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ALU
-Fri Apr 27 22:29:42 2018
+Sat Apr 28 17:12:45 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -48,7 +48,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Apr 27 22:29:42 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sat Apr 28 17:12:45 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; ALU                                         ;
 ; Top-level Entity Name           ; ALU                                         ;
@@ -58,7 +58,7 @@ refer to the applicable agreement for further details.
 ; Total pins                      ; 102                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 9                                           ;
+; Total DSP Blocks                ; 6                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -203,25 +203,25 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 2828         ;
+; Estimate of Logic utilization (ALMs needed) ; 2819         ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 5409         ;
-;     -- 7 input functions                    ; 36           ;
-;     -- 6 input functions                    ; 211          ;
-;     -- 5 input functions                    ; 2221         ;
-;     -- 4 input functions                    ; 1864         ;
-;     -- <=3 input functions                  ; 1077         ;
+; Combinational ALUT usage for logic          ; 5401         ;
+;     -- 7 input functions                    ; 15           ;
+;     -- 6 input functions                    ; 221          ;
+;     -- 5 input functions                    ; 2237         ;
+;     -- 4 input functions                    ; 1886         ;
+;     -- <=3 input functions                  ; 1042         ;
 ;                                             ;              ;
 ; Dedicated logic registers                   ; 0            ;
 ;                                             ;              ;
 ; I/O pins                                    ; 102          ;
 ;                                             ;              ;
-; Total DSP Blocks                            ; 9            ;
+; Total DSP Blocks                            ; 6            ;
 ;                                             ;              ;
 ; Maximum fan-out node                        ; iB[31]~input ;
-; Maximum fan-out                             ; 162          ;
-; Total fan-out                               ; 25090        ;
-; Average fan-out                             ; 4.46         ;
+; Maximum fan-out                             ; 153          ;
+; Total fan-out                               ; 24929        ;
+; Average fan-out                             ; 4.44         ;
 +---------------------------------------------+--------------+
 
 
@@ -230,10 +230,10 @@ refer to the applicable agreement for further details.
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                  ; Entity Name         ; Library Name ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |ALU                                   ; 5409 (675)          ; 0 (0)                     ; 0                 ; 9          ; 102  ; 0            ; |ALU                                                                                                 ; ALU                 ; work         ;
-;    |lpm_divide:Div0|                   ; 1244 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_rqo:auto_generated|  ; 1244 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0|lpm_divide_rqo:auto_generated                                                   ; lpm_divide_rqo      ; work         ;
-;          |abs_divider_4dg:divider|     ; 1244 (65)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider                           ; abs_divider_4dg     ; work         ;
+; |ALU                                   ; 5401 (719)          ; 0 (0)                     ; 0                 ; 6          ; 102  ; 0            ; |ALU                                                                                                 ; ALU                 ; work         ;
+;    |lpm_divide:Div0|                   ; 1218 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_rqo:auto_generated|  ; 1218 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0|lpm_divide_rqo:auto_generated                                                   ; lpm_divide_rqo      ; work         ;
+;          |abs_divider_4dg:divider|     ; 1218 (39)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider                           ; abs_divider_4dg     ; work         ;
 ;             |alt_u_div_o2f:divider|    ; 1115 (1115)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider     ; alt_u_div_o2f       ; work         ;
 ;             |lpm_abs_4p9:my_abs_den|   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_den    ; lpm_abs_4p9         ; work         ;
 ;             |lpm_abs_4p9:my_abs_num|   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num    ; lpm_abs_4p9         ; work         ;
@@ -241,9 +241,9 @@ refer to the applicable agreement for further details.
 ;       |lpm_divide_3dm:auto_generated|  ; 1114 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div1|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
 ;          |sign_div_unsign_9nh:divider| ; 1114 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
 ;             |alt_u_div_o2f:divider|    ; 1114 (1114)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
-;    |lpm_divide:Mod0|                   ; 1290 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_uio:auto_generated|  ; 1290 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0|lpm_divide_uio:auto_generated                                                   ; lpm_divide_uio      ; work         ;
-;          |abs_divider_4dg:divider|     ; 1290 (64)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                           ; abs_divider_4dg     ; work         ;
+;    |lpm_divide:Mod0|                   ; 1264 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_uio:auto_generated|  ; 1264 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0|lpm_divide_uio:auto_generated                                                   ; lpm_divide_uio      ; work         ;
+;          |abs_divider_4dg:divider|     ; 1264 (38)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                           ; abs_divider_4dg     ; work         ;
 ;             |alt_u_div_o2f:divider|    ; 1162 (1162)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider     ; alt_u_div_o2f       ; work         ;
 ;             |lpm_abs_4p9:my_abs_den|   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_den    ; lpm_abs_4p9         ; work         ;
 ;             |lpm_abs_4p9:my_abs_num|   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ALU|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num    ; lpm_abs_4p9         ; work         ;
@@ -260,12 +260,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------+-------------+
 ; Statistic                         ; Number Used ;
 +-----------------------------------+-------------+
-; Two Independent 18x18             ; 6           ;
-; Sum of two 18x18                  ; 3           ;
-; Total number of DSP blocks        ; 9           ;
+; Two Independent 18x18             ; 4           ;
+; Sum of two 18x18                  ; 2           ;
+; Total number of DSP blocks        ; 6           ;
 ;                                   ;             ;
 ; Fixed Point Signed Multiplier     ; 1           ;
-; Fixed Point Unsigned Multiplier   ; 9           ;
+; Fixed Point Unsigned Multiplier   ; 5           ;
 ; Fixed Point Mixed Sign Multiplier ; 2           ;
 +-----------------------------------+-------------+
 
@@ -298,11 +298,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |ALU|ShiftLeft0            ;
 ; 4:1                ; 49 bits   ; 98 LEs        ; 98 LEs               ; 0 LEs                  ; No         ; |ALU|ShiftLeft0            ;
 ; 37:1               ; 5 bits    ; 120 LEs       ; 90 LEs               ; 30 LEs                 ; No         ; |ALU|Mux26                 ;
-; 38:1               ; 8 bits    ; 200 LEs       ; 152 LEs              ; 48 LEs                 ; No         ; |ALU|Mux7                  ;
-; 39:1               ; 2 bits    ; 52 LEs        ; 38 LEs               ; 14 LEs                 ; No         ; |ALU|Mux21                 ;
+; 38:1               ; 8 bits    ; 200 LEs       ; 144 LEs              ; 56 LEs                 ; No         ; |ALU|Mux7                  ;
+; 39:1               ; 2 bits    ; 52 LEs        ; 36 LEs               ; 16 LEs                 ; No         ; |ALU|Mux21                 ;
 ; 37:1               ; 3 bits    ; 72 LEs        ; 54 LEs               ; 18 LEs                 ; No         ; |ALU|Mux17                 ;
 ; 40:1               ; 3 bits    ; 78 LEs        ; 60 LEs               ; 18 LEs                 ; No         ; |ALU|Mux30                 ;
-; 40:1               ; 2 bits    ; 52 LEs        ; 40 LEs               ; 12 LEs                 ; No         ; |ALU|Mux5                  ;
+; 40:1               ; 2 bits    ; 52 LEs        ; 38 LEs               ; 14 LEs                 ; No         ; |ALU|Mux5                  ;
 ; 41:1               ; 3 bits    ; 81 LEs        ; 60 LEs               ; 21 LEs                 ; No         ; |ALU|Mux1                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
@@ -404,31 +404,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 5409                        ;
-;     arith             ; 2682                        ;
+; arriav_lcell_comb     ; 5401                        ;
+;     arith             ; 2636                        ;
 ;         0 data inputs ; 236                         ;
-;         1 data inputs ; 27                          ;
-;         2 data inputs ; 385                         ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 352                         ;
 ;         3 data inputs ; 44                          ;
 ;         4 data inputs ; 18                          ;
 ;         5 data inputs ; 1972                        ;
-;     extend            ; 36                          ;
-;         7 data inputs ; 36                          ;
-;     normal            ; 2623                        ;
-;         2 data inputs ; 123                         ;
-;         3 data inputs ; 206                         ;
-;         4 data inputs ; 1834                        ;
-;         5 data inputs ; 249                         ;
-;         6 data inputs ; 211                         ;
+;     extend            ; 15                          ;
+;         7 data inputs ; 15                          ;
+;     normal            ; 2682                        ;
+;         2 data inputs ; 146                         ;
+;         3 data inputs ; 194                         ;
+;         4 data inputs ; 1856                        ;
+;         5 data inputs ; 265                         ;
+;         6 data inputs ; 221                         ;
 ;     shared            ; 68                          ;
 ;         0 data inputs ; 12                          ;
 ;         2 data inputs ; 44                          ;
 ;         4 data inputs ; 12                          ;
-; arriav_mac            ; 9                           ;
+; arriav_mac            ; 6                           ;
 ; boundary_port         ; 102                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 102.50                      ;
-; Average LUT depth     ; 84.77                       ;
+; Max LUT depth         ; 101.80                      ;
+; Average LUT depth     ; 85.63                       ;
 +-----------------------+-----------------------------+
 
 
@@ -447,7 +447,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Apr 27 22:29:20 2018
+    Info: Processing started: Sat Apr 28 17:12:23 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU -c ALU
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file topde.v
@@ -457,17 +457,21 @@ Info (12021): Found 1 design units, including 1 entities, in source file decoder
     Info (12023): Found entity 1: Decoder7 File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Decoder7.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
     Info (12023): Found entity 1: ALU File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 10
-Warning (10229): Verilog HDL Expression warning at ALU_tb.v(95): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 95
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(99): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 99
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(100): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 100
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(113): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 113
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(114): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 114
 Info (12021): Found 1 design units, including 1 entities, in source file alu_tb.v
     Info (12023): Found entity 1: ALU_tb File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 8
 Info (12127): Elaborating entity "ALU" for the top level hierarchy
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(83): inferring latch(es) for variable "aux", which holds its previous value in one or more paths through the always construct File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 83
 Info (278001): Inferred 4 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 65
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 67
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 69
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 71
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 65
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 65
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 131
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 133
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 135
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 137
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 131
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 131
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -481,8 +485,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/alt_u_div_o2f.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
     Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_abs_4p9.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 67
-Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 67
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 133
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 133
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -491,8 +495,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_
     Info (12023): Found entity 1: lpm_divide_3dm File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_3dm.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
     Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/sign_div_unsign_9nh.tdf Line: 24
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 69
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 69
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 135
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 135
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -500,8 +504,8 @@ Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following par
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uio.tdf
     Info (12023): Found entity 1: lpm_divide_uio File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_uio.tdf Line: 24
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 71
-Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 71
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 137
+Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 137
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -511,15 +515,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5520 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5509 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 69 input pins
     Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 5409 logic cells
-    Info (21062): Implemented 9 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 796 megabytes
-    Info: Processing ended: Fri Apr 27 22:29:42 2018
+    Info (21061): Implemented 5401 logic cells
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 794 megabytes
+    Info: Processing ended: Sat Apr 28 17:12:45 2018
     Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Total CPU time (on all processors): 00:00:36
 
 
