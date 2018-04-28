@@ -1,5 +1,5 @@
 Flow report for newMultiplex
-Fri Apr 27 15:10:27 2018
+Fri Apr 27 15:20:35 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,24 +37,29 @@ refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Flow Summary                                                              ;
-+-----------------------------+---------------------------------------------+
-; Flow Status                 ; Flow Failed - Fri Apr 27 15:10:27 2018      ;
-; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
-; Revision Name               ; newMultiplex                                ;
-; Top-level Entity Name       ; mux1_4                                      ;
-; Family                      ; Cyclone V                                   ;
-; Device                      ; 5CSEMA5F31C6                                ;
-; Timing Models               ; Final                                       ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Fri Apr 27 15:20:35 2018       ;
+; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                   ; newMultiplex                                ;
+; Top-level Entity Name           ; mux1_4                                      ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSEMA5F31C6                                ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 7                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -62,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/27/2018 15:10:09 ;
+; Start date & time ; 04/27/2018 15:20:24 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; newMultiplex        ;
 +-------------------+---------------------+
@@ -73,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 128534996563393.152485260905548        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 220295155517788.152485322410580        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; mux1_4      ; Top        ;
@@ -83,6 +88,10 @@ refer to the applicable agreement for further details.
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
 ; TOP_LEVEL_ENTITY                    ; mux1_4                                 ; newMultiplex  ; --          ; --         ;
+; VERILOG_INPUT_VERSION               ; SystemVerilog_2005                     ; Verilog_2001  ; --          ; --         ;
+; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                                    ; --            ; --          ; --         ;
+; VHDL_INPUT_VERSION                  ; VHDL_2008                              ; VHDL_1993     ; --          ; --         ;
+; VHDL_SHOW_LMF_MAPPING_MESSAGES      ; Off                                    ; --            ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
@@ -91,8 +100,8 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 694 MB              ; 00:00:43                           ;
-; Total                ; 00:00:19     ; --                      ; --                  ; 00:00:43                           ;
+; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 743 MB              ; 00:00:26                           ;
+; Total                ; 00:00:12     ; --                      ; --                  ; 00:00:26                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -101,7 +110,7 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-0311REU  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

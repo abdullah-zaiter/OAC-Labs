@@ -15,7 +15,7 @@ module ALU (
 	output reg [31:0] oResult
 	);
 
-//	wire [4:0] iControl=OPXOR;
+//wire [4:0] iControl=AND;
 
 assign oZero = (oResult == ZERO);
 
@@ -46,13 +46,13 @@ begin
 		OPGEU:
 			oResult  = $unsigned(iA) >= $unsigned(iB);
 		OPSLL:
-			oResult  = iB << iA[4:0];
+			oResult  = iA << iB[4:0];
 		OPSRL:
-			oResult  = iB >> iA[4:0];
+			oResult  = iA >> iB[4:0];
 		OPSRA:
-			oResult  = iB >>> iA[4:0];
+			oResult  = iA >>> iB[4:0];
 		OPLUI:
-			oResult  = {iA[19:0],12'b0};
+			oResult  = {iA[31:12],12'b0};
 		OPMUL:
 			oResult  = mul[31:0];
 		OPMULH:

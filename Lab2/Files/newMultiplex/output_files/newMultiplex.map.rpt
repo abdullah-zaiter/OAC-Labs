@@ -1,5 +1,5 @@
 Analysis & Synthesis report for newMultiplex
-Fri Apr 27 15:10:27 2018
+Fri Apr 27 15:20:35 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -10,7 +10,13 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -33,22 +39,27 @@ refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri Apr 27 15:10:27 2018           ;
-; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
-; Revision Name               ; newMultiplex                                ;
-; Top-level Entity Name       ; mux1_4                                      ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Apr 27 15:20:35 2018       ;
+; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                   ; newMultiplex                                ;
+; Top-level Entity Name           ; mux1_4                                      ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 7                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -59,6 +70,10 @@ refer to the applicable agreement for further details.
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
 ; Top-level entity name                                                           ; mux1_4             ; newMultiplex       ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; Verilog Show LMF Mapping Messages                                               ; Off                ;                    ;
+; Verilog Version                                                                 ; SystemVerilog_2005 ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
@@ -67,8 +82,6 @@ refer to the applicable agreement for further details.
 ; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
 ; Preserve fewer node names                                                       ; On                 ; On                 ;
 ; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
-; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                                        ; Auto               ; Auto               ;
 ; Safe State Machine                                                              ; Off                ; Off                ;
 ; Extract Verilog State Machines                                                  ; On                 ; On                 ;
@@ -143,8 +156,8 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -154,58 +167,142 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; mux1_4.v                         ; yes             ; User Verilog HDL File  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_4.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimate of Logic utilization (ALMs needed) ; 1      ;
+;                                             ;        ;
+; Combinational ALUT usage for logic          ; 1      ;
+;     -- 7 input functions                    ; 0      ;
+;     -- 6 input functions                    ; 1      ;
+;     -- 5 input functions                    ; 0      ;
+;     -- 4 input functions                    ; 0      ;
+;     -- <=3 input functions                  ; 0      ;
+;                                             ;        ;
+; Dedicated logic registers                   ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 7      ;
+;                                             ;        ;
+; Total DSP Blocks                            ; 0      ;
+;                                             ;        ;
+; Maximum fan-out node                        ; Mux0~0 ;
+; Maximum fan-out                             ; 1      ;
+; Total fan-out                               ; 14     ;
+; Average fan-out                             ; 0.93   ;
++---------------------------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |mux1_4                    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 7    ; 0            ; |mux1_4             ; mux1_4      ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 1                           ;
+;     normal            ; 1                           ;
+;         6 data inputs ; 1                           ;
+; boundary_port         ; 7                           ;
+;                       ;                             ;
+; Max LUT depth         ; 1.00                        ;
+; Average LUT depth     ; 1.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Apr 27 15:10:08 2018
+    Info: Processing started: Fri Apr 27 15:20:23 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off newMultiplex -c newMultiplex
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_8_5bit.v
-    Info (12023): Found entity 1: mux1_8_5bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 1
+    Info (12023): Found entity 1: mux1_8_5bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_8_32bit.v
-    Info (12023): Found entity 1: mux1_8_32bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_32bit.v Line: 1
+    Info (12023): Found entity 1: mux1_8_32bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_32bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_8_12bit.v
-    Info (12023): Found entity 1: mux1_8_12bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_12bit.v Line: 1
+    Info (12023): Found entity 1: mux1_8_12bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_12bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_4_5bit.v
-    Info (12023): Found entity 1: mux1_4_5bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_4_5bit.v Line: 1
+    Info (12023): Found entity 1: mux1_4_5bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_4_5bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_4_32bit.v
-    Info (12023): Found entity 1: mux1_4_32bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_4_32bit.v Line: 1
+    Info (12023): Found entity 1: mux1_4_32bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_4_32bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_4_12bit.v
-    Info (12023): Found entity 1: mux1_4_12bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_4_12bit.v Line: 1
+    Info (12023): Found entity 1: mux1_4_12bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_4_12bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_4.v
-    Info (12023): Found entity 1: mux1_4 File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_4.v Line: 1
+    Info (12023): Found entity 1: mux1_4 File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_4.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_32_32bit.v
-    Info (12023): Found entity 1: mux1_32_32bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_32_32bit.v Line: 1
+    Info (12023): Found entity 1: mux1_32_32bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_32_32bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_2_5bit.v
-    Info (12023): Found entity 1: mux1_2_5bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_2_5bit.v Line: 1
+    Info (12023): Found entity 1: mux1_2_5bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_2_5bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_2_32bit.v
-    Info (12023): Found entity 1: mux1_2_32bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_2_32bit.v Line: 1
+    Info (12023): Found entity 1: mux1_2_32bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_2_32bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_2_12bit.v
-    Info (12023): Found entity 1: mux1_2_12bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_2_12bit.v Line: 1
+    Info (12023): Found entity 1: mux1_2_12bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_2_12bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_2.v
-    Info (12023): Found entity 1: mux1_2 File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_2.v Line: 1
+    Info (12023): Found entity 1: mux1_2 File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_2.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_16_32bit.v
-    Info (12023): Found entity 1: mux1_16_32bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_16_32bit.v Line: 1
+    Info (12023): Found entity 1: mux1_16_32bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_16_32bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux1_16_12bit.v
-    Info (12023): Found entity 1: mux1_16_12bit File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_16_12bit.v Line: 1
-Error (10773): Verilog HDL error at mux1_8_5bit.v(3): declaring module ports or function arguments with unpacked array types requires SystemVerilog extensions File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 3
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(9): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 9
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(10): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 10
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(11): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 11
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(12): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 12
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(13): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 13
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(14): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 14
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(15): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 15
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(16): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 16
-Error (10137): Verilog HDL Procedural Assignment error at mux1_8_5bit.v(17): object "saida" on left-hand side of assignment must have a variable data type File: C:/Users/lucas/Downloads/OAC/GITTrab/OAC-Labs/Lab2/Files/newMultiplex/mux1_8_5bit.v Line: 17
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 10 errors, 1 warning
-    Error: Peak virtual memory: 694 megabytes
-    Error: Processing ended: Fri Apr 27 15:10:27 2018
-    Error: Elapsed time: 00:00:19
-    Error: Total CPU time (on all processors): 00:00:43
+    Info (12023): Found entity 1: mux1_16_12bit File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_16_12bit.v Line: 1
+Info (12127): Elaborating entity "mux1_4" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at mux1_4.v(13): truncated value with size 4 to match size of target (1) File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/newMultiplex/mux1_4.v Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 1 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 743 megabytes
+    Info: Processing ended: Fri Apr 27 15:20:35 2018
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:27
 
 

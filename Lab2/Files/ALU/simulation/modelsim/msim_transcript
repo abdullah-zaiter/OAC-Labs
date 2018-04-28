@@ -10,42 +10,50 @@
 # Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU {C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v}
+# vlog -sv -work work +incdir+C:/Users/Abdullah-PC/Desktop/Current\ works/OAC-Labs/Lab2/Files/ALU {C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:52:51 on Apr 22,2018
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU" C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v 
+# Start time: 01:09:03 on Apr 28,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU" C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v 
 # 
 # Top level modules:
 # 	--none--
-# End time: 13:52:52 on Apr 22,2018, Elapsed time: 0:00:01
+# End time: 01:09:03 on Apr 28,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU {C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU.v}
+# vlog -sv -work work +incdir+C:/Users/Abdullah-PC/Desktop/Current\ works/OAC-Labs/Lab2/Files/ALU {C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:52:53 on Apr 22,2018
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU" C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU.v 
+# Start time: 01:09:04 on Apr 28,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU" C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v 
 # -- Compiling package ALU_v_unit
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 13:52:53 on Apr 22,2018, Elapsed time: 0:00:00
+# End time: 01:09:05 on Apr 28,2018, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU {C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v}
+# vlog -sv -work work +incdir+C:/Users/Abdullah-PC/Desktop/Current\ works/OAC-Labs/Lab2/Files/ALU {C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:52:55 on Apr 22,2018
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU" C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v 
+# Start time: 01:09:05 on Apr 28,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU" C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v 
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(99): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(100): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(113): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(114): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # -- Compiling package ALU_tb_v_unit
 # -- Compiling module ALU_tb
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(99): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(100): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(113): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(114): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	ALU_tb
-# End time: 13:52:55 on Apr 22,2018, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
+# End time: 01:09:05 on Apr 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 8
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ALU_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" ALU_tb 
-# Start time: 13:52:57 on Apr 22,2018
+# Start time: 01:09:05 on Apr 28,2018
 # Loading sv_std.std
 # Loading work.ALU_tb_v_unit
 # Loading work.ALU_tb
@@ -59,18 +67,81 @@
 # .main_pane.objects.interior.cs.body.tree
 # run -all
 #                    0 << Starting Simulation >> 
+#                    0 << AND >> 
 # 		time,	iA,	iB,	iControl,	oResult,	oZero
-#                    0,	00000000,	00000000,	01,	00000000,	1,
-#                   10,	00000000,	00000001,	01,	00000001,	0,
-#                   20,	00000000,	00000001,	00,	00000000,	1,
-#                   30,	00000001,	00000001,	03,	00000002,	0,
-#                   40,	00000000,	00000001,	04,	ffffffff,	0,
-#                   50,	00000002,	00000002,	0d,	00000004,	0,
-#                   60,	00000004,	00000002,	11,	00000002,	0,
-#                  210,	00000004,	fffffffe,	0f,	00000003,	0,
-#                  310<< Simulation Complete >>
-# ** Note: $stop    : C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v(69)
-#    Time: 310 ns  Iteration: 0  Instance: /ALU_tb
-# Break in Module ALU_tb at C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v line 69
-# End time: 13:57:26 on Apr 22,2018, Elapsed time: 0:04:29
+#                    0,	ffffffff,	ffffffff,	00,	ffffffff,	0,
+#                   10,	55555555,	aaaaaaaa,	00,	00000000,	1,
+#                   20,	00000000,	00000000,	00,	00000000,	1,
+#                   30 << OR >> 
+#                   30,	ffffffff,	ffffffff,	00,	ffffffff,	0,
+#                   40,	55555555,	aaaaaaaa,	01,	ffffffff,	0,
+#                   50,	00000000,	00000000,	00,	00000000,	1,
+#                   60 << XOR >> 
+#                   60,	ffffffff,	ffffffff,	02,	00000000,	1,
+#                   70,	55555555,	aaaaaaaa,	02,	ffffffff,	0,
+#                   80,	00000000,	00000000,	02,	00000000,	1,
+#                   90 << ADD >> 
+#                   90,	0000000c,	0000000d,	03,	00000019,	0,
+#                  100,	0000000c,	0000000c,	03,	00000018,	0,
+#                  110,	ffffffff,	ffffffff,	03,	fffffffe,	0,
+#                  120 << SUB >> 
+#                  120,	00000000,	00000001,	04,	ffffffff,	0,
+#                  130,	ffffffff,	ffffffff,	04,	00000000,	1,
+#                  140 << SLT >> 
+#                  140,	00000003,	00000005,	05,	00000001,	0,
+#                  150 << SLTU >> 
+#                  150,	00000007,	ffffffff,	06,	00000001,	0,
+#                  160 << GE >> 
+#                  160,	00000003,	fffffff0,	07,	00000001,	0,
+#                  170 << GEU >> 
+#                  170,	00000000,	00000001,	08,	00000000,	1,
+#                  180 << SLL >> 
+#                  180,	00000000,	00000001,	09,	00000000,	1,
+#                  190,	00000003,	00000020,	09,	00000003,	0,
+#                  200,	00000003,	00000002,	09,	0000000c,	0,
+#                  210 << SRL >> 
+#                  210,	ffffffff,	00000003,	0a,	1fffffff,	0,
+#                  220,	00000003,	00000020,	0a,	00000003,	0,
+#                  230,	00000003,	00000002,	0a,	00000000,	1,
+#                  240 << SRA >> 
+#                  240,	ffffffff,	00000003,	0b,	ffffffff,	0,
+#                  250,	00000003,	00000020,	0b,	00000003,	0,
+#                  260,	00000003,	00000002,	0b,	00000000,	1,
+#                  270 << LUI >> 
+#                  270,	00000000,	00000001,	0c,	00000000,	1,
+#                  280,	ffff5000,	00000000,	0c,	ffff5000,	0,
+#                  290 << MUL >> 
+#                  290,	00000002,	00000000,	0d,	00000000,	1,
+#                  300,	ffffffff,	00000003,	0d,	fffffffd,	0,
+#                  310 << MULH >> 
+#                  310,	00000002,	00000002,	0e,	00000000,	1,
+#                  320,	ffffffff,	00000003,	0e,	ffffffff,	0,
+#                  340 << MULHU >> 
+#                  340,	00000002,	00000002,	0f,	00000000,	1,
+#                  350,	ffffffff,	00000003,	0f,	00000002,	0,
+#                  360,	00000002,	00000001,	0f,	00000000,	1,
+#                  370,	00000004,	fffffffe,	0f,	00000003,	0,
+#                  380 << MULHSU >> 
+#                  380,	00000002,	00000002,	10,	00000000,	1,
+#                  390,	ffffffff,	00000003,	10,	00000002,	0,
+#                  400,	00000002,	00000001,	10,	00000000,	1,
+#                  410,	00000004,	fffffffe,	10,	00000003,	0,
+#                  420 << DIV >> 
+#                  420,	00000004,	00000002,	11,	00000002,	0,
+#                  430,	00000008,	00000003,	11,	00000002,	0,
+#                  440 << DIVU >> 
+#                  440,	fffffff0,	00000004,	12,	3ffffffc,	0,
+#                  450,	fffffff0,	fffffff0,	12,	00000001,	0,
+#                  460 << REM >> 
+#                  460,	00000004,	00000002,	13,	00000000,	1,
+#                  470,	00000008,	00000003,	13,	00000002,	0,
+#                  480,	fffffff0,	0000000c,	14,	00000000,	1,
+#                  490 << REMU >> 
+#                  490,	00000004,	00000002,	14,	00000000,	1,
+#                  500,	fffffff0,	0000000c,	14,	00000000,	1,
+#                  600<< Simulation Complete >>
+# ** Note: $stop    : C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v(364)
+#    Time: 600 ns  Iteration: 0  Instance: /ALU_tb
+# Break in Module ALU_tb at C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v line 364
+# End time: 01:12:37 on Apr 28,2018, Elapsed time: 0:03:32
 # Errors: 0, Warnings: 0

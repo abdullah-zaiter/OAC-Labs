@@ -7,54 +7,54 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/simulation/modelsim
+Z0 dC:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/simulation/modelsim
 vALU
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-DXx4 work 10 ALU_v_unit 0 22 8OCed:m_R0LXY3[zA]65P1
+DXx4 work 10 ALU_v_unit 0 22 K:LR1JRiMRJgY:gOjE>L40
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 31
 !i10b 1
-!s100 oeoAJSoC2=ZeQNCXRW]U=1
-I_j@mBc9:oEMSS0h`B8QO03
+!s100 QS<nYHLmkHME<9ePDD9Cb3
+I_0iA1dTjSYM`9AfKz9WP43
 !s105 ALU_v_unit
 S1
 R0
-Z3 w1524415041
-Z4 8C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU.v
-Z5 FC:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU.v
-L0 13
+Z3 w1524865074
+Z4 8C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v
+Z5 FC:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v
+L0 10
 Z6 OV;L;10.5b;63
-Z7 !s108 1524415973.000000
-Z8 !s107 C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v|C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU.v|
-Z9 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU|C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU.v|
+Z7 !s108 1524888544.000000
+Z8 !s107 C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v|C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v|
+Z9 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU|C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v|
 !i113 1
 Z10 o-sv -work work
-Z11 !s92 -sv -work work +incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU
+Z11 !s92 -sv -work work {+incdir+C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU}
 Z12 tCvgOpt 0
 n@a@l@u
 vALU_tb
 R1
-DXx4 work 13 ALU_tb_v_unit 0 22 ;2ebBAlLETobUI2ihkc[90
+DXx4 work 13 ALU_tb_v_unit 0 22 W_BPhU^kcZhmSVShF1Pmf3
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 `z617?J_6D:E2]l>jJ;@D0
-I7K9bBe<k1TQcm?O=>oMZd0
+!s100 =kB>]8MV=DjKi`6z5aX=B2
+ImEKT1G9``0@f>0:dUAB2;3
 !s105 ALU_tb_v_unit
 S1
 R0
-Z13 w1524415942
-Z14 8C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v
-Z15 FC:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v
+Z13 w1524888521
+Z14 8C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v
+Z15 FC:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v
 L0 8
 R6
-Z16 !s108 1524415975.000000
-Z17 !s107 C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v|C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v|
-Z18 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU|C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/ALU_tb.v|
+Z16 !s108 1524888545.000000
+Z17 !s107 C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v|C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v|
+Z18 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU|C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v|
 !i113 1
 R10
 R11
@@ -62,20 +62,20 @@ R12
 n@a@l@u_tb
 XALU_tb_v_unit
 R1
-V;2ebBAlLETobUI2ihkc[90
+VW_BPhU^kcZhmSVShF1Pmf3
 r1
 !s85 0
 31
 !i10b 1
 !s100 <Ao9O1OKAZ3:cBg1j[2>>0
-I;2ebBAlLETobUI2ihkc[90
+IW_BPhU^kcZhmSVShF1Pmf3
 !i103 1
 S1
 R0
 R13
 R14
 R15
-Z19 FC:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v
+Z19 FC:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v
 L0 4
 R6
 R16
@@ -88,13 +88,13 @@ R12
 n@a@l@u_tb_v_unit
 XALU_v_unit
 R1
-V8OCed:m_R0LXY3[zA]65P1
+VK:LR1JRiMRJgY:gOjE>L40
 r1
 !s85 0
 31
 !i10b 1
 !s100 Ya`_@H2fUi@5BN`Jne>0R2
-I8OCed:m_R0LXY3[zA]65P1
+IK:LR1JRiMRJgY:gOjE>L40
 !i103 1
 S1
 R0
@@ -114,25 +114,25 @@ R12
 n@a@l@u_v_unit
 XParametros_v_unit
 R1
-!s110 1524415972
+!s110 1524888543
 !i10b 1
 !s100 T4R8C4eF4<YkkW;9BZj:F1
-IRl6E5Q7MGPZ6SL7Y[UN]10
-VRl6E5Q7MGPZ6SL7Y[UN]10
+I@74OEHPe;e[9j5XaZ[7Uz1
+V@74OEHPe;e[9j5XaZ[7Uz1
 !i103 1
 S1
 R0
-w1523211277
-8C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v
+w1524416320
+8C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v
 R19
 L0 4
 R6
 r1
 !s85 0
 31
-!s108 1524415971.000000
-!s107 C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU|C:/Users/lamar/Dropbox/kiko/Disciplinas/UnB/OAC/2018-1/Lab2/Files/ALU/Parametros.v|
+!s108 1524888543.000000
+!s107 C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU|C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v|
 !i113 1
 R10
 R11
