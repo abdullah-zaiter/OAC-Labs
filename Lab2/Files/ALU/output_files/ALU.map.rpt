@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ALU
-Sat Apr 28 17:12:45 2018
+Sun May 06 12:36:01 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -48,7 +48,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Apr 28 17:12:45 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun May 06 12:36:01 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; ALU                                         ;
 ; Top-level Entity Name           ; ALU                                         ;
@@ -176,26 +176,26 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                  ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------+---------+
-; Parametros.v                     ; yes             ; User Verilog HDL File        ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Parametros.v               ;         ;
-; ALU.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v                      ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                         ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc                        ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc                    ;         ;
-; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc                         ;         ;
-; db/lpm_divide_rqo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_rqo.tdf      ;         ;
-; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/abs_divider_4dg.tdf     ;         ;
-; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/alt_u_div_o2f.tdf       ;         ;
-; db/lpm_abs_4p9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_abs_4p9.tdf         ;         ;
-; db/lpm_divide_3dm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_3dm.tdf      ;         ;
-; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/sign_div_unsign_9nh.tdf ;         ;
-; db/lpm_divide_uio.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_uio.tdf      ;         ;
-; db/lpm_divide_65m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_65m.tdf      ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; Parametros.v                     ; yes             ; User Verilog HDL File        ; D:/Documents/OAC-Labs/Lab2/Files/ALU/Parametros.v                          ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File        ; D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v                                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc      ;         ;
+; db/lpm_divide_rqo.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_rqo.tdf                 ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/abs_divider_4dg.tdf                ;         ;
+; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/alt_u_div_o2f.tdf                  ;         ;
+; db/lpm_abs_4p9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_abs_4p9.tdf                    ;         ;
+; db/lpm_divide_3dm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_3dm.tdf                 ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/sign_div_unsign_9nh.tdf            ;         ;
+; db/lpm_divide_uio.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_uio.tdf                 ;         ;
+; db/lpm_divide_65m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_65m.tdf                 ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------+
@@ -437,7 +437,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -447,71 +447,71 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Apr 28 17:12:23 2018
+    Info: Processing started: Sun May 06 12:35:37 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU -c ALU
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file topde.v
-    Info (12023): Found entity 1: TopDE File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/TopDE.v Line: 11
+    Info (12023): Found entity 1: TopDE File: D:/Documents/OAC-Labs/Lab2/Files/ALU/TopDE.v Line: 11
 Info (12021): Found 0 design units, including 0 entities, in source file parametros.v
 Info (12021): Found 1 design units, including 1 entities, in source file decoder7.v
-    Info (12023): Found entity 1: Decoder7 File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/Decoder7.v Line: 3
+    Info (12023): Found entity 1: Decoder7 File: D:/Documents/OAC-Labs/Lab2/Files/ALU/Decoder7.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: ALU File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 10
-Warning (10229): Verilog HDL Expression warning at ALU_tb.v(99): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 99
-Warning (10229): Verilog HDL Expression warning at ALU_tb.v(100): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 100
-Warning (10229): Verilog HDL Expression warning at ALU_tb.v(113): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 113
-Warning (10229): Verilog HDL Expression warning at ALU_tb.v(114): truncated literal to match 32 bits File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 114
+    Info (12023): Found entity 1: ALU File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 10
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(99): truncated literal to match 32 bits File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 99
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(100): truncated literal to match 32 bits File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 100
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(113): truncated literal to match 32 bits File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 113
+Warning (10229): Verilog HDL Expression warning at ALU_tb.v(114): truncated literal to match 32 bits File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 114
 Info (12021): Found 1 design units, including 1 entities, in source file alu_tb.v
-    Info (12023): Found entity 1: ALU_tb File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 8
+    Info (12023): Found entity 1: ALU_tb File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU_tb.v Line: 8
 Info (12127): Elaborating entity "ALU" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at ALU.v(83): inferring latch(es) for variable "aux", which holds its previous value in one or more paths through the always construct File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 83
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(25): inferring latch(es) for variable "aux", which holds its previous value in one or more paths through the always construct File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 25
 Info (278001): Inferred 4 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 131
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 133
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 135
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 137
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 131
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 131
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 73
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 75
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 77
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 79
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 73
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 73
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_rqo.tdf
-    Info (12023): Found entity 1: lpm_divide_rqo File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_rqo.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_rqo File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_rqo.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
-    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/abs_divider_4dg.tdf Line: 26
+    Info (12023): Found entity 1: abs_divider_4dg File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/abs_divider_4dg.tdf Line: 26
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
-    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/alt_u_div_o2f.tdf Line: 22
+    Info (12023): Found entity 1: alt_u_div_o2f File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/alt_u_div_o2f.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
-    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_abs_4p9.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 133
-Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 133
+    Info (12023): Found entity 1: lpm_abs_4p9 File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_abs_4p9.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 75
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 75
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3dm.tdf
-    Info (12023): Found entity 1: lpm_divide_3dm File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_3dm.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_3dm File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_3dm.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/sign_div_unsign_9nh.tdf Line: 24
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 135
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 135
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/sign_div_unsign_9nh.tdf Line: 24
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 77
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 77
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uio.tdf
-    Info (12023): Found entity 1: lpm_divide_uio File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_uio.tdf Line: 24
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 137
-Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 137
+    Info (12023): Found entity 1: lpm_divide_uio File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_uio.tdf Line: 24
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 79
+Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: D:/Documents/OAC-Labs/Lab2/Files/ALU/ALU.v Line: 79
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_65m.tdf
-    Info (12023): Found entity 1: lpm_divide_65m File: C:/Users/Abdullah-PC/Desktop/Current works/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_65m.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_65m File: D:/Documents/OAC-Labs/Lab2/Files/ALU/db/lpm_divide_65m.tdf Line: 24
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -521,9 +521,9 @@ Info (21057): Implemented 5509 device resources after synthesis - the final reso
     Info (21061): Implemented 5401 logic cells
     Info (21062): Implemented 6 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 794 megabytes
-    Info: Processing ended: Sat Apr 28 17:12:45 2018
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:36
+    Info: Peak virtual memory: 801 megabytes
+    Info: Processing ended: Sun May 06 12:36:01 2018
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:39
 
 
