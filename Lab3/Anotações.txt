@@ -1,0 +1,88 @@
+MMIO
+
+Barramento de dados e instruções
+PC Inicial é pré-definido
+SDRAM não está implementada
+Código escrito no user code (código do usuário)
+Sys code tem as rotinas do sistema
+Não vamos utilizar o boot
+RISV não tem flag
+Não mostra os 8 bits mais significativos devido a limitação
+Reset não apaga nada da mem, nem da tela, zera o pc e os registradores
+No RARS tudo em um único bloco de mem, não separa o .text e o .ktext
+A pilha cresce para o menor endereço por isso 0x10011FFC que é o último endereço da área de dados 0x10011FFF + 4.
+
+Carregar na FPGA: Usa o dispositivo 5CSEMA5 > change file (botão direito) > output files > MIPS.sof > clica em program/configure > start
+
+Tools> in system memory contain editor > instance manager (carrega o que tem na mem da fpga)
+
+RARS gera o código 
+
+Coloca no modo fast e auto > roda o systemv1 do lab1
+
+Pq deu 7 e não 93.7 - colocou uma frequência mais rápida, então em uma das operações do ponto flutuante não está dando tempo de fazer, portanto precisa setar direito o divisor de frequência SW[9:0]
+
+50MHz/32 = 1.56MHz
+50MHz/15 = 3.33MHz
+50MHz/1 = 50MHz (fica tudo bugado, aumentou a f e diminuiu o T mt, logo nem as instruções mais simples conseguem ser executadas) 
+
+Files > Dump Memory > escolhe o nome base do arquivo (ex: tt_) gera tt_data, tt_kdata, tt_text, tt_ktext>. Obs: não é o end da mem e sim o de um bloco
+
+Cada vez que roda algo que crasha o processador de vc, tem que carregar o processador de novo para a placa
+
+Tools> in system memory contain editor > botão direito no TEXT - import data from file (escolhe o arquivo tt_text)> aperta f7 para gravar > aperta f5 para verificar se tá escrito o que queria
+
+Obs: Slow/fast e auto/man está trocado na FPGA
+
+Colocando um breakpoint - coloca manualmente no break no in system memory contain editor > escreve o valor > f7 (grava) e depois f5 (lê)
+
+Criando o testbench - dados de entrada: clock rápido ou lento, se é auto ou manual - define o SW e Key de acordo com o que quer - o programa e mem estão no core, utiliza os arquivos default
+
+Update memory - por isso não precisa compilar novamente
+
+Obs: chave da FPGA quando aperta vai para 0
+
+2. Qual endereço tem que selecionar da memória para lb t0, 1(zero), coloca 0 no end da mem, lb tbm faz extensão de sinal
+
+3. Fazer o testbench das instruções básicas pelo menos
+	li t1, 1
+	li t2, 2
+	add t0, t1, t2
+	li t3, 3
+	bne t0, t3, erro
+
+Não é pra implementar a chamada de sistema, nem o retorno, ecall e uret substitui pelo jal e jr, ainda não tem tratamento de exceções e interrupções que o ecall e uret necessitam.
+
+Obs: 1. e tem bug, provavelmente o prof vai disponibilizar uma nova versão
+
+Não pode ter o deslocamento de um clock em relação a outro, por isso faz uma malha de clock 
+Até a linha 395 são as descrições dos pinos que a altera disponibiliza
+Linha 451 - tudo que é i entrada e o saída
+
+.iBreak(wbreak) - o fio iBreak da interface está ligado no wbreak da interface
+
+Dispositivos se não estão sendo lidos nem escritos precisa colocá-los em alta impedância - a CPU gerencia o barramento
+
+Pentium III - tinha a ponte norte e sul que controla os barramentos. No nosso o próprio processador faz esse controle.
+
+Grande vantagem da harvard é fazer duas coisas ao mesmo tempo
+
+Só altera o datapath e controle
+
+O registrador stackpointer é o 2 no RISCV (mudança), no MIPS é 29
+
+RISCV não tem o mux que decide em qual reg o dado será escrito - linha 350 a 360
+
+A cada subida de clock atualiza os elementos de estados - banco de registradores e o PC precisa ser atualizado (468 a 481 isso ocorre)
+
+Bloco de controle é puramente combinacional 
+
+Always@(*)- faça sempre
+
+Dados os opcodes tem que definir o que tem que ser feito no caminho de dados - nos parâmetros que tem esses valores (obs: usar a ula do lab 2)
+
+Endereço de ktext e kdata - o riscv não usa
+
+Processador do RISCV foi projetado para ser menor
+
+BR é o que mais ocupa após a ULA
