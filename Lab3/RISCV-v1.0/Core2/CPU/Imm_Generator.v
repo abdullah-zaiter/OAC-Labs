@@ -5,7 +5,10 @@
 //                            BSD 3-Clause License                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-
+`ifndef PARAM
+	`include "Parametros.v"
+`endif
+ 
 module imm_generator (
     input  [31:0] inst,
     output reg [31:0] immediate
