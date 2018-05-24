@@ -1,50 +1,31 @@
-////////////////////////////////////////////////////////////////////////////////
-//                         RISC-V SiMPLE - Constantes                         //
-//                                                                            //
-//   Baseado no codigo de https://github.com/arthurbeggs/riscv-simple         //
-//                            BSD 3-Clause License                            //
-////////////////////////////////////////////////////////////////////////////////
+/* Parametros Gerais*/
+parameter
+    ON          = 1'b1,
+    OFF         = 1'b0,
+    ZERO        = 32'h0,
 
+/* Operacoes da ULA */
+		OPAND		= 5'b00000,					//0
+		OPOR		= 5'b00001,					//1
+		OPXOR		= 5'b00010,					//2
+		OPADD		= 5'b00011,					//3
+		OPSUB		= 5'b00100,					//4
+		OPSLT		= 5'b00101,					//5
+		OPSLTU	= 5'b00110,					//6
+		OPGE		= 5'b00111,					//7
+		OPGEU		= 5'b01000,					//8
+		OPSLL		= 5'b01001,					//9
+		OPSRL		= 5'b01010,					//10
+		OPSRA		= 5'b01011,					//11
 
-// Opcodes das instruções de 32 bits
-`define    OPC_LOAD        7'b0000011
-`define    OPC_OP_IMM      7'b0010011
-`define    OPC_AUIPC       7'b0010111
-`define    OPC_OP_IMM_32   7'b0011011
-`define    OPC_STORE       7'b0100011
-
-`define    OPC_OP          7'b0110011
-`define    OPC_LUI         7'b0110111
-`define    OPC_OP_32       7'b0111011
-
-`define    OPC_BRANCH      7'b1100011
-`define    OPC_JALR        7'b1100111
-`define    OPC_JAL         7'b1101111
-
-
-// Interpretação do campo funct3 para a Unidade Lógica e Aritmética
-`define    ALU_ADD_SUB     3'b000
-`define    ALU_SLL         3'b001
-`define    ALU_SLT         3'b010
-`define    ALU_SLTU        3'b011
-`define    ALU_XOR         3'b100
-`define    ALU_SHIFTR      3'b101
-`define    ALU_OR          3'b110
-`define    ALU_AND         3'b111
-
-// Interpretação do campo funct3 para Branches
-`define    BRANCH_EQ       3'b000
-`define    BRANCH_NE       3'b001
-`define    BRANCH_LT       3'b100
-`define    BRANCH_GE       3'b101
-`define    BRANCH_LTU      3'b110
-`define    BRANCH_GEU      3'b111
-
-// Valor inicial de pc
-`define    INITIAL_PC      32'b0
-
-// Intervalos de memória //FIXME: Colocar valores não arbitrários
-`define     DATA_BEGIN      32'h07000000
-`define     DATA_END        32'h070003FF
-`define     TEXT_BEGIN      32'h00000000
-`define     TEXT_END        32'h000001FF
+/* Campo FUNCT */
+    FUNSLL      = 10'h001,
+    FUNSRL      = 10'h005,
+    FUNSRA      = 10'h105,
+    FUNADD      = 10'h000,
+    FUNSUB      = 10'h100,
+    FUNAND      = 10'h007,
+    FUNOR       = 10'h006,
+    FUNXOR      = 10'h004,
+    FUNSLT      = 10'h002,
+    FUNSLTU     = 10'h003,
