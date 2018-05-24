@@ -14,8 +14,7 @@
  */
 
 module ALUControl (
-	input wire [5:0] iOpcode,
-	input wire [9:0] iFunct,
+	input wire [5:0] iFunct, iOpcode, iRt,   // 1/2016. Adicionado iRt.
 	input wire [1:0] iALUOp,
 	output reg [4:0] oControlSignal
 	);
@@ -36,9 +35,29 @@ begin
                     oControlSignal  = OPSRL;
                 FUNSRA:
                     oControlSignal  = OPSRA;
+                FUNMFHI:
+                    oControlSignal  = OPMFHI;                // 2015/1
+                FUNMTHI:
+                    oControlSignal  = OPMTHI;
+                FUNMFLO:
+                    oControlSignal  = OPMFLO;                // 2015/1
+                FUNMTLO:
+                    oControlSignal  = OPMTLO;
+                FUNMULT:
+                    oControlSignal  = OPMULT;
+                FUNDIV:
+                    oControlSignal  = OPDIV;
+                FUNMULTU:
+                    oControlSignal  = OPMULTU;
+                FUNDIVU:
+                    oControlSignal  = OPDIVU;
                 FUNADD:
                     oControlSignal  = OPADD;
+                FUNADDU:
+                    oControlSignal  = OPADD;
                 FUNSUB:
+                    oControlSignal  = OPSUB;
+                FUNSUBU:
                     oControlSignal  = OPSUB;
                 FUNAND:
                     oControlSignal  = OPAND;
@@ -46,15 +65,23 @@ begin
                     oControlSignal  = OPOR;
                 FUNXOR:
                     oControlSignal  = OPXOR;
+                FUNNOR:
+                    oControlSignal  = OPNOR;
                 FUNSLT:
                     oControlSignal  = OPSLT;
                 FUNSLTU:
                     oControlSignal  = OPSLTU;
+                FUNSRLV:
+                    oControlSignal  = OPSRLV;
+                FUNSLLV:
+                    oControlSignal  = OPSLLV;
+                FUNSRAV:
+                    oControlSignal  = OPSRAV;
                 default:
                     oControlSignal  = 5'b00000;
             endcase
         end
-        2'b11: //nao mexi ainda - inst do tipo I
+        2'b11:
             case (iOpcode)
 					 OPMFUNCT:
 					 begin
