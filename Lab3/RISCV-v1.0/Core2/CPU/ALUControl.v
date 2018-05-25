@@ -13,6 +13,7 @@
  * 11        |    The opcode field (and the funct, of necessary) determines the ALU operation.
  */
 
+
 module ALUControl (
 	input wire [5:0] iOpcode,
 	input wire [9:0] iFunct,

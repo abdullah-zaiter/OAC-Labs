@@ -3,16 +3,15 @@
  *
  */
 /* 
-TODO
+// Deem Ctrl+F e procurem "TODO"
 - iRt ==> iRs2
 - iFunct3
 - iFunct7
 
-
  */
  module Control_UNI(
     input  wire        iCLK, iBranchC1,
-    input  wire [5:0]  iOp, iFunct,
+    input  wire [5:0]  iOp, iFunct,//TODO
     input  wire [4:0]  iFmt, iRt,            // 1/2016. Adicionado iRt.
     output wire        oEscreveReg, oLeMem, oEscreveMem, oEscreveRegFPU, oFPFlagWrite,
     output wire [1:0]  oRegDst, oOpALU, oOrigALU, oDataRegFPU, oRegDstFPU, oFPUparaMem,

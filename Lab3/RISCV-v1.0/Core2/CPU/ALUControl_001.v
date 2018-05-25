@@ -14,16 +14,16 @@
  */
 // Deem Ctrl+F e procurem "TODO"
 //Feito: iRt ===> iRs2
- 
- 
+
+
 module ALUControl (
-  input wire [5:0] iFunct, iOpcode, iRs2,   // 1/2016. Adicionado iRt.
+	input wire [5:0] iFunct, iOpcode, iRs2,   // 1/2016. Adicionado iRt.
     input wire [6:0] iFunct7,//TODO
     input wire [2:0] iFunct3,//TODO
-  input wire [1:0] iALUOp,
-  output reg [4:0] oControlSignal
-  );
-  
+	input wire [1:0] iALUOp,
+	output reg [4:0] oControlSignal
+	);
+	
 always @(*)
 begin
     case (iALUOp)
@@ -57,3 +57,94 @@ begin
                 FUNDIVU:
                     oControlSignal  = OPDIVU;
                 FUNADD:
+                    oControlSignal  = OPADD;
+                FUNADDU:
+                    oControlSignal  = OPADD;
+                FUNSUB:
+                    oControlSignal  = OPSUB;
+                FUNSUBU:
+                    oControlSignal  = OPSUB;
+                FUNAND:
+                    oControlSignal  = OPAND;
+                FUNOR:
+                    oControlSignal  = OPOR;
+                FUNXOR:
+                    oControlSignal  = OPXOR;
+                FUNNOR:
+                    oControlSignal  = OPNOR;
+                FUNSLT:
+                    oControlSignal  = OPSLT;
+                FUNSLTU:
+                    oControlSignal  = OPSLTU;
+                FUNSRLV:
+                    oControlSignal  = OPSRLV;
+                FUNSLLV:
+                    oControlSignal  = OPSLLV;
+                FUNSRAV:
+                    oControlSignal  = OPSRAV;
+                default:
+                    oControlSignal  = 5'b00000;
+            endcase
+        end
+        2'b11:
+            case (iOpcode)
+					 OPMFUNCT:
+					 begin
+							case (iFunct)
+								 FUNMADD:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
+									  oControlSignal  = OPMADD;
+								 FUNMADDU:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
+									  oControlSignal  = OPMADDU;
+								 FUNMSUB:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
+									  oControlSignal  = OPMSUB;
+								 FUNMSUBU:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
+									  oControlSignal  = OPMSUBU;
+								 default:
+										oControlSignal  = 5'b00000;
+							endcase
+					end	 
+                OPCADDI:
+                    oControlSignal  = OPADD;
+                OPCADDIU:
+                    oControlSignal  = OPADD;
+                OPCSLTI:
+                    oControlSignal  = OPSLT;
+                OPCSLTIU:
+                    oControlSignal  = OPSLTU;
+                OPCANDI:
+                    oControlSignal  = OPAND;
+                OPCORI:
+                    oControlSignal  = OPOR;
+                OPCXORI:
+                    oControlSignal  = OPXOR;
+                OPCLUI:
+                    oControlSignal  = OPLUI;
+                OPCJAL:                                 //2016/1
+                    oControlSignal  = OPAND;
+                OPCBLEZ,                                //2016/1
+                OPCBGTZ:
+                    case (iRs2)
+                        RTZERO:                         //Garante que $rt seja zero/instruções válidas
+                            oControlSignal  = OPSGT;
+                        default:                        //instr. inválida
+                            oControlSignal  = 5'b00000;
+                    endcase
+                OPCBGE_LTZ:                         //2016/1
+                begin
+                    case (iRs2)
+                        RTBGEZ,
+                        RTBGEZAL,
+                        RTBLTZ,
+                        RTBLTZAL:
+                            oControlSignal  = OPSLT;
+                        default:
+                            oControlSignal  = 5'b00000;
+                    endcase
+                end
+                default:
+                    oControlSignal  = 5'b00000;
+            endcase
+    endcase
+end
+
+endmodule

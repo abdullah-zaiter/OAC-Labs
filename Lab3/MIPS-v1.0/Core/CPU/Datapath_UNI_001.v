@@ -3,24 +3,12 @@
  *
  */
 
-// TODO
+// Deem Ctrl+F e procurem "TODO"
 /* 
  - Create funct3 and funct7 wires whenever found shamt
  - create the modafucking immediates
-
-
-
-
-
-
- */
-
-
-
-
-
-
-
+ - there is a funct going into FPALU control, I'm tempted to let it exist just so I won't have to deal with messing around float
+  */
 
 
 module Datapath_UNI (
@@ -93,7 +81,12 @@ wire [31:0] wPC4;
 wire [31:0] wiPC;
 wire [31:0] wInstr;
 wire [31:0] wMemDataWrite;
-wire [4:0]  wAddrRs, wAddrRt, wAddrRd, wRegDst;//, wShamt;     // enderecos dos reg rs,rt ,rd e saida do Mux regDst
+//wire [4:0]  wAddrRs, wAddrRt, wAddrRd, wRegDst;//, wShamt;     // enderecos dos reg rs,rt ,rd e saida do Mux regDst
+wire[4:0]  wAddrRs1, wAddrRs2, wAddrRd, wRegDst;
+wire[6:0] wFunct7;
+wire[2:0] wFunct3;
+
+
 wire [31:0] wOrigALU;
 wire        wZero;
 wire [4:0]  wALUControl;
@@ -107,7 +100,7 @@ wire [31:0] wJumpAddr;
 wire        wOverflow;
 wire [31:0] wExtZeroImm;
 wire        wCMemRead, wCMemWrite;
-wire [5:0]  wOpcode, wFunct;
+wire [5:0]  wOpcode, wFunct;//SKIRA> Deixar o wFunct pq ele entra no FPALUControl
 
 /*Neste bloco estao definidos os controles dos multiplexadores e outras coisas da FPU*/
 wire        wCRegWriteFPU, wCRegDataFPU, wSelectedFlagValue, wCFPFlagWrite, wCompResult;
@@ -147,18 +140,28 @@ begin
 end
 
 assign wPC4         = wPC + 32'h4;                          /* Calculo PC+4 */
-assign wBranchPC    = wPC4 + {wExtImm[29:0],{2'b00}};       /* Endereco do Branch */
-assign wJumpAddr    = {wPC4[31:28],wInstr[25:0],{2'b00}};   /* Endereco do Jump */
+assign wBranchPC    = wPC4 + {wExtImm[29:0],{2'b00}};    //TODO   /* Endereco do Branch */
+assign wJumpAddr    = {wPC4[31:28],wInstr[25:0],{2'b00}};//TODO   /* Endereco do Jump */
 assign wPC          = PC;
-assign wOpcode      = wInstr[31:26];
-assign wAddrRs      = wInstr[25:21];
-assign wAddrRt      = wInstr[20:16];
-assign wAddrRd      = wInstr[15:11];
+assign wOpcode      = wInstr[6:0];//RiscV
+
+//assign wAddrRs      = wInstr[25:21];
+//assign wAddrRt      = wInstr[20:16];
+assign wAddrRs1      = wInstr[19:15];
+assign wAddrRs2      = wInstr[24:20];
+
+
+assign wAddrRd      = wInstr[11:7];//RiscV
 //assign wShamt       = wInstr[10:6]; //========================>Skira: Não tem no RISCV o campo Shamt
-assign wFunct       = wInstr[5:0];
-assign wImm         = wInstr[15:0];
-assign wExtZeroImm  = {{16'b0},wImm};
-assign wExtImm      = {{16{wImm[15]}},wImm};
+assign wFunct3       = wInstr[14:12];
+assign wFunct7       = wInstr[31:25];
+
+
+assign wFunct       = wInstr[5:0];//SKIRA> FPALU Control, nao quero mexer nele
+
+assign wImm         = wInstr[15:0];//TODO
+assign wExtZeroImm  = {{16'b0},wImm};//TODO
+assign wExtImm      = {{16{wImm[15]}},wImm};//TODO
 assign woInstr      = wInstr;
 assign wCodeMemoryWrite     = ((PC >= BEGINNING_BOOT && PC <= END_BOOT) ? 1'b1 : 1'b0);
 
@@ -189,8 +192,8 @@ assign    wInstr            = IwReadData;
 Registers RegsUNI (
     .iCLK(iCLK),
     .iCLR(iRST),
-    .iReadRegister1(wAddrRs),
-    .iReadRegister2(wAddrRt),
+    .iReadRegister1(wAddrRs1),//(wAddrRs),
+    .iReadRegister2(wAddrRs2),//(wAddrRt),
     .iWriteRegister(wRegDst),
     .iWriteData(wDataReg),
     .iRegWrite(wCRegWrite),
@@ -223,6 +226,8 @@ FPURegisters memRegFPU(
 /* FP ALU Control */
 FPALUControl FPALUControlUnit (
     .iFunct(wFunct),
+    //.iFunct3(wFunct3), SKIRA> se tiverem coragem implementem
+    //.iFunct7(wFunct7),
     .oControlSignal(wFPALUControl)
 );
 
@@ -253,9 +258,12 @@ FlagBank FlagBankModule(
 
 /* ALU CTRL */
 ALUControl ALUControlunit (
-    .iFunct(wFunct),
+    //.iFunct(wFunct),
+    .iFunct3(wFunct3),
+    .iFunct7(wFunct7),
     .iOpcode(wOpcode),
-    .iRt(wAddrRt),          // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
+    //.iRt(wAddrRt),          // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
+    .iRs2(wAddrRs2),
     .iALUOp(wCALUOp),
     .oControlSignal(wALUControl)
 	);
@@ -267,7 +275,8 @@ ALU ALUunit(
     .iControlSignal(wALUControl),
     .iA(wRead1),
     .iB(wOrigALU),
-    //.iShamt(wShamt),//SKIRA> Não tem no riscV
+    .iFunct3(wFunct3),//riscv
+    .iFunct7(wFunct7), //riscv
     .oALUresult(wALUresult),
     .oZero(wZero),
     .oOverflow(wOverflow)
@@ -304,7 +313,9 @@ MemLoad MemLoad0 (
 Control_UNI CtrUNI (
     .iCLK(iCLK),
     .iOp(wOpcode),
-    .iFunct(wFunct),
+    //.iFunct(wFunct),
+    .iFunct3(wFunct3),
+    .iFunct7(wFunct7),
     .iFmt(wFmt),
     .iBranchC1(wBranchC1),
     .oRegDst(wCRegDst),
@@ -333,8 +344,9 @@ Control_UNI CtrUNI (
     .oExcOccurredCOP0(wCExcOccurredCOP0),
     .oBranchDelayCOP0(wCBranchDelayCOP0),
     .oExcCodeCOP0(wCExcCodeCOP0),
-    .iRt(wAddrRt)                       // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
-	);
+    //.iRt(wAddrRt)                       // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
+    .iRs2(wAddrRs2) //riscv
+    );
 
 // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
 /* Banco de registradores do Coprocessador 0 */
@@ -371,7 +383,7 @@ COP0RegistersUNI cop0reg (
 /*Decide em qual registrador o dado sera escrito*/
 always @(*)
     case(wCRegDst)
-        2'b00:      wRegDst <= wAddrRt;
+        2'b00:      wRegDst <= wAddrRt; //TODO
         2'b01:      wRegDst <= wAddrRd;
         2'b10:      wRegDst <= wZero  ? 5'd31: 5'd0;     //  $ra ou $zero    1/2016
         2'b11:      wRegDst <= ~wZero ? 5'd31: 5'd0;     //  $ra ou $zero    1/2016
@@ -425,6 +437,12 @@ always @(*)
     endcase
 
 
+/* 
+=========================================================================
+=============================== FLOAT ABAIXO ============================
+=========================================================================
+ */
+
 /*Decide em qual registrador sera escrito o dado na FPU*/
 always @(*)
     case(wCRegDstFPU)
@@ -446,6 +464,8 @@ always @(*)
         2'b11:      wDataRegFPU <= wRead1FPU;
         default:    wDataRegFPU <= 5'bx;
     endcase
+
+
 
 	 
 /*Decide o que sera escrito na Memoria de Dados*/
@@ -472,6 +492,14 @@ always @(*)
             wMemEnable      <= 4'b1111;
            end
     endcase
+
+
+/* 
+=========================================================================
+=============================== FLOAT ACIMA  ============================
+=========================================================================
+ */
+
 
 // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
 /* Decide o que sera escrito no banco de registradores do Coprocessador 0 */
