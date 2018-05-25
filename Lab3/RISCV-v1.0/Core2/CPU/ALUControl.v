@@ -16,6 +16,7 @@
 module ALUControl (
 	input wire [5:0] iOpcode,
 	input wire [9:0] iFunct,
+	input wire [2:0] iFunct3,
 	input wire [1:0] iALUOp,
 	output reg [4:0] oControlSignal
 	);
@@ -54,65 +55,33 @@ begin
                     oControlSignal  = 5'b00000;
             endcase
         end
-        2'b11: //nao mexi ainda - inst do tipo I
-            case (iOpcode)
-					 OPMFUNCT:
-					 begin
-							case (iFunct)
-								 FUNMADD:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
-									  oControlSignal  = OPMADD;
-								 FUNMADDU:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
-									  oControlSignal  = OPMADDU;
-								 FUNMSUB:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
-									  oControlSignal  = OPMSUB;
-								 FUNMSUBU:												  // Relatorio questao B.9) - Grupo 2 - (2/2016)
-									  oControlSignal  = OPMSUBU;
-								 default:
-										oControlSignal  = 5'b00000;
-							endcase
-					end	 
-                OPCADDI:
+        2'b11:
+            case (iFunct3)
+                FUNADDI:
                     oControlSignal  = OPADD;
-                OPCADDIU:
-                    oControlSignal  = OPADD;
-                OPCSLTI:
+                FUNSLTI:
                     oControlSignal  = OPSLT;
-                OPCSLTIU:
+                FUNSLTIU:
                     oControlSignal  = OPSLTU;
-                OPCANDI:
+                FUNANDI:
                     oControlSignal  = OPAND;
-                OPCORI:
+                FUNORI:
                     oControlSignal  = OPOR;
-                OPCXORI:
+                FUNXORI:
                     oControlSignal  = OPXOR;
-                OPCLUI:
-                    oControlSignal  = OPLUI;
-                OPCJAL:                                 //2016/1
-                    oControlSignal  = OPAND;
-                OPCBLEZ,                                //2016/1
-                OPCBGTZ:
-                    case (iRt)
-                        RTZERO:                         //Garante que $rt seja zero/instruções válidas
-                            oControlSignal  = OPSGT;
-                        default:                        //instr. inválida
-                            oControlSignal  = 5'b00000;
-                    endcase
-                OPCBGE_LTZ:                         //2016/1
-                begin
-                    case (iRt)
-                        RTBGEZ,
-                        RTBGEZAL,
-                        RTBLTZ,
-                        RTBLTZAL:
-                            oControlSignal  = OPSLT;
-                        default:
-                            oControlSignal  = 5'b00000;
-                    endcase
-                end
-                default:
+                default:                        //instr. inválida
                     oControlSignal  = 5'b00000;
             endcase
-    endcase
+				case (iFunct)
+                FUNSLLI:
+                    oControlSignal  = OPSLL;
+                FUNSRLI:
+                    oControlSignal  = OPSRL;
+                FUNSRAI:
+                    oControlSignal  = OPSRA;
+                default:                        //instr. inválida
+                    oControlSignal  = 5'b00000;
+            endcase
 end
 
 endmodule

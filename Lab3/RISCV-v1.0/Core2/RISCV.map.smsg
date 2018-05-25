@@ -1,0 +1,4 @@
+Warning (10273): Verilog HDL warning at Registers.v(55): extended using "x" or "z" File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Registers.v Line: 55
+Warning (10273): Verilog HDL warning at Datapath_UNI.v(369): extended using "x" or "z" File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 369
+Warning (10273): Verilog HDL warning at Datapath_UNI.v(427): extended using "x" or "z" File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 427
+Warning (10273): Verilog HDL warning at Datapath_UNI.v(462): extended using "x" or "z" File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 462
