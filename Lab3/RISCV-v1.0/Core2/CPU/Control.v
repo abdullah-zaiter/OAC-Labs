@@ -28,95 +28,90 @@ always @ ( * ) begin
 				EscreveMem = 1'b0;
 				OpALU = 2'b10;
 				OrigPC = 2'b00;
+				OPBJ = 1'bx;
+				
+        `OPC_OP_IMM:     // Opcodes com uso de imediatos
+            OrigALU = 1'b1;
+				MemparaReg = 3'b000;
+				EscreveReg = 1'b1;
+				LeMem = 1'b0;
+				EscreveMem = 1'b0;
+				OpALU = 2'b11;
+				OrigPC = 2'b00;
+				OPBJ = 1'bx;
+
+        `OPC_AUIPC:    // Opcode dp auiPC 
+            OrigALU = 1'bx;
+				MemparaReg = 3'b100;
+				EscreveReg = 1'b1;
+				LeMem = 1'b0;
+				EscreveMem = 1'b0;
+				OpALU = 2'bxx;
+				OrigPC = 2'b00;
 				OPBJ = 1'b0;
-        `OPC_OP_IMM:     // Opcodes 
-            OrigALU = 1'b0;
-				MemparaReg = 3'b000;
-				EscreveReg = 1'b1;
-				LeMem = 1'b0;
-				EscreveMem = 1'b0;
-				OpALU = 2'b10;
-				OrigPC = 2'b00;
-				OPBJ = 1'bX;
 
-        `OPC_AUIPC:    // Opcodes 
-            OrigALU = 1'b0;
+        `OPC_LUI:    // Opcode do lui
+            OrigALU = 1'b1;
 				MemparaReg = 3'b000;
 				EscreveReg = 1'b1;
 				LeMem = 1'b0;
 				EscreveMem = 1'b0;
-				OpALU = 2'b10;
+				OpALU = 2'bxx;
 				OrigPC = 2'b00;
-				OPBJ = 1'bX;
-
-        `OPC_AUIPC:       // Opcodes 
-            OrigALU = 1'b0;
-				MemparaReg = 3'b000;
-				EscreveReg = 1'b1;
-				LeMem = 1'b0;
-				EscreveMem = 1'b0;
-				OpALU = 2'b10;
-				OrigPC = 2'b00;
-				OPBJ = 1'bX;
-
-        `OPC_LUI:    // Opcodes 
-            OrigALU = 1'b0;
-				MemparaReg = 3'b000;
-				EscreveReg = 1'b1;
-				LeMem = 1'b0;
-				EscreveMem = 1'b0;
-				OpALU = 2'b10;
-				OrigPC = 2'b00;
-				OPBJ = 1'bX;
+				OPBJ = 1'b0;
+				
         `OPC_BRANCH:    // Opcodes 
             OrigALU = 1'b0;
-				MemparaReg = 3'b000;
-				EscreveReg = 1'b1;
+				MemparaReg = 3'bxxx;
+				EscreveReg = 1'b0;
 				LeMem = 1'b0;
 				EscreveMem = 1'b0;
-				OpALU = 2'b10;
-				OrigPC = 2'b00;
-				OPBJ = 1'bX;
+				OpALU = 2'b01;
+				OrigPC = 2'b01;
+				OPBJ = 1'b0;
+				
         `OPC_JAL:    // Opcodes 
-            OrigALU = 1'b0;
-				MemparaReg = 3'b000;
+            OrigALU = 1'bx;
+				MemparaReg = 3'b010;
 				EscreveReg = 1'b1;
 				LeMem = 1'b0;
 				EscreveMem = 1'b0;
-				OpALU = 2'b10;
-				OrigPC = 2'b00;
-				OPBJ = 1'bX;
+				OpALU = 2'bx;
+				OrigPC = 2'b10;
+				OPBJ = 1'b0;
+				
 			`OPC_JALR:    // Opcodes 
             OrigALU = 1'b0;
-				MemparaReg = 3'b000;
+				MemparaReg = 3'b010;
 				EscreveReg = 1'b1;
 				LeMem = 1'b0;
 				EscreveMem = 1'b0;
-				OpALU = 2'b10;
-				OrigPC = 2'b00;
-				OPBJ = 1'bX;
+				OpALU = 2'bxx;
+				OrigPC = 2'b11;
+				OPBJ = 1'b1;
+				
 			`OPC_LOAD:    // Opcodes 
-            OrigALU = 1'b0;
-				MemparaReg = 3'b000;
+            OrigALU = 1'b1;
+				MemparaReg = 3'b001;
 				EscreveReg = 1'b1;
-				LeMem = 1'b0;
+				LeMem = 1'b1;
 				EscreveMem = 1'b0;
-				OpALU = 2'b10;
+				OpALU = 2'b00;
 				OrigPC = 2'b00;
-				OPBJ = 1'bX;
+				OPBJ = 1'b0;
+				
         `OPC_STORE:    // Opcodes 
-            OrigALU = 1'b0;
-				MemparaReg = 3'b000;
-				EscreveReg = 1'b1;
+            OrigALU = 1'b1;
+				MemparaReg = 3'bxxx;
+				EscreveReg = 1'b0;
 				LeMem = 1'b0;
-				EscreveMem = 1'b0;
-				OpALU = 2'b10;
+				EscreveMem = 1'b1;
+				OpALU = 2'b00;
 				OrigPC = 2'b00;
-				OPBJ = 1'bX;
+				OPBJ = 1'b0;
 
         default:
-            // Tipo U possui o menor fanout para o bit opc[31];
-            //immediate = {opc[31:12], 12'b0};
+            //resta fazer essa parte, não sei o que vem aqui
     endcase
 end
 
