@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISCV
-Fri May 25 13:52:13 2018
+Mon May 28 15:33:21 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri May 25 13:52:12 2018           ;
+; Analysis & Synthesis Status ; Failed - Mon May 28 15:33:21 2018           ;
 ; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name               ; RISCV                                       ;
 ; Top-level Entity Name       ; ALUControl                                  ;
@@ -161,33 +161,29 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri May 25 13:51:33 2018
+    Info: Processing started: Mon May 28 15:33:01 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISCV -c RISCV
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Error (10170): Verilog HDL syntax error at Imm_Generator.v(12) near text: "module";  expecting an identifier ("module" is a reserved keyword ). Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 12
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(16): text macro "OPC_LOAD" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 16
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(16) near text: ",";  expecting an operand. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 16
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(17): text macro "OPC_OP_IMM" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 17
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(18): text macro "OPC_OP_IMM_32" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 18
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(19): text macro "OPC_JALR" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 19
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(22): text macro "OPC_STORE" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 22
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(22) near text: ":";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 22
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(25): text macro "OPC_BRANCH" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 25
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(25) near text: ":";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 25
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(28): text macro "OPC_AUIPC" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 28
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(28) near text: ",";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 28
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(29): text macro "OPC_LUI" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 29
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(32): text macro "OPC_JAL" is undefined File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 32
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(32) near text: ":";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 32
+Error (10112): Ignored design unit "imm_generator" at Imm_Generator.v(9) due to previous errors File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v Line: 9
 Info (12021): Found 0 design units, including 0 entities, in source file cpu/imm_generator.v
 Info (12021): Found 1 design units, including 1 entities, in source file topde.v
     Info (12023): Found entity 1: TopDE File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/TopDE.v Line: 193
-Error (10149): Verilog HDL Declaration error at Parametros.v(3): identifier "ON" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 3
-Error (10149): Verilog HDL Declaration error at Parametros.v(4): identifier "OFF" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 4
-Error (10149): Verilog HDL Declaration error at Parametros.v(5): identifier "ZERO" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 5
-Error (10149): Verilog HDL Declaration error at Parametros.v(8): identifier "OPAND" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 8
-Error (10149): Verilog HDL Declaration error at Parametros.v(9): identifier "OPOR" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 9
-Error (10149): Verilog HDL Declaration error at Parametros.v(10): identifier "OPXOR" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 10
-Error (10149): Verilog HDL Declaration error at Parametros.v(11): identifier "OPADD" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 11
-Error (10149): Verilog HDL Declaration error at Parametros.v(12): identifier "OPSUB" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 12
-Error (10149): Verilog HDL Declaration error at Parametros.v(13): identifier "OPSLT" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 13
-Error (10149): Verilog HDL Declaration error at Parametros.v(14): identifier "OPSLTU" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 14
-Error (10149): Verilog HDL Declaration error at Parametros.v(15): identifier "OPGE" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 15
-Error (10149): Verilog HDL Declaration error at Parametros.v(16): identifier "OPGEU" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 16
-Error (10149): Verilog HDL Declaration error at Parametros.v(17): identifier "OPSLL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 17
-Error (10149): Verilog HDL Declaration error at Parametros.v(18): identifier "OPSRL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 18
-Error (10149): Verilog HDL Declaration error at Parametros.v(19): identifier "OPSRA" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 19
-Error (10149): Verilog HDL Declaration error at Parametros.v(22): identifier "FUNSLL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 22
-Error (10149): Verilog HDL Declaration error at Parametros.v(23): identifier "FUNSRL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 23
-Error (10149): Verilog HDL Declaration error at Parametros.v(24): identifier "FUNSRA" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 24
-Error (10149): Verilog HDL Declaration error at Parametros.v(25): identifier "FUNADD" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 25
+Error (10171): Verilog HDL syntax error at Parametros.v(48) near end of file ;  expecting an identifier File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 48
 Info (12021): Found 0 design units, including 0 entities, in source file parametros.v
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/registers.v
     Info (12023): Found entity 1: Registers File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Registers.v Line: 10
@@ -207,8 +203,7 @@ Warning (12019): Can't analyze file -- file CPU/Control_PIPEM.v is missing
 Warning (12019): Can't analyze file -- file CPU/Control_MULTI.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/branch_pipem.v
     Info (12023): Found entity 1: Branch_PIPEM File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Branch_PIPEM.v Line: 21
-Error (10170): Verilog HDL syntax error at ALUControl.v(75) near text: "case";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/ALUControl.v Line: 75
-Error (10112): Ignored design unit "ALUControl" at ALUControl.v(16) due to previous errors File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/ALUControl.v Line: 16
+Error (10170): Verilog HDL syntax error at ALUControl.v(100) near text: "end";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/ALUControl.v Line: 100
 Info (12021): Found 0 design units, including 0 entities, in source file cpu/alucontrol.v
 Error (10149): Verilog HDL Declaration error at Parametros.v(3): identifier "ON" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 3
 Error (10149): Verilog HDL Declaration error at Parametros.v(4): identifier "OFF" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 4
@@ -225,17 +220,17 @@ Error (10149): Verilog HDL Declaration error at Parametros.v(16): identifier "OP
 Error (10149): Verilog HDL Declaration error at Parametros.v(17): identifier "OPSLL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 17
 Error (10149): Verilog HDL Declaration error at Parametros.v(18): identifier "OPSRL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 18
 Error (10149): Verilog HDL Declaration error at Parametros.v(19): identifier "OPSRA" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 19
-Error (10149): Verilog HDL Declaration error at Parametros.v(22): identifier "FUNSLL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 22
-Error (10149): Verilog HDL Declaration error at Parametros.v(23): identifier "FUNSRL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 23
-Error (10149): Verilog HDL Declaration error at Parametros.v(24): identifier "FUNSRA" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 24
-Error (10149): Verilog HDL Declaration error at Parametros.v(25): identifier "FUNADD" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 25
+Error (10149): Verilog HDL Declaration error at Parametros.v(20): identifier "OPBEQ" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 20
+Error (10149): Verilog HDL Declaration error at Parametros.v(21): identifier "OPBNE" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 21
+Error (10149): Verilog HDL Declaration error at Parametros.v(24): identifier "FUNSLL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 24
+Error (10149): Verilog HDL Declaration error at Parametros.v(25): identifier "FUNSRL" is already declared in the present scope File: C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/Parametros.v Line: 25
 Info (12021): Found 0 design units, including 0 entities, in source file cpu/alu.v
 Info (144001): Generated suppressed messages file C:/Users/Danielle/Downloads/OAC-Labs/Lab3/RISCV-v1.0/Core2/RISCV.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 41 errors, 5 warnings
-    Error: Peak virtual memory: 694 megabytes
-    Error: Processing ended: Fri May 25 13:52:13 2018
-    Error: Elapsed time: 00:00:40
-    Error: Total CPU time (on all processors): 00:00:47
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 27 errors, 14 warnings
+    Error: Peak virtual memory: 679 megabytes
+    Error: Processing ended: Mon May 28 15:33:21 2018
+    Error: Elapsed time: 00:00:20
+    Error: Total CPU time (on all processors): 00:00:44
 
 
 +------------------------------------------+

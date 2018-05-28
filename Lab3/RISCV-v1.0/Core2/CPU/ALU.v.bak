@@ -49,10 +49,6 @@ begin
 			oResult  = iA >>> iB[4:0];
 		OPLUI:
 			oResult  = {iA[31:12],12'b0};
-		OPBEQ:
-			oResult = iA == iB; 
-		OPBNE:
-			oResult = iA != iB; 
 		OPMUL:
 		begin
 			aux = (iA*iB);

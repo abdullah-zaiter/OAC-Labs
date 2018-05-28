@@ -5,10 +5,7 @@
 //                            BSD 3-Clause License                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-`ifndef PARAM
-	`include "Parametros.v"
-`endif
- 
+
 module imm_generator (
     input  [31:0] inst,
     output reg [31:0] immediate
@@ -17,7 +14,7 @@ module imm_generator (
 always @ ( * ) begin
     case (inst[6:0]) // Opcode
         `OPC_LOAD,
-        `OPC_OP_IMM,
+        `OPC_OP_IMM
         `OPC_OP_IMM_32,
         `OPC_JALR:      // Opcodes com imediato do tipo I
             immediate = {{20{inst[31]}}, ins[31:20]};
