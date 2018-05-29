@@ -3,6 +3,13 @@
  *
  */
 
+ //TODO
+ /*
+    Mux OrigPC
+    Mux PC ou R1
+    Saída Auipc
+    Mux final
+ */
 module Datapath_UNI (
     // Inputs e clocks
     input  wire        iCLK, iCLK50, iRST,
@@ -73,21 +80,24 @@ wire [31:0] wPC4;
 wire [31:0] wiPC;
 wire [31:0] wInstr;
 wire [31:0] wMemDataWrite;
-wire [4:0]  wAddrRs, wAddrRt, wAddrRd, wRegDst, wShamt;     // enderecos dos reg rs,rt ,rd e saida do Mux regDst
+wire [4:0]  wAddrRs, wAddrRt, wAddrRd, wRegDst;// enderecos dos reg rs,rt ,rd e saida do Mux regDst
+wire [2:0] wFunct3;
+wire [6:0] wFunct7;
+
 wire [31:0] wOrigALU;
 wire        wZero;
 wire [4:0]  wALUControl;
 wire [31:0] wALUresult, wRead1, wRead2, wMemAccess;
 wire [31:0] wReadData;
 wire [31:0] wDataReg;
-wire [15:0] wImm;
+wire [31:0] wImm;       //Saida Imediato
 wire [31:0] wExtImm;
 wire [31:0] wBranchPC;
 wire [31:0] wJumpAddr;
 wire        wOverflow;
 wire [31:0] wExtZeroImm;
 wire        wCMemRead, wCMemWrite;
-wire [5:0]  wOpcode, wFunct;
+wire [5:0]  wOpcode, wFunct; // VOU DEIXAR O wFunct PQ ELE ENTRA NO FPALU
 
 /*Neste bloco estao definidos os controles dos multiplexadores e outras coisas da FPU*/
 wire        wCRegWriteFPU, wCRegDataFPU, wSelectedFlagValue, wCFPFlagWrite, wCompResult;
@@ -134,11 +144,13 @@ assign wOpcode      = wInstr[31:26];
 assign wAddrRs      = wInstr[25:21];
 assign wAddrRt      = wInstr[20:16];
 assign wAddrRd      = wInstr[15:11];
-assign wShamt       = wInstr[10:6];
-assign wFunct       = wInstr[5:0];
-assign wImm         = wInstr[15:0];
-assign wExtZeroImm  = {{16'b0},wImm};
-assign wExtImm      = {{16{wImm[15]}},wImm};
+//assign wShamt       = wInstr[10:6];
+assign wFunct3       = wInstr[14:12];
+assign wFunct7       = wInstr[31:25];
+
+//assign wImm         = wInstr[15:0];
+//assign wExtZeroImm  = {{16'b0},wImm};
+//assign wExtImm      = {{16{wImm[15]}},wImm};
 assign woInstr      = wInstr;
 assign wCodeMemoryWrite     = ((PC >= BEGINNING_BOOT && PC <= END_BOOT) ? 1'b1 : 1'b0);
 
@@ -233,9 +245,10 @@ FlagBank FlagBankModule(
 
 /* ALU CTRL */
 ALUControl ALUControlunit (
-    .iFunct(wFunct),
+    .iFunct3(wFunct3),
+    .iFunct7(wFunct7),
     .iOpcode(wOpcode),
-    .iRt(wAddrRt),          // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
+    //.iRt(wAddrRt),          // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
     .iALUOp(wCALUOp),
     .oControlSignal(wALUControl)
 	);
@@ -247,11 +260,22 @@ ALU ALUunit(
     .iControlSignal(wALUControl),
     .iA(wRead1),
     .iB(wOrigALU),
-    .iShamt(wShamt),
     .oALUresult(wALUresult),
     .oZero(wZero),
     .oOverflow(wOverflow)
 	);
+
+Imm_Generator ImmGen(
+    .inst(wInstr)
+    .wImm(wImm), // TODO ver se funfa assim
+	);
+
+Ctrl_Transf CtrlT(
+    .iFunct3(wFunct3),
+    .iOrigPC(), //TODO colocar sinal pro fio
+    .iZero(oZero),    
+    .oCTransf(wCTransf) //TODO declarar wCTransf
+    );
 
 MemStore MemStore0 (
     .iAlignment(wALUresult[1:0]),
@@ -284,9 +308,10 @@ MemLoad MemLoad0 (
 Control_UNI CtrUNI (
     .iCLK(iCLK),
     .iOp(wOpcode),
-    .iFunct(wFunct),
-    .iFmt(wFmt),
-    .iBranchC1(wBranchC1),
+    .iFunct7(wFunct7),
+    .iFunct3(wFunct3),
+    .iFmt(wFmt),                        //porra eh essa
+    .iBranchC1(wBranchC1),              // porra eh essa
     .oRegDst(wCRegDst),
     .oOrigALU(wCOrigALU),
     .oMemparaReg(wCMem2Reg),
@@ -302,7 +327,7 @@ Control_UNI CtrUNI (
     .oFPFlagWrite(wCFPFlagWrite),
     // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
     .iExcLevel(wCOP0ExcLevel),
-    .iALUOverflow(wOverflow),
+    .iALUOverflow(wOverflow),       //NAO TEM NO RISCV, ate agr pelo menos
     .iFPALUOverflow(wOverflowFPU),
     .iFPALUUnderflow(wUnderflowFPU),
     .iFPALUNaN(wNanFPU),
@@ -313,7 +338,7 @@ Control_UNI CtrUNI (
     .oExcOccurredCOP0(wCExcOccurredCOP0),
     .oBranchDelayCOP0(wCBranchDelayCOP0),
     .oExcCodeCOP0(wCExcCodeCOP0),
-    .iRt(wAddrRt)                       // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
+    .iRt(wAddrRt)                 //      // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
 	);
 
 // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
@@ -362,11 +387,15 @@ always @(*)
 /*Decide o que entrara na segunda entrada da ULA*/
 always @(*)
     case(wCOrigALU)
-        2'b00:      wOrigALU <= wRead2;
-        2'b01:      wOrigALU <= wExtImm;
-        2'b10:      wOrigALU <= wExtZeroImm;
-        2'b11:      wOrigALU <= 5'b00000;     //adicionado em 1/2016 para implementação dos branchs
-		  default:	  wOrigALU <= 5'bx;
+        //2'b00:      wOrigALU <= wRead2;
+        //2'b01:      wOrigALU <= wExtImm;
+        //2'b10:      wOrigALU <= wExtZeroImm;
+        //2'b11:      wOrigALU <= 5'b00000;     //adicionado em 1/2016 para implementação dos branchs
+		1'b0:
+            wOrigALU <= wRead2;
+        1'b1:
+            wOrigALU <= wImm;
+        default:	  wOrigALU <= 5'bx;
     endcase
 
 
@@ -397,7 +426,7 @@ always @(*)
         3'b000:     wDataReg <= wALUresult;
         3'b001:     wDataReg <= 32'hE0E0E0E0;            //wReadData;  // Slot vago, LW foi passada para wMemAcess
         3'b010:     wDataReg <= wPC4;
-        3'b011:     wDataReg <= {wImm, 16'b0};
+        3'b011:     wDataReg <= {wImm, 16'b0};              //TODO Corrigir esse imediato daqui
         3'b100:     wDataReg <= wRead1FPU;
         3'b101:     wDataReg <= wCOP0ReadData;           // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
         3'b110:     wDataReg <= wMemAccess;              // feito pelo PA
