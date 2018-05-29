@@ -1,5 +1,5 @@
 Flow report for Teste
-Mon May 28 21:16:16 2018
+Mon May 28 22:17:05 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,10 +40,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Flow Summary                                                              ;
 +-----------------------------+---------------------------------------------+
-; Flow Status                 ; Flow Failed - Mon May 28 21:16:16 2018      ;
+; Flow Status                 ; Flow Failed - Mon May 28 22:17:05 2018      ;
 ; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name               ; Teste                                       ;
-; Top-level Entity Name       ; Ctrl_Transf                                 ;
+; Top-level Entity Name       ; ALUControl                                  ;
 ; Family                      ; Cyclone V                                   ;
 ; Device                      ; 5CSEMA5F31C6                                ;
 ; Timing Models               ; Final                                       ;
@@ -62,7 +62,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/28/2018 21:15:49 ;
+; Start date & time ; 05/28/2018 22:16:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Teste               ;
 +-------------------+---------------------+
@@ -73,14 +73,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 128534996563393.152755294807308        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 128534996563393.152755659011588        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; Ctrl_Transf ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; Ctrl_Transf ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; Ctrl_Transf ; Top        ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; ALUControl  ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; ALUControl  ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; ALUControl  ; Top        ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                    ; Ctrl_Transf                            ; Teste         ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; ALUControl                             ; Teste         ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
@@ -89,8 +89,8 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:28     ; 1.0                     ; 4791 MB             ; 00:00:52                           ;
-; Total                ; 00:00:28     ; --                      ; --                  ; 00:00:52                           ;
+; Analysis & Synthesis ; 00:00:36     ; 1.0                     ; 4802 MB             ; 00:00:54                           ;
+; Total                ; 00:00:36     ; --                      ; --                  ; 00:00:54                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

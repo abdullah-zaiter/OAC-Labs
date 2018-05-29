@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Teste
-Mon May 28 21:16:16 2018
+Mon May 28 22:17:05 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,10 +37,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Mon May 28 21:16:16 2018           ;
+; Analysis & Synthesis Status ; Failed - Mon May 28 22:17:05 2018           ;
 ; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name               ; Teste                                       ;
-; Top-level Entity Name       ; Ctrl_Transf                                 ;
+; Top-level Entity Name       ; ALUControl                                  ;
 ; Family                      ; Cyclone V                                   ;
 ; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
 ; Total registers             ; N/A until Partition Merge                   ;
@@ -58,7 +58,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; Ctrl_Transf        ; Teste              ;
+; Top-level entity name                                                           ; ALUControl         ; Teste              ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -161,22 +161,35 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon May 28 21:15:48 2018
+    Info: Processing started: Mon May 28 22:16:29 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Teste -c Teste
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file registers.v
     Info (12023): Found entity 1: Registers File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Registers.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file imm_generator.v
-    Info (12023): Found entity 1: imm_generator File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 12
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(16): text macro "OPC_LOAD" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 16
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(16) near text: ",";  expecting an operand. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 16
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(17): text macro "OPC_OP_IMM" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 17
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(18): text macro "OPC_OP_IMM_32" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 18
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(19): text macro "OPC_JALR" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 19
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(22): text macro "OPC_STORE" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 22
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(22) near text: ":";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 22
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(25): text macro "OPC_BRANCH" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 25
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(25) near text: ":";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 25
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(28): text macro "OPC_AUIPC" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 28
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(28) near text: ",";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 28
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(29): text macro "OPC_LUI" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 29
+Critical Warning (10191): Verilog HDL Compiler Directive warning at Imm_Generator.v(32): text macro "OPC_JAL" is undefined File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 32
+Error (10170): Verilog HDL syntax error at Imm_Generator.v(32) near text: ":";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 32
+Error (10112): Ignored design unit "imm_generator" at Imm_Generator.v(9) due to previous errors File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Imm_Generator.v Line: 9
+Info (12021): Found 0 design units, including 0 entities, in source file imm_generator.v
 Info (12021): Found 1 design units, including 1 entities, in source file hazardunitm.v
     Info (12023): Found entity 1: HazardUnitM File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/HazardUnitM.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file forwardunitm.v
     Info (12023): Found entity 1: ForwardUnitM File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/ForwardUnitM.v Line: 21
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_uni_arthur.v
     Info (12023): Found entity 1: datapath_singlecycle File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Datapath_UNI_arthur.v Line: 9
-Info (12021): Found 1 design units, including 1 entities, in source file datapath_uni_001.v
-    Info (12023): Found entity 1: Datapath_UNI_001 File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Datapath_UNI_001.v Line: 26
+Warning (12019): Can't analyze file -- file Datapath_UNI_001.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_uni.v
     Info (12023): Found entity 1: Datapath_UNI File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Datapath_UNI.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file ctrl_transf.v
@@ -190,18 +203,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file branch_
     Info (12023): Found entity 1: Branch_PIPEM File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/Branch_PIPEM.v Line: 21
 Info (12021): Found 1 design units, including 1 entities, in source file alucontrol_001.v
     Info (12023): Found entity 1: ALUControl File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/ALUControl_001.v Line: 19
-Error (10170): Verilog HDL syntax error at ALUControl.v(76) near text: "case";  expecting "endcase". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/ALUControl.v Line: 76
-Error (10112): Ignored design unit "ALUControl" at ALUControl.v(17) due to previous errors File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/ALUControl.v Line: 17
+Error (10228): Verilog HDL error at ALUControl.v(16): module "ALUControl" cannot be declared more than once File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/ALUControl.v Line: 16
+Info (10499): HDL info at ALUControl_001.v(19): see declaration for object "ALUControl" File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/ALUControl_001.v Line: 19
 Info (12021): Found 0 design units, including 0 entities, in source file alucontrol.v
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
     Info (12023): Found entity 1: ALU File: C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/ALU.v Line: 10
 Info (12021): Found 0 design units, including 0 entities, in source file parametros.v
 Info (144001): Generated suppressed messages file C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab3/Testes/output_files/Teste.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 2 warnings
-    Error: Peak virtual memory: 4791 megabytes
-    Error: Processing ended: Mon May 28 21:16:17 2018
-    Error: Elapsed time: 00:00:29
-    Error: Total CPU time (on all processors): 00:00:52
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 7 errors, 12 warnings
+    Error: Peak virtual memory: 4802 megabytes
+    Error: Processing ended: Mon May 28 22:17:05 2018
+    Error: Elapsed time: 00:00:36
+    Error: Total CPU time (on all processors): 00:00:54
 
 
 +------------------------------------------+

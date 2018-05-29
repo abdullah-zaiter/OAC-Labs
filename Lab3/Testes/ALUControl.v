@@ -13,7 +13,6 @@
  * 11        |    The opcode field (and the funct, of necessary) determines the ALU operation.
  */
 
-
 module ALUControl (
 	input wire [5:0] iOpcode,
 	input wire [9:0] iFunct,
@@ -27,10 +26,24 @@ begin
     case (iALUOp)
         2'b00:
             oControlSignal  = OPADD;
-        2'b01:
-            oControlSignal  = OPSUB;
+        2'b01: //condições de branch
+			case (iFunct3)
+				FUNBEQ:
+					oControlSignal  = OPBEQ;
+				FUNBNE:
+					oControlSignal  = OPBNE;
+				FUNBGE:
+					oControlSignal  = OPGE;
+				FUNBGEU:
+					oControlSignal  = OPGEU;
+				FUNBLT:
+					oControlSignal  = OPSLT;
+				FUNBLTU:
+					oControlSignal  = OPSLTU;
+				default:
+					oControlSignal  = 5'b00000;
+			endcase	 
         2'b10:
-        begin
             case (iFunct)
                 FUNSLL:
                     oControlSignal  = OPSLL;
@@ -55,34 +68,36 @@ begin
                 default:
                     oControlSignal  = 5'b00000;
             endcase
-        end
         2'b11:
-            case (iFunct3)
-                FUNADDI:
-                    oControlSignal  = OPADD;
-                FUNSLTI:
-                    oControlSignal  = OPSLT;
-                FUNSLTIU:
-                    oControlSignal  = OPSLTU;
-                FUNANDI:
-                    oControlSignal  = OPAND;
-                FUNORI:
-                    oControlSignal  = OPOR;
-                FUNXORI:
-                    oControlSignal  = OPXOR;
-                default:                        //instr. inválida
-                    oControlSignal  = 5'b00000;
-            endcase
+			begin
+				case (iFunct3)
+						FUNADDI:
+							oControlSignal  = OPADD;
+						FUNSLTI:
+							oControlSignal  = OPSLT;
+						FUNSLTIU:
+							oControlSignal  = OPSLTU;
+						FUNANDI:
+							oControlSignal  = OPAND;
+						FUNORI:
+							oControlSignal  = OPOR;
+						FUNXORI:
+							oControlSignal  = OPXOR;
+						default:                        //instr. inválida
+							oControlSignal  = 5'b00000;
+				endcase
 				case (iFunct)
-                FUNSLLI:
-                    oControlSignal  = OPSLL;
-                FUNSRLI:
-                    oControlSignal  = OPSRL;
-                FUNSRAI:
-                    oControlSignal  = OPSRA;
-                default:                        //instr. inválida
-                    oControlSignal  = 5'b00000;
-            endcase
+						FUNSLLI:
+							oControlSignal  = OPSLL;
+						FUNSRLI:
+							oControlSignal  = OPSRL;
+						FUNSRAI:
+							oControlSignal  = OPSRA;
+						default:                        //instr. inválida
+							oControlSignal  = 5'b00000;
+				endcase
+			end
+	endcase
 end
 
 endmodule

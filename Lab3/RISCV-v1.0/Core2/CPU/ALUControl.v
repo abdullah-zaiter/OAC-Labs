@@ -27,22 +27,22 @@ begin
         2'b00:
             oControlSignal  = OPADD;
         2'b01: //condições de branch
-					case (iFunct3)
-						FUNBEQ:
-                    oControlSignal  = OPBEQ;
-						FUNBNE:
-                    oControlSignal  = OPBNE;
-						FUNBGE:
-                    oControlSignal  = OPGE;
-						FUNBGEU:
-                    oControlSignal  = OPGEU;
-						FUNBLT:
-                    oControlSignal  = OPSLT;
-						FUNBLTU:
-                    oControlSignal  = OPSLTU;
-						default:
-                    oControlSignal  = 5'b00000;
-					endcase	 
+			case (iFunct3)
+				FUNBEQ:
+					oControlSignal  = OPBEQ;
+				FUNBNE:
+					oControlSignal  = OPBNE;
+				FUNBGE:
+					oControlSignal  = OPGE;
+				FUNBGEU:
+					oControlSignal  = OPGEU;
+				FUNBLT:
+					oControlSignal  = OPSLT;
+				FUNBLTU:
+					oControlSignal  = OPSLTU;
+				default:
+					oControlSignal  = 5'b00000;
+			endcase	 
         2'b10:
             case (iFunct)
                 FUNSLL:
@@ -69,34 +69,35 @@ begin
                     oControlSignal  = 5'b00000;
             endcase
         2'b11:
-				begin
-					case (iFunct3)
-						 FUNADDI:
-							  oControlSignal  = OPADD;
-						 FUNSLTI:
-							  oControlSignal  = OPSLT;
-						 FUNSLTIU:
-							  oControlSignal  = OPSLTU;
-						 FUNANDI:
-							  oControlSignal  = OPAND;
-						 FUNORI:
-							  oControlSignal  = OPOR;
-						 FUNXORI:
-							  oControlSignal  = OPXOR;
-						 default:                        //instr. inválida
-							  oControlSignal  = 5'b00000;
-					endcase
-					case (iFunct)
-						 FUNSLLI:
-							  oControlSignal  = OPSLL;
-						 FUNSRLI:
-							  oControlSignal  = OPSRL;
-						 FUNSRAI:
-							  oControlSignal  = OPSRA;
-						 default:                        //instr. inválida
-							  oControlSignal  = 5'b00000;
-					endcase
-				end
+			begin
+				case (iFunct3)
+						FUNADDI:
+							oControlSignal  = OPADD;
+						FUNSLTI:
+							oControlSignal  = OPSLT;
+						FUNSLTIU:
+							oControlSignal  = OPSLTU;
+						FUNANDI:
+							oControlSignal  = OPAND;
+						FUNORI:
+							oControlSignal  = OPOR;
+						FUNXORI:
+							oControlSignal  = OPXOR;
+						default:                        //instr. inválida
+							oControlSignal  = 5'b00000;
+				endcase
+				case (iFunct)
+						FUNSLLI:
+							oControlSignal  = OPSLL;
+						FUNSRLI:
+							oControlSignal  = OPSRL;
+						FUNSRAI:
+							oControlSignal  = OPSRA;
+						default:                        //instr. inválida
+							oControlSignal  = 5'b00000;
+				endcase
+			end
+	endcase
 end
 
 endmodule
