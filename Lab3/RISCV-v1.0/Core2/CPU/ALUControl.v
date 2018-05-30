@@ -44,6 +44,12 @@ begin
 					oControlSignal  = 5'b00000;
 			endcase	 
         2'b10:
+				case (iOpcode)
+					 OPCLUI:
+							oControlSignal = OPLUI;
+					 default:
+                    oControlSignal  = 5'b00000;
+				endcase
             case (iFunct)
                 FUNSLL:
                     oControlSignal  = OPSLL;

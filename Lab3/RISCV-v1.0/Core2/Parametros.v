@@ -19,6 +19,7 @@ parameter
 		OPSRA		= 5'b01011,					//11
 		OPBEQ    = 5'b01100,					//12
 		OPBNE    = 5'b01101,					//13
+		OPLUI    = 5'b01110,					//14
 
 /* Campo FUNCT */
     FUNSLL      = 10'h001,
@@ -46,3 +47,8 @@ parameter
 	 FUNBGEU		 = 3'h7,
 	 FUNBLT		 = 3'h4,
 	 FUNBLTU		 = 3'h6,
+	 
+/* Campo OPCODE */
+	
+	OPCLUI       = 6'h37,
+
