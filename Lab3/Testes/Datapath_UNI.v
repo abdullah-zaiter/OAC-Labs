@@ -5,10 +5,6 @@
 
  //TODO
  /*
-    Mux OrigPC
-    Mux PC ou R1
-    Saída Auipc
-    Mux final
  */
 module Datapath_UNI (
     // Inputs e clocks
@@ -16,7 +12,7 @@ module Datapath_UNI (
     input  wire [31:0] iInitialPC,
 
     // Para monitoramento
-    output wire [31:0] wPC, woInstr,
+    output wire [31:0] wPC, woInstr, wMuxPC
     output wire [31:0] wRegDisp, wRegDispCOP0,
     input  wire [4:0]  wRegDispSelect,
     output wire [31:0] wDebug,
@@ -31,7 +27,9 @@ module Datapath_UNI (
 
     output wire        wCRegWrite,
     output wire [1:0]  wCRegDst,wCALUOp,wCOrigALU,
-    output wire [2:0]  wCOrigPC,
+    output wire [1:0]  wCOrigPC,
+    output wire wOPBJ,
+    
     output wire [2:0]  wCMem2Reg,
 	 
 	 output wire [31:0] wBRReadA,
@@ -144,7 +142,6 @@ assign wOpcode      = wInstr[31:26];
 assign wAddrRs      = wInstr[25:21];
 assign wAddrRt      = wInstr[20:16];
 assign wAddrRd      = wInstr[15:11];
-//assign wShamt       = wInstr[10:6];
 assign wFunct3       = wInstr[14:12];
 assign wFunct7       = wInstr[31:25];
 
@@ -272,7 +269,7 @@ Imm_Generator ImmGen(
 
 Ctrl_Transf CtrlT(
     .iFunct3(wFunct3),
-    .iOrigPC(), //TODO colocar sinal pro fio
+    .iCOrigPC(wCOrigPC),
     .iZero(oZero),    
     .oCTransf(wCTransf) //TODO declarar wCTransf
     );
@@ -314,6 +311,7 @@ Control_UNI CtrUNI (
     .iBranchC1(wBranchC1),              // porra eh essa
     .oRegDst(wCRegDst),
     .oOrigALU(wCOrigALU),
+    .oOPBJ(wOPBJ),
     .oMemparaReg(wCMem2Reg),
     .oEscreveReg(wCRegWrite),
     .oLeMem(wCMemRead),
@@ -400,22 +398,41 @@ always @(*)
 
 
 /*Decide qual sera o proximo PC*/
+
+always @(*)
+begin
+  case(wOPBJ)
+    1'b0:
+        wMuxPC <= wPC;
+    1'b1:
+        wMuxPC <= wRead1;
+  endcase
+end
+
 always @(*)
 begin
     if (wCExcOccurredCOP0)                              // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
         wiPC <= BEGINNING_KTEXT;                         //.ktext
     else
     begin
-        case(wCOrigPC)
-            3'b000:     wiPC <= wPC4;
-            3'b001:     wiPC <= wZero ? wBranchPC: wPC4;
-            3'b010:     wiPC <= wJumpAddr;
-            3'b011:     wiPC <= wRead1;
-            3'b100:     wiPC <= wCOP0ReadData;           // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0). instrucao eret
-            3'b101:     wiPC <= ~wZero ? wBranchPC: wPC4;
-            3'b110:     wiPC <= wSelectedFlagValue ? wBranchPC : wPC4;
-            3'b111:     wiPC <= ~wSelectedFlagValue ? wBranchPC : wPC4;
-				default:		wiPC <= wPC4;
+        case(wCTransf)//(wCOrigPC)
+            2'b00://normal
+                wiPC <= wPC4;
+            2'b01://Branch
+                wiPC <= wMuxPC + wImm;
+            2'b10://JAL
+                wiPC <= wMuxPC + wImm;
+            2'b11://JALR
+                wiPC <= wMuxPC + wImm;
+            // 3'b000:     wiPC <= wPC4;
+            // 3'b001:     wiPC <= wZero ? wBranchPC: wPC4;
+            // 3'b010:     wiPC <= wJumpAddr;
+            // 3'b011:     wiPC <= wRead1;
+            //3'b100:     wiPC <= wCOP0ReadData;           // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0). instrucao eret
+            //3'b101:     wiPC <= ~wZero ? wBranchPC: wPC4;
+            //3'b110:     wiPC <= wSelectedFlagValue ? wBranchPC : wPC4;
+            //3'b111:     wiPC <= ~wSelectedFlagValue ? wBranchPC : wPC4;
+			default:		wiPC <= wPC4;
         endcase
     end
 end
@@ -424,12 +441,13 @@ end
 always @(*)
     case(wCMem2Reg)
         3'b000:     wDataReg <= wALUresult;
-        3'b001:     wDataReg <= 32'hE0E0E0E0;            //wReadData;  // Slot vago, LW foi passada para wMemAcess
+        3'b001:     wDataReg <= wReadData;//                    32'hE0E0E0E0;            //wReadData;  // Slot vago, LW foi passada para wMemAcess
         3'b010:     wDataReg <= wPC4;
-        3'b011:     wDataReg <= {wImm, 16'b0};              //TODO Corrigir esse imediato daqui
-        3'b100:     wDataReg <= wRead1FPU;
-        3'b101:     wDataReg <= wCOP0ReadData;           // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
-        3'b110:     wDataReg <= wMemAccess;              // feito pelo PA
+        3'b011:     wDataReg <= wiPC;//                         {wImm, 16'b0};              
+        3'b100:     wDataReg <= wiPC;//AUIPC
+        //wRead1FPU;
+        //3'b101:     wDataReg <= wCOP0ReadData;           // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
+        //3'b110:     wDataReg <= wMemAccess;              // feito pelo PA
         default:    wDataReg <= 32'b0;
     endcase
 

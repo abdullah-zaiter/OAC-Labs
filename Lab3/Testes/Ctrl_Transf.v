@@ -22,14 +22,19 @@ always @ ( * ) begin
                 `BRANCH_GE,
                 `BRANCH_LTU,
                 `BRANCH_GEU:
-                   if(iZero == 1'b0) // Se zero = 0, temos que rs1 == rs2
+                    if(iZero == 1'b0) // Se zero = 0, temos que rs1 == rs2
                         oCTransf = 2'b01;
+                    else begin
+                        oCTransf = 2'b00;
+                    end
               endcase
             end
         2'b10:// 10 -> Jal
             oCTransf = 2'b10;
         2'b11:// 11 -> Jalr
             oCTransf = 2'b11;
+        default:
+            oCTransf = 2'b00;
     endcase
 end
 
