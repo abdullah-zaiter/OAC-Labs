@@ -21,6 +21,15 @@ parameter
 	OPC_BRANCH     = 7'b1100011,
 	OPC_JALR       = 7'b1100111,
 	OPC_JAL        = 7'b1101111,
+
+	F3_LW			= 3'b010,
+	F3_LH			= 3'b001,
+	F3_LHU			= 3'b101,
+	F3_LB			= 3'b000,
+	F3_LBU			= 3'b100,
+	F3_SW			= 3'b010,
+	F3_SH			= 3'b001,
+	F3_SB			= 3'b000,
 // controle da ula pra ula, tipo de operacao
 		OPAND		= 5'd0,
 		OPOR		= 5'd1,
@@ -43,7 +52,31 @@ parameter
 		OPDIVU	= 5'd18,
 		OPREM		= 5'd19,
 		OPREMU	= 5'd20,
-        
+
+		OPCLUI = 1'b0,
+		FUNSLL = 10'b0,   
+		FUNSRL = 10'b0,   
+		FUNSRA = 10'b0,  
+		FUNADD = 10'b0,
+		FUNSUB = 10'b0,
+		FUNAND = 10'b0,
+		FUNOR = 10'b0,
+		FUNXOR = 10'b0,
+		FUNSLT = 10'b0,
+		FUNSLTU = 10'b0,
+
+		FUNADDI   = 10'b0,
+		FUNSLTI   = 10'b0,
+		FUNSLTIU  = 10'b0,
+		FUNANDI   = 10'b0,
+		FUNORI    = 10'b0,
+
+		FUNXORI   = 10'b0,
+		FUNSLLI   = 10'b0,
+		FUNSRLI   = 10'b0,
+		FUNSRAI   = 10'b0,
+		
+
 
 // Interpretação do campo funct3 para a Unidade Lógica e Aritmética
 	ALU_ADD_SUB    = 3'b000,
@@ -56,12 +89,12 @@ parameter
 	ALU_AND        = 3'b111,
 
 // Interpretação do campo funct3 para Branches
-	F3BEQ     =  3'b000,
-	F3BNE     =  3'b001,
-	F3BLT     =  3'b100,
-	F3BGE     =  3'b101,
-	F3BLTU    =  3'b110,
-	F3BGEU    =  3'b111,
+	F3_BEQ     =  3'b000,
+	F3_BNE     =  3'b001,
+	F3_BLT     =  3'b100,
+	F3_BGE     =  3'b101,
+	F3_BLTU    =  3'b110,
+	F3_BGEU    =  3'b111,
 
 // Valor inicial de pc
 	INITIAL_PC    =  32'b0,

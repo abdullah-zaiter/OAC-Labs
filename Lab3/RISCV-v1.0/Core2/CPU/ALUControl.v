@@ -28,17 +28,17 @@ begin
             oControlSignal  = OPADD;
         2'b01: //condições de branch
 			case (iFunct3)
-				F3BEQ:
+				F3_BEQ:
 					oControlSignal  = OPSUB;
-				F3BNE:
+				F3_BNE:
 					oControlSignal  = OPSUB;
-				F3BGE:
+				F3_BGE:
 					oControlSignal  = OPSLT;
-				F3BGEU:
+				F3_BGEU:
 					oControlSignal  = OPSLTU;
-				F3BLT:
+				F3_BLT:
 					oControlSignal  = OPSLT;
-				F3BLTU:
+				F3_BLTU:
 					oControlSignal  = OPSLTU;
 				default:
 					oControlSignal  = 5'b00000;

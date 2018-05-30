@@ -18,7 +18,7 @@ module control (
 always @ ( * ) begin
     case (opc[6:0]) // Opcode
         OPC_OP:      // Opcodes do tipo R
-            begin
+        begin
 					OrigALU = 1'b0;
 					MemparaReg = 3'b000;
 					EscreveReg = 1'b1;

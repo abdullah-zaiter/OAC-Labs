@@ -27,10 +27,10 @@ module Datapath_UNI (
 
     output wire        wCRegWrite,
     output wire [1:0]  wCRegDst,wCALUOp,wCOrigALU,
-    output wire [1:0]  wCOrigPC, wCTransf,
-    output wire wOPBJ,
+    output wire [1:0]  wCOrigPC,
+    output wire wOPBJ, wCTransf,
     
-    output wire [2:0]  wCMem2Reg,
+    output wire [1:0]  wCMem2Reg,
 	 
 	 output wire [31:0] wBRReadA,
 	 output wire [31:0] wBRReadB,
@@ -276,7 +276,7 @@ Ctrl_Transf CtrlT(
 MemStore MemStore0 (
     .iAlignment(wALUresult[1:0]),
     .iWriteTypeF(STORE_TYPE_DUMMY),
-    .iOpcode(wOpcode),
+    .iFunct3(wFunct3),
     .iData(wRead2),
     .oData(wMemStore),
     .oByteEnable(wMemEnableStore),
@@ -294,20 +294,15 @@ assign DwAddress        = wALUresult;
 MemLoad MemLoad0 (
     .iAlignment(wALUresult[1:0]),
     .iLoadTypeF(LOAD_TYPE_DUMMY),
-    .iOpcode(wOpcode),
+    .iFunct3(wFunct3),
     .iData(wReadData),
     .oData(wMemAccess),
     .oException()
 	);
 
 /* Unidade de Controle */
-Control_UNI CtrUNI (
-    .iCLK(iCLK),
+Controle CtrUNI (
     .iOp(wOpcode),
-    .iFunct7(wFunct7),
-    .iFunct3(wFunct3),
-    .iFmt(wFmt),                        //porra eh essa
-    .iBranchC1(wBranchC1),              // porra eh essa
     .oRegDst(wCRegDst),
     .oOrigALU(wCOrigALU),
     .oOPBJ(wOPBJ),
@@ -317,55 +312,6 @@ Control_UNI CtrUNI (
     .oEscreveMem(wCMemWrite),
     .oOpALU(wCALUOp),
     .oOrigPC(wCOrigPC),
-    .oEscreveRegFPU(wCRegWriteFPU),
-    .oRegDstFPU(wCRegDstFPU),
-    .oFPUparaMem(wCFPUparaMem),
-    .oDataRegFPU(wCDataRegFPU),
-    .oFPFlagWrite(wCFPFlagWrite),
-    // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
-    .iExcLevel(wCOP0ExcLevel),
-    .iALUOverflow(wOverflow),       //NAO TEM NO RISCV, ate agr pelo menos
-    .iFPALUOverflow(wOverflowFPU),
-    .iFPALUUnderflow(wUnderflowFPU),
-    .iFPALUNaN(wNanFPU),
-    .iUserMode(wCOP0UserMode),    // para detectar instrucoes reservadas
-    .iPendingInterrupt(wCOP0InterruptMask),
-    .oEscreveRegCOP0(wCRegWriteCOP0),
-    .oEretCOP0(wCEretCOP0),
-    .oExcOccurredCOP0(wCExcOccurredCOP0),
-    .oBranchDelayCOP0(wCBranchDelayCOP0),
-    .oExcCodeCOP0(wCExcCodeCOP0),
-    .iRt(wAddrRt)                 //      // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
-	);
-
-// feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
-/* Banco de registradores do Coprocessador 0 */
-COP0RegistersUNI cop0reg (
-    .iCLK(iCLK),
-    .iCLR(iRST),
-
-    // register file interface
-    .iReadRegister(wAddrRd),
-    .iWriteRegister(wAddrRd),
-    .iWriteData(wDataRegCOP0),
-    .iRegWrite(wCRegWriteCOP0),
-    .oReadData(wCOP0ReadData),
-
-    // eret interface
-    .iEret(wCEretCOP0),
-
-    // COP0 interface
-    .iExcOccurred(wCExcOccurredCOP0),
-    .iBranchDelay(wCBranchDelayCOP0),
-    .iPendingInterrupt(iPendingInterrupt),
-    .iExcCode(wCExcCodeCOP0),
-    .oInterruptMask(wCOP0InterruptMask),
-    .oUserMode(wCOP0UserMode),
-    .oExcLevel(wCOP0ExcLevel),
-
-    // DE2-70 interface
-    .iRegDispSelect(wRegDispSelect),
-    .oRegDisp(wRegDispCOP0)
 	);
 
 
@@ -384,11 +330,7 @@ always @(*)
 /*Decide o que entrara na segunda entrada da ULA*/
 always @(*)
     case(wCOrigALU)
-        //2'b00:      wOrigALU <= wRead2;
-        //2'b01:      wOrigALU <= wExtImm;
-        //2'b10:      wOrigALU <= wExtZeroImm;
-        //2'b11:      wOrigALU <= 5'b00000;     //adicionado em 1/2016 para implementação dos branchs
-		1'b0:
+       	1'b0:
             wOrigALU <= wRead2;
         1'b1:
             wOrigALU <= wImm;
@@ -410,43 +352,22 @@ end
 
 always @(*)
 begin
-    if (wCExcOccurredCOP0)                              // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
-        wiPC <= BEGINNING_KTEXT;                         //.ktext
-    else
-    begin
-        case(wCTransf)//(wCOrigPC)
-            2'b00://normal
-                wiPC <= wPC4;
-            2'b01://Branch
-                wiPC <= wMuxPC + wImm;
-            2'b10://JAL
-                wiPC <= wMuxPC + wImm;
-            2'b11://JALR
-                wiPC <= wMuxPC + wImm;
-            // 3'b000:     wiPC <= wPC4;
-            // 3'b001:     wiPC <= wZero ? wBranchPC: wPC4;
-            // 3'b010:     wiPC <= wJumpAddr;
-            // 3'b011:     wiPC <= wRead1;
-            //3'b100:     wiPC <= wCOP0ReadData;           // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0). instrucao eret
-            //3'b101:     wiPC <= ~wZero ? wBranchPC: wPC4;
-            //3'b110:     wiPC <= wSelectedFlagValue ? wBranchPC : wPC4;
-            //3'b111:     wiPC <= ~wSelectedFlagValue ? wBranchPC : wPC4;
-			default:		wiPC <= wPC4;
-        endcase
-    end
+    case(wCTransf)//(wCOrigPC)
+        1'b0://normal
+            wiPC <= wPC4;
+        1'b1://BRANCH JAL JALR
+            wiPC <= wMuxPC + wImm;
+        default:		wiPC <= wPC4;
+    endcase
 end
 
 /*Decide o que sera escrito no banco de registradores*/
 always @(*)
     case(wCMem2Reg)
-        3'b000:     wDataReg <= wALUresult;
-        3'b001:     wDataReg <= wReadData;//                    32'hE0E0E0E0;            //wReadData;  // Slot vago, LW foi passada para wMemAcess
-        3'b010:     wDataReg <= wPC4;
-        3'b011:     wDataReg <= wiPC;//                         {wImm, 16'b0};              
-        3'b100:     wDataReg <= wiPC;//AUIPC
-        //wRead1FPU;
-        //3'b101:     wDataReg <= wCOP0ReadData;           // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
-        //3'b110:     wDataReg <= wMemAccess;              // feito pelo PA
+        2'b00:     wDataReg <= wALUresult;
+        2'b01:     wDataReg <= wReadData;//                    32'hE0E0E0E0;            //wReadData;  // Slot vago, LW foi passada para wMemAcess
+        2'b10:     wDataReg <= wPC4;
+        2'b11:     wDataReg <= wiPC;//wIPC + AUIPC
         default:    wDataReg <= 32'b0;
     endcase
 
