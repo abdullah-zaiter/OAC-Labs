@@ -48,7 +48,7 @@ begin
 		OPSRA:
 			oResult  = iA >>> iB[4:0];
 		OPLUI:
-			oResult  = {iA[31:12],12'b0};
+			oResult  = iB;
 		OPBEQ:
 			oResult = iA == iB; 
 		OPBNE:
