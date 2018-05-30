@@ -17,30 +17,19 @@ parameter
 		OPSLL		= 5'b01001,					//9
 		OPSRL		= 5'b01010,					//10
 		OPSRA		= 5'b01011,					//11
-		OPBEQ    = 5'b01100,					//12
-		OPBNE    = 5'b01101,					//13
-		OPLUI    = 5'b01110,					//14
+		OPLUI    = 5'b01100,					//12
 
 /* Campo FUNCT */
-    FUNSLL      = 10'h001,
-    FUNSRL      = 10'h005,
-    FUNSRA      = 10'h105,
-    FUNADD      = 10'h000,
-    FUNSUB      = 10'h100,
-    FUNAND      = 10'h007,
-    FUNOR       = 10'h006,
-    FUNXOR      = 10'h004,
-    FUNSLT      = 10'h002,
-    FUNSLTU     = 10'h003,
-	 FUNSLLI     = 10'h001,
-    FUNSRLI     = 10'h005,
-    FUNSRAI     = 10'h105,
-    FUNADDI     = 3'h0,
-	 FUNANDI     = 3'h7,
-    FUNORI      = 3'h6,
-    FUNXORI     = 3'h4,
-    FUNSLTI     = 3'h2,
-    FUNSLTIU    = 3'h3,
+    FUNADD      = 3'h0,
+	 FUNAND      = 3'h7,
+    FUNOR       = 3'h6,
+    FUNXOR      = 3'h4,
+    FUNSLT      = 3'h2,
+    FUNSLTU     = 3'h3,
+	 FUNSLL      = 3'h1,
+	 FUNSRLeSRA  = 3'h5,
+	 FUN7SRA     = 7'h00,
+	 FUN7SRL     = 7'h20,
 	 FUNBEQ		 = 3'h0,
 	 FUNBNE		 = 3'h1,
 	 FUNBGE		 = 3'h5,
@@ -50,6 +39,7 @@ parameter
 	 
 /* Campo OPCODE */
 	
+<<<<<<< Updated upstream
 	 OPCLUI       = 6'h37,
 	
 /* Memory access types ***********************************************************************************************/
@@ -213,5 +203,7 @@ parameter
 	  
 	  //Adicionados em 2/2016 (Grupo 2)
 	  RM				  = 6'd61,
+=======
+>>>>>>> Stashed changes
 
 	  ERRO            = 6'd63;  // Estado de Erro
