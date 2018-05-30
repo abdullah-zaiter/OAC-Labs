@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Failed - Mon May 28 22:17:05 2018
+Analysis & Synthesis Status : Failed - Wed May 30 16:48:21 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : Teste
-Top-level Entity Name : ALUControl
+Top-level Entity Name : Ctrl_Transf
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge

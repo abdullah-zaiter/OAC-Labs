@@ -3,86 +3,74 @@
  *
  */
 
-`ifndef PARAM
-	`include "Parametros.v"
-`endif
- 
 module ALU (
 	input [4:0] iControl,
 	input signed [31:0] iA, 
 	input signed [31:0] iB,
 	output reg oZero,
-	output reg [31:0] oResult
+	output reg [31:0] oALUresult
 	);
 
 //wire [4:0] iControl=OPLUI;
 
-assign oZero = (oResult == ZERO);
+assign oZero = (oALUresult == ZERO);
 
 wire [63:0] aux;
 always @(*)
 begin
     case (iControl)
 		OPAND:
-			oResult  = iA & iB;
+			oALUresult  = iA & iB;
 		OPOR:
-			oResult  = iA | iB;
+			oALUresult  = iA | iB;
 		OPXOR:
-			oResult  = iA ^ iB;
+			oALUresult  = iA ^ iB;
 		OPADD:
-			oResult  = iA + iB;
+			oALUresult  = iA + iB;
 		OPSUB:
-			oResult  = iA - iB;
+			oALUresult  = iA - iB;
 		OPSLT:
-			oResult  = iA < iB;
+			oALUresult  = iA < iB;
 		OPSLTU:
-			oResult  = $unsigned(iA) < $unsigned(iB);
-		OPGE:
-			oResult = iA >= iB;
-		OPGEU:
-			oResult  = $unsigned(iA) >= $unsigned(iB);
+			oALUresult  = $unsigned(iA) < $unsigned(iB);
 		OPSLL:
-			oResult  = iA << iB[4:0];
+			oALUresult  = iA << iB[4:0];
 		OPSRL:
-			oResult  = iA >> iB[4:0];
+			oALUresult  = iA >> iB[4:0];
 		OPSRA:
-			oResult  = iA >>> iB[4:0];
+			oALUresult  = iA >>> iB[4:0];
 		OPLUI:
-			oResult  = iB;
-		OPBEQ:
-			oResult = iA == iB; 
-		OPBNE:
-			oResult = iA != iB; 
+			oALUresult  = iB;
 		OPMUL:
 		begin
 			aux = (iA*iB);
-			oResult  = aux[31:0];
+			oALUresult  = aux[31:0];
 		end
 		OPMULH:
 		begin
 			aux = (iA*iB);
-			oResult  = aux[63:32];
+			oALUresult  = aux[63:32];
 		end
 		OPMULHU:
 		begin
 			aux = ($unsigned(iA)*$unsigned(iB));
-			oResult  = aux[63:32];
+			oALUresult  = aux[63:32];
 		end
 		OPMULHSU:
 		begin
 			aux = ($unsigned(iA)*iB);
-			oResult  = aux[63:32];	
+			oALUresult  = aux[63:32];	
 		end
 		OPDIV:
-			oResult  = iA / iB;
+			oALUresult  = iA / iB;
 		OPDIVU:
-			oResult  = $unsigned(iA) / $unsigned(iB);
+			oALUresult  = $unsigned(iA) / $unsigned(iB);
 		OPREM:
-			oResult  = iA % iB;
+			oALUresult  = iA % iB;
 		OPREMU:
-			oResult  = $unsigned(iA) % $unsigned(iB);
+			oALUresult  = $unsigned(iA) % $unsigned(iB);
 		default:
-			oResult  = ZERO;
+			oALUresult  = ZERO;
     endcase
 end
 

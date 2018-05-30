@@ -15,11 +15,12 @@
 
 module ALUControl (
 	input wire [5:0] iOpcode,
-	input wire [9:0] iFunct,
+	input wire [9:0] iFunct,// COLOCAR iFunct7
 	input wire [2:0] iFunct3,
 	input wire [1:0] iALUOp,
 	output reg [4:0] oControlSignal
 	);
+	
 	
 always @(*)
 begin

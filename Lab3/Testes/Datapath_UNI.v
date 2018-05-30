@@ -12,7 +12,7 @@ module Datapath_UNI (
     input  wire [31:0] iInitialPC,
 
     // Para monitoramento
-    output wire [31:0] wPC, woInstr, wMuxPC
+    output wire [31:0] wPC, woInstr, wMuxPC,
     output wire [31:0] wRegDisp, wRegDispCOP0,
     input  wire [4:0]  wRegDispSelect,
     output wire [31:0] wDebug,
@@ -245,7 +245,6 @@ ALUControl ALUControlunit (
     .iFunct3(wFunct3),
     .iFunct7(wFunct7),
     .iOpcode(wOpcode),
-    //.iRt(wAddrRt),          // 1/2016, Implementar intruções bgez, bgezal, bgltz, bltzal.
     .iALUOp(wCALUOp),
     .oControlSignal(wALUControl)
 	);
@@ -263,7 +262,7 @@ ALU ALUunit(
 	);
 
 Imm_Generator ImmGen(
-    .inst(wInstr)
+    .inst(wInstr),
     .wImm(wImm), // TODO ver se funfa assim
 	);
 

@@ -28,52 +28,54 @@ begin
             oControlSignal  = OPADD;
         2'b01: //condições de branch
 			case (iFunct3)
-				FUNBEQ:
-					oControlSignal  = OPBEQ;
-				FUNBNE:
-					oControlSignal  = OPBNE;
-				FUNBGE:
-					oControlSignal  = OPGE;
-				FUNBGEU:
-					oControlSignal  = OPGEU;
-				FUNBLT:
+				F3BEQ:
+					oControlSignal  = OPSUB;
+				F3BNE:
+					oControlSignal  = OPSUB;
+				F3BGE:
 					oControlSignal  = OPSLT;
-				FUNBLTU:
+				F3BGEU:
+					oControlSignal  = OPSLTU;
+				F3BLT:
+					oControlSignal  = OPSLT;
+				F3BLTU:
 					oControlSignal  = OPSLTU;
 				default:
 					oControlSignal  = 5'b00000;
 			endcase	 
         2'b10:
-				case (iOpcode)
-					 OPCLUI:
-							oControlSignal = OPLUI;
-					 default:
-                    oControlSignal  = 5'b00000;
-				endcase
-            case (iFunct)
-                FUNSLL:
-                    oControlSignal  = OPSLL;
-                FUNSRL:
-                    oControlSignal  = OPSRL;
-                FUNSRA:
-                    oControlSignal  = OPSRA;
-                FUNADD:
-                    oControlSignal  = OPADD;
-                FUNSUB:
-                    oControlSignal  = OPSUB;
-                FUNAND:
-                    oControlSignal  = OPAND;
-                FUNOR:
-                    oControlSignal  = OPOR;
-                FUNXOR:
-                    oControlSignal  = OPXOR;
-                FUNSLT:
-                    oControlSignal  = OPSLT;
-                FUNSLTU:
-                    oControlSignal  = OPSLTU;
-                default:
-                    oControlSignal  = 5'b00000;
-            endcase
+			begin
+					case (iOpcode)
+						 OPCLUI:
+								oControlSignal = OPLUI;
+						 default:
+							  oControlSignal  = 5'b00000;
+					endcase
+					case (iFunct)
+						 FUNSLL:
+							  oControlSignal  = OPSLL;
+						 FUNSRL:
+							  oControlSignal  = OPSRL;
+						 FUNSRA:
+							  oControlSignal  = OPSRA;
+						 FUNADD:
+							  oControlSignal  = OPADD;
+						 FUNSUB:
+							  oControlSignal  = OPSUB;
+						 FUNAND:
+							  oControlSignal  = OPAND;
+						 FUNOR:
+							  oControlSignal  = OPOR;
+						 FUNXOR:
+							  oControlSignal  = OPXOR;
+						 FUNSLT:
+							  oControlSignal  = OPSLT;
+						 FUNSLTU:
+							  oControlSignal  = OPSLTU;
+						 default:
+							  oControlSignal  = 5'b00000;
+					endcase
+				end
         2'b11:
 			begin
 				case (iFunct3)
