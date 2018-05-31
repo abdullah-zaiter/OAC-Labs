@@ -1,0 +1,3 @@
+
+
+vlog "D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Tempo/PLL_Main_sim/PLL_Main.vo"

@@ -5,7 +5,7 @@
 //`define PIPELINE //FPU esta incompleta
 
 // Define se a FPU será sintetizada ou não
-`define FPU
+//`define FPU
 
 /*   ******************  Historico ***********************
  Top Level para processador MIPS UNICICLO v0 baseado no processador desenvolvido por
