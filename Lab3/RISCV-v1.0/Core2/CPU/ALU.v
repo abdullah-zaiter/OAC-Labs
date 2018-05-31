@@ -40,11 +40,7 @@ begin
 		OPSRA:
 			oALUresult  = iA >>> iB[4:0];
 		OPLUI:
-<<<<<<< Updated upstream
 			oALUresult  = iB;
-=======
-			oResult  = iB; 
->>>>>>> Stashed changes
 		OPMUL:
 		begin
 			aux = (iA*iB);

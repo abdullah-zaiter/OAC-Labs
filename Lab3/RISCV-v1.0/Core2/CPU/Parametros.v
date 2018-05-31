@@ -54,53 +54,30 @@ parameter
 		OPREMU	= 5'd20,
 
 		OPCLUI = 1'b0,
-		FUNSLL = 10'b0,   
-		FUNSRL = 10'b0,   
-		FUNSRA = 10'b0,  
-		FUNADD = 10'b0,
-		FUNSUB = 10'b0,
-		FUNAND = 10'b0,
-		FUNOR = 10'b0,
-		FUNXOR = 10'b0,
-		FUNSLT = 10'b0,
-		FUNSLTU = 10'b0,
-
-		FUNADDI   = 10'b0,
-		FUNSLTI   = 10'b0,
-		FUNSLTIU  = 10'b0,
-		FUNANDI   = 10'b0,
-		FUNORI    = 10'b0,
-
-		FUNXORI   = 10'b0,
-		FUNSLLI   = 10'b0,
-		FUNSRLI   = 10'b0,
-		FUNSRAI   = 10'b0,
-		
-
 
 // Interpretação do campo funct3 para a Unidade Lógica e Aritmética
-	FUNADD         = 3'b000,
-	FUNSUB			= 3'b000,
-	FUNSLL         = 3'b001,
-	FUNSLT         = 3'b010,
-	FUNSLTU        = 3'b011,
-	FUNXOR         = 3'b100,
-	FUNSRLeSRA     = 3'b101,
-	FUNOR          = 3'b110,
-	FUNAND         = 3'b111,
+	F3_ADD         = 3'b000,
+	F3_SUB			= 3'b000,
+	F3_SLL         = 3'b001,
+	F3_SLT         = 3'b010,
+	F3_SLTU        = 3'b011,
+	F3_XOR         = 3'b100,
+	F3_SRLeSRA     = 3'b101,
+	F3_OR          = 3'b110,
+	F3_AND         = 3'b111,
 
 // Interpretação do campo funct7 para a Unidade Lógica e Aritmética
 
-   FUN7SRA        = 7'b0100000,
-   FUN7SRL        = 7'b0000000,	
+   F7_SRA        = 7'b0100000,
+   F7_SRL        = 7'b0000000,	
 	
 // Interpretação do campo funct3 para Branches
-	F3BEQ     =  3'b000,
-	F3BNE     =  3'b001,
-	F3BLT     =  3'b100,
-	F3BGE     =  3'b101,
-	F3BLTU    =  3'b110,
-	F3BGEU    =  3'b111,
+	F3_BEQ     =  3'b000,
+	F3_BNE     =  3'b001,
+	F3_BLT     =  3'b100,
+	F3_BGE     =  3'b101,
+	F3_BLTU    =  3'b110,
+	F3_BGEU    =  3'b111,
 
 // Valor inicial de pc
 	INITIAL_PC    =  32'b0,
@@ -274,10 +251,3 @@ parameter
 	  RM				  = 6'd61,
 
 	  ERRO            = 6'd63;  // Estado de Erro
-
-	F3_BEQ     =  3'b000,
-	F3_BNE     =  3'b001,
-	F3_BLT     =  3'b100,
-	F3_BGE     =  3'b101,
-	F3_BLTU    =  3'b110,
-	F3_BGEU    =  3'b111,

@@ -45,30 +45,30 @@ begin
 			endcase	 
         2'b10:
             case (iFunct3)
-                FUNSLL:
+                F3_SLL:
                     oControlSignal  = OPSLL;
-                FUNSRLeSRA:
+                F3_SRLeSRA:
 						  case (iFunct7)
-								FUN7SRA:
+								F7_SRA:
 									oControlSignal  = OPSRA;
-								FUN7SRL:
+								F7_SRL:
 									oControlSignal  = OPSRL;
 								default:
 									oControlSignal  = 5'b00000;
 						  endcase    
-                FUNADD:
+                F3_ADD:
                     oControlSignal  = OPADD;
-                FUNSUB:
+                F3_SUB:
                     oControlSignal  = OPSUB;
-                FUNAND:
+                F3_AND:
                     oControlSignal  = OPAND;
-                FUNOR:
+                F3_OR:
                     oControlSignal  = OPOR;
-                FUNXOR:
+                F3_XOR:
                     oControlSignal  = OPXOR;
-                FUNSLT:
+                F3_SLT:
                     oControlSignal  = OPSLT;
-                FUNSLTU:
+                F3_SLTU:
                     oControlSignal  = OPSLTU;
                 default:
                     oControlSignal  = 5'b00000;
