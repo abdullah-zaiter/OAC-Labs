@@ -79,22 +79,28 @@ parameter
 
 
 // Interpretação do campo funct3 para a Unidade Lógica e Aritmética
-	ALU_ADD_SUB    = 3'b000,
-	ALU_SLL        = 3'b001,
-	ALU_SLT        = 3'b010,
-	ALU_SLTU       = 3'b011,
-	ALU_XOR        = 3'b100,
-	ALU_SHIFTR     = 3'b101,
-	ALU_OR         = 3'b110,
-	ALU_AND        = 3'b111,
+	FUNADD         = 3'b000,
+	FUNSUB			= 3'b000,
+	FUNSLL         = 3'b001,
+	FUNSLT         = 3'b010,
+	FUNSLTU        = 3'b011,
+	FUNXOR         = 3'b100,
+	FUNSRLeSRA     = 3'b101,
+	FUNOR          = 3'b110,
+	FUNAND         = 3'b111,
 
+// Interpretação do campo funct7 para a Unidade Lógica e Aritmética
+
+   FUN7SRA        = 7'b0100000,
+   FUN7SRL        = 7'b0000000,	
+	
 // Interpretação do campo funct3 para Branches
-	F3_BEQ     =  3'b000,
-	F3_BNE     =  3'b001,
-	F3_BLT     =  3'b100,
-	F3_BGE     =  3'b101,
-	F3_BLTU    =  3'b110,
-	F3_BGEU    =  3'b111,
+	F3BEQ     =  3'b000,
+	F3BNE     =  3'b001,
+	F3BLT     =  3'b100,
+	F3BGE     =  3'b101,
+	F3BLTU    =  3'b110,
+	F3BGEU    =  3'b111,
 
 // Valor inicial de pc
 	INITIAL_PC    =  32'b0,
@@ -268,3 +274,10 @@ parameter
 	  RM				  = 6'd61,
 
 	  ERRO            = 6'd63;  // Estado de Erro
+
+	F3_BEQ     =  3'b000,
+	F3_BNE     =  3'b001,
+	F3_BLT     =  3'b100,
+	F3_BGE     =  3'b101,
+	F3_BLTU    =  3'b110,
+	F3_BGEU    =  3'b111,
