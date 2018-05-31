@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISCV
-Thu May 31 00:47:07 2018
+Thu May 31 12:54:47 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -102,7 +102,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 31 00:47:07 2018       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 31 12:54:47 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; RISCV                                       ;
 ; Top-level Entity Name           ; TopDE                                       ;
@@ -307,6 +307,7 @@ refer to the applicable agreement for further details.
 ; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altdpram.inc                                            ;             ;
 ; db/altsyncram_2ns1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_2ns1.tdf                                             ;             ;
 ; db/altsyncram_e1j2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_e1j2.tdf                                             ;             ;
+; de1_data.mif                                                       ; yes             ; Auto-Found Memory Initialization File        ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_data.mif                                                       ;             ;
 ; sld_mod_ram_rom.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd                                     ;             ;
 ; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                           ;             ;
 ; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                       ;             ;
@@ -317,6 +318,7 @@ refer to the applicable agreement for further details.
 ; db/altsyncram_q2k2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_q2k2.tdf                                             ;             ;
 ; db/altsyncram_ups1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_ups1.tdf                                             ;             ;
 ; db/altsyncram_53j2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_53j2.tdf                                             ;             ;
+; de1_text.mif                                                       ; yes             ; Auto-Found Memory Initialization File        ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_text.mif                                                       ;             ;
 ; db/altsyncram_qss1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_qss1.tdf                                             ;             ;
 ; db/altsyncram_46j2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_46j2.tdf                                             ;             ;
 ; db/altsyncram_noo2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_noo2.tdf                                             ;             ;
@@ -478,9 +480,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------+--------------------------+
 ; CodeMemory_Interface:MEMCODE|BootBlock:BB0|altsyncram:altsyncram_component|altsyncram_oki1:auto_generated|altsyncram_q2k2:altsyncram1|ALTSYNCRAM                                                                                                 ; AUTO ; True Dual Port ; 128          ; 32           ; 128          ; 32           ; 4096   ; None                     ;
 ; CodeMemory_Interface:MEMCODE|SysCodeBlock:MB1|altsyncram:altsyncram_component|altsyncram_qss1:auto_generated|altsyncram_46j2:altsyncram1|ALTSYNCRAM                                                                                              ; AUTO ; True Dual Port ; 2048         ; 32           ; 2048         ; 32           ; 65536  ; None                     ;
-; CodeMemory_Interface:MEMCODE|UserCodeBlock:MB0|altsyncram:altsyncram_component|altsyncram_ups1:auto_generated|altsyncram_53j2:altsyncram1|ALTSYNCRAM                                                                                             ; AUTO ; True Dual Port ; 4096         ; 32           ; 4096         ; 32           ; 131072 ; None                     ;
+; CodeMemory_Interface:MEMCODE|UserCodeBlock:MB0|altsyncram:altsyncram_component|altsyncram_ups1:auto_generated|altsyncram_53j2:altsyncram1|ALTSYNCRAM                                                                                             ; AUTO ; True Dual Port ; 4096         ; 32           ; 4096         ; 32           ; 131072 ; de1_text.mif             ;
 ; DataMemory_Interface:MEMDATA|SysDataBlock:MB1|altsyncram:altsyncram_component|altsyncram_fqs1:auto_generated|altsyncram_94j2:altsyncram1|ALTSYNCRAM                                                                                              ; AUTO ; True Dual Port ; 1024         ; 32           ; 1024         ; 32           ; 32768  ; None                     ;
-; DataMemory_Interface:MEMDATA|UserDataBlock:MB0|altsyncram:altsyncram_component|altsyncram_2ns1:auto_generated|altsyncram_e1j2:altsyncram1|ALTSYNCRAM                                                                                             ; AUTO ; True Dual Port ; 2048         ; 32           ; 2048         ; 32           ; 65536  ; None                     ;
+; DataMemory_Interface:MEMDATA|UserDataBlock:MB0|altsyncram:altsyncram_component|altsyncram_2ns1:auto_generated|altsyncram_e1j2:altsyncram1|ALTSYNCRAM                                                                                             ; AUTO ; True Dual Port ; 2048         ; 32           ; 2048         ; 32           ; 65536  ; de1_data.mif             ;
 ; Sintetizador_Interface:Sintetizador0|Sintetizador:S1|PolyphonicSynthesizer:synth|NoteInfoDatabase:noteInfoDatabase|NoteTable:noteTable|altsyncram:altsyncram_component|altsyncram_ehf1:auto_generated|ALTSYNCRAM                                 ; AUTO ; ROM            ; 128          ; 16           ; --           ; --           ; 2048   ; ./Sintetizador/notes.mif ;
 ; Sintetizador_Interface:Sintetizador0|Sintetizador:S1|PolyphonicSynthesizer:synth|SampleSynthesizer:sampleSynthesizer|SineCalculator:sineCalculator|SineTable:sineTable|altsyncram:altsyncram_component|altsyncram_agf1:auto_generated|ALTSYNCRAM ; AUTO ; ROM            ; 1024         ; 16           ; --           ; --           ; 16384  ; ./Sintetizador/sine.mif  ;
 ; VGA_Interface:VGA0|VgaAdapter:VGA0|MemoryVGA:memVGA|altsyncram:altsyncram_component|altsyncram_noo2:auto_generated|ALTSYNCRAM                                                                                                                    ; AUTO ; True Dual Port ; 19200        ; 32           ; 19200        ; 32           ; 614400 ; ./VGA/gba.mif            ;
@@ -2956,7 +2958,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -2966,7 +2968,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 31 00:46:24 2018
+    Info: Processing started: Thu May 31 12:54:10 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISCV -c RISCV
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -3293,7 +3295,8 @@ Info (12128): Elaborating entity "altsyncram_2ns1" for hierarchy "DataMemory_Int
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_e1j2.tdf
     Info (12023): Found entity 1: altsyncram_e1j2 File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_e1j2.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_e1j2" for hierarchy "DataMemory_Interface:MEMDATA|UserDataBlock:MB0|altsyncram:altsyncram_component|altsyncram_2ns1:auto_generated|altsyncram_e1j2:altsyncram1" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_2ns1.tdf Line: 37
-Critical Warning (127003): Can't find Memory Initialization File or Hexadecimal (Intel-Format) File D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_data.mif -- setting all initial values to 0 File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Memoria/UserDataBlock.v Line: 88
+Warning (113028): 2048 out of 2048 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_data.mif Line: 1
+    Warning (113027): Addresses ranging from 0 to 2047 are not initialized File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_data.mif Line: 1
 Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "DataMemory_Interface:MEMDATA|UserDataBlock:MB0|altsyncram:altsyncram_component|altsyncram_2ns1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_2ns1.tdf Line: 38
 Info (12130): Elaborated megafunction instantiation "DataMemory_Interface:MEMDATA|UserDataBlock:MB0|altsyncram:altsyncram_component|altsyncram_2ns1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_2ns1.tdf Line: 38
 Info (12133): Instantiated megafunction "DataMemory_Interface:MEMDATA|UserDataBlock:MB0|altsyncram:altsyncram_component|altsyncram_2ns1:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_2ns1.tdf Line: 38
@@ -3409,7 +3412,8 @@ Info (12128): Elaborating entity "altsyncram_ups1" for hierarchy "CodeMemory_Int
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_53j2.tdf
     Info (12023): Found entity 1: altsyncram_53j2 File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_53j2.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_53j2" for hierarchy "CodeMemory_Interface:MEMCODE|UserCodeBlock:MB0|altsyncram:altsyncram_component|altsyncram_ups1:auto_generated|altsyncram_53j2:altsyncram1" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_ups1.tdf Line: 37
-Critical Warning (127003): Can't find Memory Initialization File or Hexadecimal (Intel-Format) File D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_text.mif -- setting all initial values to 0 File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Memoria/UserCodeBlock.v Line: 88
+Warning (113028): 4075 out of 4096 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_text.mif Line: 1
+    Warning (113027): Addresses ranging from 21 to 4095 are not initialized File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_text.mif Line: 1
 Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "CodeMemory_Interface:MEMCODE|UserCodeBlock:MB0|altsyncram:altsyncram_component|altsyncram_ups1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_ups1.tdf Line: 38
 Info (12130): Elaborated megafunction instantiation "CodeMemory_Interface:MEMCODE|UserCodeBlock:MB0|altsyncram:altsyncram_component|altsyncram_ups1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_ups1.tdf Line: 38
 Info (12133): Instantiated megafunction "CodeMemory_Interface:MEMCODE|UserCodeBlock:MB0|altsyncram:altsyncram_component|altsyncram_ups1:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_ups1.tdf Line: 38
@@ -3666,7 +3670,7 @@ Info (12133): Instantiated megafunction "Break_Interface:break0|break_lpm_consta
     Info (12134): Parameter "widthad" = "1"
 Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "Break_Interface:break0|break_lpm_constant_kva:brk0|sld_mod_ram_rom:mgl_prim1|sld_rom_sr:\constant_logic_gen:name_gen:info_rom_sr" File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 485
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2018.05.31.00:46:50 Progress: Loading sld95350957/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2018.05.31.12:54:32 Progress: Loading sld95350957/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -3914,11 +3918,11 @@ Info (21057): Implemented 3251 device resources after synthesis - the final reso
     Info (21064): Implemented 287 RAM segments
     Info (21065): Implemented 4 PLLs
     Info (21062): Implemented 11 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 272 warnings
-    Info: Peak virtual memory: 5045 megabytes
-    Info: Processing ended: Thu May 31 00:47:07 2018
-    Info: Elapsed time: 00:00:43
-    Info: Total CPU time (on all processors): 00:01:15
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 274 warnings
+    Info: Peak virtual memory: 5056 megabytes
+    Info: Processing ended: Thu May 31 12:54:47 2018
+    Info: Elapsed time: 00:00:37
+    Info: Total CPU time (on all processors): 00:01:07
 
 
 +------------------------------------------+
