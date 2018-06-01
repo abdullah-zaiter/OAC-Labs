@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISCV
-Thu May 31 12:54:47 2018
+Thu May 31 23:08:13 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -102,7 +102,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 31 12:54:47 2018       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 31 23:08:13 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; RISCV                                       ;
 ; Top-level Entity Name           ; TopDE                                       ;
@@ -234,6 +234,8 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------+
 ; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                   ; Library     ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------+
+; de1_text.mif                                                       ; yes             ; User Memory Initialization File              ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_text.mif                                                       ;             ;
+; de1_data.mif                                                       ; yes             ; User Memory Initialization File              ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_data.mif                                                       ;             ;
 ; Sintetizador/SyscallSynthControl.sv                                ; yes             ; User SystemVerilog HDL File                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Sintetizador/SyscallSynthControl.sv                                ;             ;
 ; Sintetizador/Synthesizer.sv                                        ; yes             ; User SystemVerilog HDL File                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Sintetizador/Synthesizer.sv                                        ;             ;
 ; Sintetizador/SineCalculator.sv                                     ; yes             ; User SystemVerilog HDL File                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Sintetizador/SineCalculator.sv                                     ;             ;
@@ -307,7 +309,6 @@ refer to the applicable agreement for further details.
 ; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altdpram.inc                                            ;             ;
 ; db/altsyncram_2ns1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_2ns1.tdf                                             ;             ;
 ; db/altsyncram_e1j2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_e1j2.tdf                                             ;             ;
-; de1_data.mif                                                       ; yes             ; Auto-Found Memory Initialization File        ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_data.mif                                                       ;             ;
 ; sld_mod_ram_rom.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd                                     ;             ;
 ; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                           ;             ;
 ; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                       ;             ;
@@ -318,7 +319,6 @@ refer to the applicable agreement for further details.
 ; db/altsyncram_q2k2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_q2k2.tdf                                             ;             ;
 ; db/altsyncram_ups1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_ups1.tdf                                             ;             ;
 ; db/altsyncram_53j2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_53j2.tdf                                             ;             ;
-; de1_text.mif                                                       ; yes             ; Auto-Found Memory Initialization File        ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_text.mif                                                       ;             ;
 ; db/altsyncram_qss1.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_qss1.tdf                                             ;             ;
 ; db/altsyncram_46j2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_46j2.tdf                                             ;             ;
 ; db/altsyncram_noo2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/db/altsyncram_noo2.tdf                                             ;             ;
@@ -2968,7 +2968,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 31 12:54:10 2018
+    Info: Processing started: Thu May 31 23:07:35 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISCV -c RISCV
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -3122,8 +3122,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file cpu/haz
     Info (12023): Found entity 1: HazardUnitM File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/HazardUnitM.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/forwardunitm.v
     Info (12023): Found entity 1: ForwardUnitM File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/ForwardUnitM.v Line: 21
-Warning (10275): Verilog HDL Module Instantiation warning at Datapath_UNI.v(267): ignored dangling comma in List of Port Connections File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 267
-Warning (10275): Verilog HDL Module Instantiation warning at Datapath_UNI.v(315): ignored dangling comma in List of Port Connections File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 315
+Warning (10275): Verilog HDL Module Instantiation warning at Datapath_UNI.v(265): ignored dangling comma in List of Port Connections File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 265
+Warning (10275): Verilog HDL Module Instantiation warning at Datapath_UNI.v(312): ignored dangling comma in List of Port Connections File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 312
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/datapath_uni.v
     Info (12023): Found entity 1: Datapath_UNI File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/ctrl_transf.v
@@ -3138,7 +3138,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file cpu/alu
     Info (12023): Found entity 1: ALU File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/ALU.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file topde.v
     Info (12023): Found entity 1: TopDE File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/TopDE.v Line: 193
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_UNI.v(272): created implicit net for "oZero" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 272
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_UNI.v(270): created implicit net for "oZero" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 270
 Info (12127): Elaborating entity "TopDE" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at TopDE.v(374): object "Clock" assigned a value but never read File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/TopDE.v Line: 374
 Warning (10036): Verilog HDL or VHDL warning at TopDE.v(374): object "Clock_25" assigned a value but never read File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/TopDE.v Line: 374
@@ -3670,7 +3670,7 @@ Info (12133): Instantiated megafunction "Break_Interface:break0|break_lpm_consta
     Info (12134): Parameter "widthad" = "1"
 Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "Break_Interface:break0|break_lpm_constant_kva:brk0|sld_mod_ram_rom:mgl_prim1|sld_rom_sr:\constant_logic_gen:name_gen:info_rom_sr" File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 485
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2018.05.31.12:54:32 Progress: Loading sld95350957/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2018.05.31.23:07:57 Progress: Loading sld95350957/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -3919,10 +3919,10 @@ Info (21057): Implemented 3251 device resources after synthesis - the final reso
     Info (21065): Implemented 4 PLLs
     Info (21062): Implemented 11 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 274 warnings
-    Info: Peak virtual memory: 5056 megabytes
-    Info: Processing ended: Thu May 31 12:54:47 2018
-    Info: Elapsed time: 00:00:37
-    Info: Total CPU time (on all processors): 00:01:07
+    Info: Peak virtual memory: 5048 megabytes
+    Info: Processing ended: Thu May 31 23:08:13 2018
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:01:10
 
 
 +------------------------------------------+

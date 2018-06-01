@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim
+vTopDE
+Z1 !s110 1527818211
+!i10b 1
+!s100 ozFSG@iQT<4YQ@dCj732z1
+IOk>MUTT:HR9>iD<n;ZFl00
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1527818209
+8RISCV.vo
+FRISCV.vo
+L0 31
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1527818210.000000
+!s107 RISCV.vo|
+!s90 -work|work|RISCV.vo|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@top@d@e
+vTopDE_vlg_vec_tst
+R1
+!i10b 1
+!s100 OJSf<SRW_l>lM267YmFB63
+Ik;3DQCM8GVoRROEUH>MBo1
+R2
+R0
+w1527818206
+8Waveform2.vwf.vt
+FWaveform2.vwf.vt
+L0 29
+R3
+r1
+!s85 0
+31
+!s108 1527818211.000000
+!s107 Waveform2.vwf.vt|
+!s90 -work|work|Waveform2.vwf.vt|
+!i113 1
+R4
+R5
+n@top@d@e_vlg_vec_tst

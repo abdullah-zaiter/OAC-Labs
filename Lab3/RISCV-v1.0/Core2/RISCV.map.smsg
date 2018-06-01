@@ -8,7 +8,6 @@ Warning (10268): Verilog HDL information at IrDA_receiver.v(160): always constru
 Warning (10268): Verilog HDL information at IrDA_Interface.v(46): always construct contains both blocking and non-blocking assignments File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/IrDA/IrDA_Interface.v Line: 46
 Warning (10268): Verilog HDL information at IrDA_decoder.v(101): always construct contains both blocking and non-blocking assignments File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/IrDA/IrDA_decoder.v Line: 101
 Warning (10273): Verilog HDL warning at Registers.v(55): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Registers.v Line: 55
-Warning (10273): Verilog HDL warning at Datapath_UNI.v(337): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 337
-Warning (10273): Verilog HDL warning at Datapath_UNI.v(394): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 394
-Warning (10273): Verilog HDL warning at Datapath_UNI.v(429): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 429
-Warning (10273): Verilog HDL warning at Control.v(82): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Control.v Line: 82
+Warning (10273): Verilog HDL warning at Datapath_UNI.v(322): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 322
+Warning (10273): Verilog HDL warning at Datapath_UNI.v(379): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 379
+Warning (10273): Verilog HDL warning at Datapath_UNI.v(414): extended using "x" or "z" File: D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v Line: 414

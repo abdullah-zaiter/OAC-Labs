@@ -26,7 +26,7 @@ module Datapath_UNI (
     output      [31:0] wVGARead,
 
     output wire        wCRegWrite,
-    output wire [1:0]  wCRegDst,wCALUOp,wCOrigALU,
+    output wire [1:0]  wCALUOp,wCOrigALU,
     output wire [1:0]  wCOrigPC,
     output wire wOPBJ, wCTransf,
     
@@ -78,7 +78,7 @@ wire [31:0] wPC4;
 wire [31:0] wiPC;
 wire [31:0] wInstr;
 wire [31:0] wMemDataWrite;
-wire [4:0]  wAddrRs, wAddrRt, wAddrRd, wRegDst;// enderecos dos reg rs,rt ,rd e saida do Mux regDst
+wire [4:0]  wAddrRs1, wAddrRs2, wAddrRd, wRegDst;// enderecos dos reg rs,rt ,rd e saida do Mux regDst
 wire [2:0] wFunct3;
 wire [6:0] wFunct7;
 
@@ -135,13 +135,11 @@ begin
 end
 
 assign wPC4         = wPC + 32'h4;                          /* Calculo PC+4 */
-assign wBranchPC    = wPC4 + {wExtImm[29:0],{2'b00}};       /* Endereco do Branch */
-assign wJumpAddr    = {wPC4[31:28],wInstr[25:0],{2'b00}};   /* Endereco do Jump */
 assign wPC          = PC;
-assign wOpcode      = wInstr[31:26];
-assign wAddrRs      = wInstr[25:21];
-assign wAddrRt      = wInstr[20:16];
-assign wAddrRd      = wInstr[15:11];
+assign wOpcode      = wInstr[6:0];
+assign wAddrRs1      = wInstr[19:15];
+assign wAddrRs2      = wInstr[24:20];
+assign wAddrRd       = wInstr[11:7];
 assign wFunct3       = wInstr[14:12];
 assign wFunct7       = wInstr[31:25];
 
@@ -178,8 +176,8 @@ assign    wInstr            = IwReadData;
 Registers RegsUNI (
     .iCLK(iCLK),
     .iCLR(iRST),
-    .iReadRegister1(wAddrRs),
-    .iReadRegister2(wAddrRt),
+    .iReadRegister1(wAddrRs1),
+    .iReadRegister2(wAddrRs2),
     .iWriteRegister(wRegDst),
     .iWriteData(wDataReg),
     .iRegWrite(wCRegWrite),
@@ -270,7 +268,7 @@ Ctrl_Transf CtrlT(
     .iFunct3(wFunct3),
     .iCOrigPC(wCOrigPC),
     .iZero(oZero),    
-    .oCTransf(wCTransf) //TODO declarar wCTransf
+    .oCTransf(wCTransf)
     );
 
 MemStore MemStore0 (
@@ -303,7 +301,6 @@ MemLoad MemLoad0 (
 /* Unidade de Controle */
 Controle CtrUNI (
     .iOp(wOpcode),
-    .oRegDst(wCRegDst),
     .oOrigALU(wCOrigALU),
     .oOPBJ(wOPBJ),
     .oMemparaReg(wCMem2Reg),
@@ -313,18 +310,6 @@ Controle CtrUNI (
     .oOpALU(wCALUOp),
     .oOrigPC(wCOrigPC),
 	);
-
-
-/* Multiplexadores */
-/*Decide em qual registrador o dado sera escrito*/
-always @(*)
-    case(wCRegDst)
-        2'b00:      wRegDst <= wAddrRt;
-        2'b01:      wRegDst <= wAddrRd;
-        2'b10:      wRegDst <= wZero  ? 5'd31: 5'd0;     //  $ra ou $zero    1/2016
-        2'b11:      wRegDst <= ~wZero ? 5'd31: 5'd0;     //  $ra ou $zero    1/2016
-        default:    wRegDst <= 5'd0;
-    endcase
 
 
 /*Decide o que entrara na segunda entrada da ULA*/

@@ -52,7 +52,7 @@
 	continua8:	# Teste do jalr
 	jal	ra, temp
 	temp:	addi	ra, ra, 12
-	jr	ra
+	jr	ra,0
 	jal	ra, ERRO
 	continua9:	jal	zero, EXIT
 	
