@@ -3,9 +3,6 @@
  *
  */
 
- //TODO
- /*
- */
 module Datapath_UNI (
     // Inputs e clocks
     input  wire        iCLK, iCLK50, iRST,
@@ -15,16 +12,9 @@ module Datapath_UNI (
     output wire [31:0] wPC, woInstr, wMuxPC,
     output wire [31:0] wRegDisp, wRegDispCOP0,
     input  wire [4:0]  wRegDispSelect,
-    output wire [31:0] wDebug,
-
-    output wire [7:0]  wFPUFlagBank,
-	 output wire [31:0] wRegDispFPU,
-	 input       [4:0]  wVGASelectFPU,
-	 output      [31:0] wVGAReadFPU,
-	 
-    input       [4:0]  wVGASelect,
-    output      [31:0] wVGARead,
-
+    output wire [31:0] wDebug,	 
+    input  wire [4:0]  wVGASelect,
+    output wire [31:0] wVGARead,
     output wire        wCRegWrite,
     output wire [1:0]  wCALUOp,wCOrigALU,
     output wire [1:0]  wCOrigPC,
@@ -103,8 +93,8 @@ wire [31:0] wMemStore;
 wire [3:0]  wMemEnableStore;
 wire [3:0]  wMemEnable;
 
-//Semestre 2014/2 para implementacao do bootloader
-wire        wCodeMemoryWrite;
+/* ****************************************************** */
+/* Inicializacao dos registradores		  						 */
 
 /* Inicializacao */
 initial
@@ -124,8 +114,8 @@ assign wFunct7       = wInstr[31:25];
 assign woInstr      = wInstr;
 assign wCodeMemoryWrite     = ((PC >= BEGINNING_BOOT && PC <= END_BOOT) ? 1'b1 : 1'b0);
 
-/* Assigns para debug */
-assign wDebug   = 32'h00BEBAD0;//005AD1C0//00F1A5C0//0ACEF0DA;
+/* ****************************************************** */
+/* Instanciacao das estruturas 	 		  						 */
 
 
 /* Barramento da Memoria de Instrucoes */
@@ -169,7 +159,7 @@ ALU ALUunit(
     .iA(wRead1),
     .iB(wOrigALU),
     .oALUresult(wALUresult),
-    .oZero(wZero),
+    .oZero(wZero)
 	);
 
 Imm_Generator ImmGen(
@@ -184,6 +174,7 @@ Ctrl_Transf CtrlT(
     .oCTransf(wCTransf)
     );
 
+	
 MemStore MemStore0 (
     .iAlignment(wALUresult[1:0]),
     .iWriteTypeF(STORE_TYPE_DUMMY),
@@ -212,7 +203,7 @@ MemLoad MemLoad0 (
 	);
 
 /* Unidade de Controle */
-Control CtrUNI (
+Control_UNI CtrUNI (
     .iopc(wOpcode),
     .oOrigALU(wCOrigALU),
     .oOPBJ(wOPBJ),

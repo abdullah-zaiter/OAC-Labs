@@ -6,193 +6,12 @@
 
 // Define se a FPU será sintetizada ou não
 //`define FPU
+`define RV32I
+`define SIMULACAO
 
 `ifndef PARAM
 	`include "CPU/Parametros.v"
 `endif
-
-/*   ******************  Historico ***********************
- Top Level para processador MIPS UNICICLO v0 baseado no processador desenvolvido por
-Alexandre Lins                          09/40097
-Daniel Dutra                            09/08436
-*Yuri Maia                              09/16803
-em 2010/1 na disciplina OAC
-
- Top Level para processador MIPS UNICICLO v1 baseado no processador desenvolvido por
-Emerson Grzeidak                        09/93514
-Gabriel Calache Cozendey                09/47946
-Glauco Medeiros Volpe                   10/25091
-*Luiz Henrique Dias Navarro             10/00748
-Waldez Azevedo Gomes Junior             10/08617
-em 2011/1 na disciplina OAC
-
- Top Level para processador MIPS UNICICLO v2 baseado no processador desenvolvido por
-*Antonio Martino Neto                   09/89886
-Bruno de Matos Bertasso                 08/25590
-Carolina S. R. de Oliveira              07/45006
-Herman Ferreira M. de Asevedo           09/96319
-Renata Cristina                         09/0130600
-em 2011/2 na disciplina OAC
-
- Top Level para processador MIPS UNICICLO v3 baseado no processador desenvolvido por
-Andre Franca                            10/0007457
-Felipe Carvalho Gules                   08/29137
-Filipe Tancredo Barros                  10/0029329
-Guilherme Ferreira                      12/0051133
-*Vitor Coimbra de Oliveira              10/0021832
-em 2012/1 na disciplina OAC
-
- Top Level para processador MIPS UNICICLO v4 baseado no processador desenvolvido por
-Alexandre Dantas                        10/0090788
-Ciro Viana                              09/0137531
-*Matheus Pimenta                        09/0125789
-em 2013/1 na disciplina OAC
-
- Top Level para processador MIPS UNICICLO v6 baseado no processador desenvolvido por
-Vitor de Alencastro Lacerda             11/0067142
-*Hugo Luis Andrade Silva                12/0012987
-em 2013/2 na disciplina OAC
-
-Top Level para processador MIPS UNICICLO v7 baseado no processador desenvolvido por
-*Thales Marques Ramos                   09/0133421
-Daniel Magalhaes dos Santos             11/0113403
-Gustavo Ribeiro Teixeira                09/0115791
-Lorena Goncalves Miquett                10/0015581
-Thales Moreira Vinkler                  10/0050638
-Wilson Domingos Sidinei Alves Miranda   14/0053344
-em 2014/1 na disciplina OAC
-
-Top Level para processador MIPS MULTICICLO v0 baseado no processador desenvolvido por
-David A. Patterson e John L. Hennessy
-Computer Organization and Design
-3a Edicao
-
-Top Level para processador MIPS MULTICICLO v01 baseado no processador desenvolvido por
-Alexandre Lins                          09/40097
-Daniel Dutra                            09/08436
-*Yuri Maia                              09/16803
-em 2010/1 na disciplina OAC
-
- Top Level para processador MIPS UNICICLO v1 baseado no processador desenvolvido por
-Emerson Grzeidak                        09/93514
-Gabriel Calache Cozendey                09/47946
-Glauco Medeiros Volpe                   10/25091
-*Luiz Henrique Dias Navarro             10/00748
-Waldez Azevedo Gomes Junior             10/08617
-em 2011/1 na disciplina OAC
-
- Top Level para processador MIPS UNICICLO v2 baseado no processador desenvolvido por
-*Antonio Martino Neto                   09/89886
-Bruno de Matos Bertasso                 08/25590
-Carolina S. R. de Oliveira              07/45006
-Herman Ferreira M. de Asevedo           09/96319
-Renata Cristina                         09/0130600
-em 2011/2 na disciplina OAC
-
- Top Level para processador MIPS MULTICICLO v9 baseado no processador desenvolvido por
-Andre Franca                            10/0007457
-Felipe Carvalho Gules                   08/29137
-Filipe Tancredo Barros                  10/0029329
-Guilherme Ferreira                      12/0051133
-*Vitor Coimbra de Oliveira              10/0021832
-em 2012/1 na disciplina OAC
-
- Top Level para processador MIPS MULTICICLO v10 baseado no processador desenvolvido por
-Alexandre Dantas                        10/0090788
-Ciro Viana                              09/0137531
-*Matheus Pimenta                        09/0125789
-em 2013/1 na disciplina OAC
-
-Top Level para processador MIPS PIPELINE v1 baseado no processador desenvolvido por
-Andre Figueira Lourenco                 09/89525
-Jose Chaves Junior                      08/40122
-Hugo Marello                            10/29444
-em 2010/2 na disciplina OAC
-
-Top Level para processador MIPS PIPELINE v1.5 baseado no processador desenvolvido por
-Emerson Grzeidak                        09/93514
-Gabriel Calache Cozendey                09/47946
-Glauco Medeiros Volpe                   10/25091
-*Luiz Henrique Dias Navarro             10/00748
-Waldez Azevedo Gomes Junior             10/08617
-em 2011/1 na disciplina OAC
-
-Top Level para processador MIPS PIPELINE v2 baseado no processador desenvolvido por
-*Antonio Martino Neto                   09/89886
-Bruno de Matos Bertasso                 08/25590
-Carolina S. R. de Oliveira              07/45006
-Herman Ferreira M. de Asevedo           09/96319
-Renata Cristina                         09/0130600
-em 2012/1 na disciplina OAC
-
-Top Level para processador MIPS PIPELINE v3 baseado no processador desenvolvido por
-Antonio Martino Neto                    09/89886
-em 2013/1 na disciplina TG1
-
-Top Level para processador MIPS PIPELINE v4 baseado no processador desenvolvido por
-*Hugo Luis Andrade Silva                12/0012987
-Leonardo de Oliveira Lourenco           13/0120197
-*Thales Marques Ramos                   09/0133421
-Daniel Magalhaes dos Santos             11/0113403
-Marcus da Silva Ferreira                10/0056881
-Wilson Domingos Sidinei Alves Miranda   11/0144201
-em 2013/2 na disciplina OAC
-
- V8.2 Com eret para PC (calcular PC+4 no programa)
- v8.3 Arrumado todos os PARAMETROS, ULA nova
- v9 com RS232 e BootLoader baseado no processador desenvolvido por
-Filipe Lima                             09/0113802
-Sinayra Moreira                         10/0020666
-Tulio Matias                            10/0055150
-*Gabriel Naves                          12/0011867
-Gabriel Sousa                           12/0060353
-Icaro Mota                              12/0051389
-em 2014/2 na disciplina OAC
-
-Com sintetizador de áudio programável e MTHI/MTLO
-*Maxwell M. Fernandes                   10/0116175
-Túlio de Carvalho Matias                10/0055150
-*Luiz Henrique Campos Barboza           09/0010256
-*Diego Marques de Azevedo               11/0027876
-Marcos de Moura Gonçalves               15/0093349
-Yuri Barcellos Galli                    12/0024098
-em 2015/1 na disciplina OAC
-
-Com leitor de cartão SD
-André Abreu R. de Almeida 					12/0007100
-*Arthur de Matos Beggs 						12/0111098
-Bruno Takashi Tengan 						12/0167263
-Gabriel Pires Iduarte 						13/0142166
-Guilherme Caetano 							13/0112925
-João Pedro Franch 							12/0060795
-Rafael Lima 									10/0131093
-em 2016/1 na disciplina OAC
-
-
-Com receptor IRDA, LFSR e STOPWATCH
-*Eduardo Scartezini C. Carvalho 			14/0137084
-Camila Ferreira Thé Pontes 				15/0156120 
-Aurora Li Min de Freitas Wang 			13/0006408
-Renato Estevam Nogueira 					13/0036579 
-em 2016/2 na disciplina OAC
-
-
-Com sintese da FPU no Pipeline (incompleto!), está sem floor e ceil
-Cristiane Naves Cardoso						15/0008023
-Gabriel Oliveira Taumaturgo				14/0140522
-Matheus Eiji Endo								15/0018169
-Rafael Cascardo Campos						14/0159401
-*Rafael Lourenço de Lima Chehab			15/0045123
-Yuri Ferreira Gomes							12/0043998
-em 2017/1 na disciplina OAC
-
- Adaptado para a placa de desenvolvimento DE1-SoC.
- Prof. Marcus Vinicius Lamar   2018/1
- UnB - Universidade de Brasilia
- Dep. Ciencia da Computacao
-
- */
-//`define ENABLE_HPS
 
 module TopDE (
       ///////// ADC Analog-Digital Converter/////////
@@ -357,79 +176,90 @@ module TopDE (
       output             VGA_VS/*,
 		
 
-	// Descomentar para simulacao em forma de onda do TopDE
-    output          Clock, Clock_25, Clock_100, Clock_200,
+`ifdef SIMULACAO
+    ,           // Nao retirar esta virgula !!!!!
+    output          MClock, //Clock25, Clock50, Clock100,
     output  [31:0]  PC, 
-	 output  [31:0]  Mem_Instrucao,
-    output  [4:0]   RegDispSelect,
-	 output  [31:0]  RegDisp,
-	 output  [31:0]  RegDispFPU,
-    output  [7:0]   FlagsFPU,
-    output          Le_Mem, 
-	 output 			  Esc_Mem,
-    output  [31:0]  ODAddress, 
-	 output  [31:0]  ODWriteData, 
-	 output  [31:0]  ODReadData,
-	 output  [31:0]  Mem_Dados,
-    output  [3:0]   ODByteEnable,
-    output  [31:0]  OIAddress, 
-	 output  [31:0]  OIReadData,
-    output  [6:0]   Estado,
+   output  [31:0]  Instrucao,
     output  [31:0]  BR_Leitura1, 
-	 output  [31:0]  BR_Leitura2, 
-	 output  [31:0]  BR_Escrita, 
-	 output  [31:0]  Saida_ULA, 
-	 output  [31:0]  Debug*/
-
+   output  [31:0]  BR_Leitura2, 
+   output  [31:0]  BR_Escrita, 
+   output  [31:0]  Saida_ULA, 
+    input   [4:0]   RegDispSelect,
+   output  [31:0]  RegDisp,
+    output          LeMem, 
+   output         EscreveMem,
+    output  [31:0]  MemD_Endereco, 
+   output  [31:0]  MemD_DadoEscrita, 
+   output  [31:0]  MemD_DadoLeitura,
+    output  [3:0]   MemD_ByteEnable, 
+    output  [6:0]   Estado,
+   output  [31:0]  Debug
+`endif
 
 );
 
-	// Comentar para simulacao em forma de onda do TopDE
-    wire          Clock, Clock_25, Clock_100, Clock_200;
-    wire  [31:0]  PC, Mem_Instrucao;
-    wire  [4:0]   RegDispSelect;
-	 wire  [31:0]  RegDisp, RegDispFPU;
-    wire  [7:0]   FlagsFPU;
-    wire          Le_Mem, Esc_Mem;
-    wire  [31:0]  ODAddress, ODWriteData, ODReadData;
-	 wire  [31:0]  Mem_Dados;
-    wire  [3:0]   ODByteEnable;
-    wire  [31:0]  OIAddress, OIReadData;
-    wire  [6:0]   Estado;
-	 wire  [31:0]  BR_Leitura1, BR_Leitura2, BR_Escrita, Saida_ULA, Debug;
+// Interface Comum entre o processador e os mostradores
+wire [4:0]  wRegDispSelect;
+wire [31:0] wPC, wRegDisp, wInstr;
+wire [31:0] wDebug;
+wire [17:0] wSinaisControle;
+wire [5:0]  wControlState;
+wire [4:0]  wVGASelect;
+wire [31:0] wVGARead;
+wire [31:0] wBRReadA,wBRReadB, wBRWrite, wULA;
+
+wire CLK, oCLK_50, oCLK_25, oCLK_100, oCLK_150, oCLK_200, oCLK_27, oCLK_18;
+wire Reset, CLKSelectFast, CLKSelectAuto;
+wire wbreak;
 
 
-// Para simulacao de forma de onda <Nomes ajustados>
-assign Clock            = CLK;
-assign Clock_25			= oCLK_25;
-assign Clock_100        = oCLK_100;
-assign Clock_200        = oCLK_200;
-assign PC             	= wPC;
-assign Mem_Instrucao    = wInstr;
-assign BR_Leitura1		= wBRReadA;
-assign BR_Leitura2		= wBRReadB;
-assign BR_Escrita			= wBRWrite;
-assign Saida_ULA			= wULA;
-assign RegDispSelect  	= wRegDispSelect;
-assign RegDisp        	= wRegDisp;
-assign RegDispFPU     	= wRegDispFPU;
-assign FlagsFPU       	= flagBank;
-assign Le_Mem     		= DReadEnable;
-assign Esc_Mem    		= DWriteEnable;
-assign ODAddress        = DAddress;
-assign ODWriteData      = DWriteData;
-assign Mem_Dados       	= DReadData;
-assign ODByteEnable     = DByteEnable;
-assign OIAddress        = IAddress;
-assign OIReadData       = IReadData;
-assign Estado    			= wControlState;
-assign Debug  				= wDebug;
 
+/* **************  Definicao do endereco inicial do PC  ************************* */
+wire [31:0]  PCinicial;
+assign PCinicial = BEGINNING_TEXT;
+
+
+/* ********************** Barramento de Dados *********************************** */
+wire [31:0] DAddress, DWriteData;
+wire [31:0] DReadData;
+wire        DWriteEnable, DReadEnable;
+wire [3:0]  DByteEnable;
+
+/* ********************** Barramento de Instrucoes ******************************* */
+wire [31:0] IAddress, IWriteData;
+wire [31:0] IReadData;
+wire        IWriteEnable, IReadEnable;
+wire [3:0]  IByteEnable;
+
+
+
+// Para simulacao <Nomes ajustados>
+`ifdef SIMULACAO
+assign MClock         = CLK;
+//assign Clock25      = oCLK_25;
+//assign Clock50      = oCLK_50;
+//assign Clock100      = oCLK_100;
+assign PC            = wPC;
+assign Instrucao      =  wInstr;
+assign BR_Leitura1  = wBRReadA;
+assign BR_Leitura2  = wBRReadB;
+assign BR_Escrita   = wBRWrite;
+assign Saida_ULA    = wULA;
+assign wRegDispSelect = RegDispSelect;
+assign RegDisp       = wRegDisp;
+assign LeMem        = DReadEnable;
+assign EscreveMem     = DWriteEnable;
+assign MemD_Endereco    = DAddress;
+assign MemD_DadoEscrita = DWriteData;
+assign MemD_DadoLeitura = DReadData;
+assign MemD_ByteEnable  = DByteEnable;
+assign Estado       = wControlState;
+assign Debug        = wDebug;
+`endif
 
 
 /* ********************* Gerador e gerenciador de Clock ********************* */
-wire CLK, oCLK_50, oCLK_25, oCLK_100, oCLK_150, oCLK_200, oCLK_27, oCLK_18;
-wire Reset, CLKSelectFast, CLKSelectAuto;
 
 CLOCK_Interface CLOCK0(
 	 .iCLK_50(CLOCK_50),						 // 50MHz
@@ -500,8 +330,8 @@ wire [31:0] wBRReadA,wBRReadB, wBRWrite, wULA;
 
 /* ********************************* CPU ************************************ */
 CPU CPU0 (
-    .iCLK(CLK),             // Clock real do Processador
-    .iCLK50(oCLK_50),       // Clock 50MHz fixo, usado so na FPU Uniciclo
+    .iCLK(CLK),                     // Clock real do Processador
+    .iCLK50(oCLK_50),               // Clock 50MHz fixo, usado so na FPU Uniciclo
     .iRST(Reset),
     .iInitialPC(PCinicial),
 
@@ -511,39 +341,33 @@ CPU CPU0 (
     .wDebug(wDebug),
     .wRegDispSelect(wRegDispSelect),
     .wRegDisp(wRegDisp),
-    .wRegDispFPU(wRegDispFPU),
-    .wRegDispCOP0(wRegDispCOP0),
-    .flagBank(flagBank),
     .wControlState(wControlState),
     .wControlSignals(wSinaisControle),
     .wVGASelect(wVGASelect),
     .wVGARead(wVGARead),
-    .wVGASelectFPU(wVGASelectFPU),
-    .wVGAReadFPU(wVGAReadFPU),
-	 .wBRReadA(wBRReadA),
-	 .wBRReadB(wBRReadB),
-	 .wBRWrite(wBRWrite),
-	 .wULA(wULA),
-	 
+   .wBRReadA(wBRReadA),
+   .wBRReadB(wBRReadB),
+   .wBRWrite(wBRWrite),
+   .wULA(wULA),
+   
     // Barramento Dados
     .DwReadEnable(DReadEnable), 
-	 .DwWriteEnable(DWriteEnable),
+   .DwWriteEnable(DWriteEnable),
     .DwByteEnable(DByteEnable),
     .DwAddress(DAddress), 
-	 .DwWriteData(DWriteData),
-	 .DwReadData(DReadData),
+   .DwWriteData(DWriteData),
+   .DwReadData(DReadData),
 
     // Barramento Instrucoes - Nao tem no multiciclo
     .IwReadEnable(IReadEnable), 
-	 .IwWriteEnable(IWriteEnable),
+   .IwWriteEnable(IWriteEnable),
     .IwByteEnable(IByteEnable),
     .IwAddress(IAddress), 
-	 .IwWriteData(IWriteData), 
-	 .IwReadData(IReadData),
+   .IwWriteData(IWriteData), 
+   .IwReadData(IReadData),
 
-    // Interrupcao
-    .iPendingInterrupt(wPendingInterrupt)
 );
+
 
 
 

@@ -1,5 +1,5 @@
 Flow report for TopDE
-Sat Jun 02 03:07:27 2018
+Sat Jun 02 14:40:29 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,25 +40,25 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat Jun 02 03:07:27 2018       ;
+; Flow Status                     ; Successful - Sat Jun 02 14:40:29 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; TopDE                                       ;
 ; Top-level Entity Name           ; TopDE                                       ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,657 / 32,070 ( 5 % )                      ;
-; Total registers                 ; 2428                                        ;
-; Total pins                      ; 241 / 457 ( 53 % )                          ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 2336                                        ;
+; Total pins                      ; 241                                         ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 930,816 / 4,065,280 ( 23 % )                ;
-; Total DSP Blocks                ; 18 / 87 ( 21 % )                            ;
+; Total block memory bits         ; 930,816                                     ;
+; Total DSP Blocks                ; 18                                          ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
 ; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 2 / 6 ( 33 % )                              ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
+; Total PLLs                      ; 2                                           ;
+; Total DLLs                      ; 0                                           ;
 +---------------------------------+---------------------------------------------+
 
 
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/02/2018 03:04:17 ;
+; Start date & time ; 06/02/2018 14:36:15 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TopDE               ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 220295155517788.152791945620736        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 220295155517788.152796097446056        ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TopDE_tb       ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; On                                     ; --            ; --          ; eda_simulation ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; TopDE_tb                               ; --            ; --          ; eda_simulation ;
@@ -114,41 +114,44 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                             ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:44     ; 1.0                     ; 5091 MB             ; 00:01:15                           ;
-; Fitter                    ; 00:01:38     ; 1.2                     ; 6785 MB             ; 00:03:36                           ;
-; Assembler                 ; 00:00:10     ; 1.0                     ; 4924 MB             ; 00:00:10                           ;
-; TimeQuest Timing Analyzer ; 00:00:25     ; 1.7                     ; 5314 MB             ; 00:00:38                           ;
-; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 4900 MB             ; 00:00:04                           ;
-; Total                     ; 00:03:01     ; --                      ; --                  ; 00:05:43                           ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:42     ; 1.0                     ; 5093 MB             ; 00:01:14                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4776 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4904 MB             ; 00:00:03                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4776 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4789 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4904 MB             ; 00:00:03                           ;
+; Total                ; 00:00:53     ; --                      ; --                  ; 00:01:26                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                         ;
-+---------------------------+------------------+------------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer        ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
-+---------------------------+------------------+------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; LAPTOP-V2PHMVQQ  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off RISCV -c TopDE
-quartus_fit --read_settings_files=off --write_settings_files=off RISCV -c TopDE
-quartus_asm --read_settings_files=off --write_settings_files=off RISCV -c TopDE
-quartus_sta RISCV -c TopDE
-quartus_eda --read_settings_files=off --write_settings_files=off RISCV -c TopDE
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISCV -c TopDE --vector_source=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/Testes/Waveform.vwf --testbench_file=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/simulation/qsim/Waveform.vwf.vt
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/simulation/qsim/ RISCV -c TopDE
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISCV -c TopDE --vector_source=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/Testes/Waveform.vwf --testbench_file=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/simulation/modelsim/Waveform.vwf.vt
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISCV -c TopDE --vector_source=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/Testes/Waveform.vwf --testbench_file=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/simulation/qsim/Waveform.vwf.vt
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/simulation/qsim/ RISCV -c TopDE
 
 
 

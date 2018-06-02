@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Documents/tt/RISCV-v1.2/Core/simulation/qsim
+vTopDE
+Z1 !s110 1527967624
+!i10b 1
+!s100 84YzK3O09T8a7W8n36b>P0
+I@^IC;OOl[lK747b>Ukdea0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1527967623
+8TopDE.vo
+FTopDE.vo
+L0 31
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1527967623.000000
+!s107 TopDE.vo|
+!s90 -work|work|TopDE.vo|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@top@d@e
+vTopDE_vlg_vec_tst
+R1
+!i10b 1
+!s100 ]ng:Fi;>Sz`Dd0iQQ[HQ91
+I7?aC<EBE@m?M1[U1DiZj10
+R2
+R0
+w1527967620
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 29
+R3
+r1
+!s85 0
+31
+!s108 1527967624.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R4
+R5
+n@top@d@e_vlg_vec_tst

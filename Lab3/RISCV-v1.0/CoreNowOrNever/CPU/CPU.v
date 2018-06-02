@@ -5,18 +5,14 @@ module CPU (
     input  wire        iCLK, iCLK50, iRST,
     input  wire [31:0] iInitialPC,
     //sinais de monitoramento
-    output wire [31:0] wRegDisp, wRegDispCOP0,
-	 output wire [31:0] wRegDispFPU,
+    output wire [31:0] wRegDisp,
     input  wire [4:0]  wRegDispSelect,
     output wire [31:0] wDebug,
-    output wire [7:0]  flagBank,
     output wire [31:0] wPC, wInstr,
     output wire [9:0] wControlSignals,
     output wire [5:0]  wControlState,
     input  wire [4:0]  wVGASelect,
-	 input  wire [4:0]  wVGASelectFPU,
     output wire [31:0] wVGARead,
-	 output wire [31:0] wVGAReadFPU,
 	 output wire [31:0] wBRReadA,
 	 output wire [31:0] wBRReadB,
 	 output wire [31:0] wBRWrite,
@@ -35,15 +31,10 @@ module CPU (
     input  wire [31:0] IwReadData,
     output wire [31:0] IwAddress,
     //interrupcoes
-    input  [7:0]       iPendingInterrupt
+
 );
 
 
-`ifndef FPU // Se a FPU não estiver sendo sintetizada
-	 assign wRegDispFPU 	= 32'h0ACEF0DA;
-	 assign wVGAReadFPU 	= 32'hF0CAF0FA;
-    assign flagBank		= 8'hFF;
-`endif
 
 
 /*************  UNICICLO *********************************/
@@ -70,7 +61,6 @@ Datapath_UNI Processor (
     .wRegDisp(wRegDisp),
     .wVGASelect(wVGASelect),
     .wVGARead(wVGARead),
-
     .wCALUOp(ALUOp),
     .wCRegWrite(RegWrite),
     .wCOrigALU(OrigALU),
@@ -125,15 +115,8 @@ Datapath_MULTI Processor (
     .oDebug(wDebug),
     .iRegDispSelect(wRegDispSelect),
     .oRegDisp(wRegDisp),
-    .oRegDispCOP0(wRegDispCOP0),
     .wVGASelect(wVGASelect),
     .wVGARead(wVGARead),
-`ifdef FPU
-    .wVGASelectFPU(wVGASelectFPU),
-    .wVGAReadFPU(wVGAReadFPU),
-	 .oFPRegDisp(wRegDispFPU),
-	 .oFPUFlagBank(flagBank),
-`endif
     .owControlState(wControlState),
     .oALUOp(ALUOp),
     .oPCSource(PCSource),
@@ -156,7 +139,6 @@ Datapath_MULTI Processor (
     .DwAddress(DwAddress),
     .DwReadData(DwReadData),
 
-    .iPendingInterrupt(iPendingInterrupt) // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
 );
 `endif
 
@@ -175,8 +157,6 @@ assign wControlSignals  = {DwReadEnable, DwWriteEnable, RegWrite, ALUOp[1:0], Or
 assign wControlState    = 6'b111111;
 assign wRegDispCOP0     = 32'hCACACACA;
 wire        SavePC;
-//wire wLock;
-//assign wLock=1'b0;
 
 Datapath_PIPEM Processor (
     .iCLK(iCLK),
@@ -192,12 +172,6 @@ Datapath_PIPEM Processor (
     .oDebug(wDebug),
     .iVGASelect(wVGASelect),
     .oVGARead(wVGARead),
-`ifdef FPU    // So esperando alguem implementar a FPU no Pipeline
-    .iVGASelectFPU(wVGASelectFPU),
-    .oVGAReadFPU(wVGAReadFPU),
-	 .oFPRegDisp(wRegDispFPU),
-	 .oFPUFlagBank(flagBank),
-`endif
     .oCALUOp(ALUOp),
     .oCRegWrite(RegWrite),
     .oCRegDst(RegDst),
@@ -223,8 +197,6 @@ Datapath_PIPEM Processor (
     .IwMemReadData(IwReadData),
     .IwMemAddress(IwAddress)
 
-    // Lock
-    //.iSwitchLock(wLock)
 );
 
 `endif
