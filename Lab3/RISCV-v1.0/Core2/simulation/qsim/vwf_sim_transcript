@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISCV -c RISCV --vector_source="D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Waveform2.vwf" --testbench_file="D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/Waveform2.vwf.vt"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISCV -c RISCV --vector_source="D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Waveform.vwf" --testbench_file="D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/Waveform.vwf.vt"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -25,11 +25,17 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Thu May 31 22:45:05 2018
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISCV -c RISCV --vector_source=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Waveform2.vwf --testbench_file=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/Waveform2.vwf.vt
+    Info: Processing started: Sat Jun 02 00:20:40 2018
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISCV -c RISCV --vector_source=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Waveform.vwf --testbench_file=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/Waveform.vwf.vt
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
- bench files
+ "DwReadData[30]" in design
+
+n't find port "flagBank[4]" in design
+
+ort "wBRReadB[2]" in design
+
+17]" in design
 
 Completed successfully. 
 
@@ -55,13 +61,13 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Thu May 31 22:45:08 2018
+    Info: Processing started: Sat Jun 02 00:20:43 2018
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/ RISCV -c RISCV
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file RISCV.vo in folder "D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4886 megabytes
-    Info: Processing ended: Thu May 31 22:45:11 2018
+    Info: Peak virtual memory: 4883 megabytes
+    Info: Processing ended: Sat Jun 02 00:20:46 2018
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
@@ -81,33 +87,32 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 
 # 10.5b
 
-# do RISCV.do
 
+# do RISCV.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:45:12 on May 31,2018
+# Start time: 00:20:47 on Jun 02,2018
 # vlog -work work RISCV.vo 
 # -- Compiling module TopDE
 
 # 
 # Top level modules:
 # 	TopDE
-# End time: 22:45:13 on May 31,2018, Elapsed time: 0:00:01
+# End time: 00:20:48 on Jun 02,2018, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:45:13 on May 31,2018
-# vlog -work work Waveform2.vwf.vt 
+# Start time: 00:20:48 on Jun 02,2018
+# vlog -work work Waveform.vwf.vt 
+
 # -- Compiling module TopDE_vlg_vec_tst
 # 
 # Top level modules:
 # 	TopDE_vlg_vec_tst
-
-# End time: 22:45:13 on May 31,2018, Elapsed time: 0:00:00
+# End time: 00:20:48 on Jun 02,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 # vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.TopDE_vlg_vec_tst 
-# Start time: 22:45:13 on May 31,2018
+# Start time: 00:20:48 on Jun 02,2018
 # Loading work.TopDE_vlg_vec_tst
 # Loading work.TopDE
 # Loading altera_ver.dffeas
@@ -121,12 +126,12 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 # Loading altera_lnsim_ver.generic_device_pll
 # Loading altera_lnsim_ver.altera_generic_pll_functions
 # Loading altera_lnsim_ver.generic_pll
-# ** Warning: (vsim-3017) Waveform2.vwf.vt(117): [TFMPC] - Too few port connections. Expected 62, found 58.
+# ** Warning: (vsim-3017) Waveform.vwf.vt(117): [TFMPC] - Too few port connections. Expected 62, found 58.
 #    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1 File: RISCV.vo
-# ** Warning: (vsim-3722) Waveform2.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tms'.
-# ** Warning: (vsim-3722) Waveform2.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tck'.
-# ** Warning: (vsim-3722) Waveform2.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tdi'.
-# ** Warning: (vsim-3722) Waveform2.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tdo'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tms'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tck'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tdi'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tdo'.
 # Loading altera_ver.PRIM_GDFF_LOW
 # ** Warning: (vsim-3017) RISCV.vo(10393): [TFMPC] - Too few port connections. Expected 15, found 14.
 #    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  File: nofile
@@ -194,7 +199,6 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 #    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac // File: nofile
 # ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
 #    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac // File: nofile
-
 # ** Warning: (vsim-3015) RISCV.vo(30162): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
 #    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_hlmac  File: nofile
 # ** Warning: (vsim-3015) RISCV.vo(30162): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
@@ -381,7 +385,7 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 # ** Warning: (vsim-3722) (): [TFMPC] - Missing connection for port ''.
 # ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
 #    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~PLL_RECONFIG // File: nofile
-# ** Warning: Design size of 29722 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# ** Warning: Design size of 29684 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
 
 # after#31
@@ -505,1013 +509,598 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 
 # Simulation time: 0 ps
 
-# Simulation time: 0 ps
-
-# Simulation time: 0 ps
-
-# Simulation time: 0 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 1211248 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 3060830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 4880830 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 6780600 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 8561960 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 10381150 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 12210833 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 14023860 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 15880831 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 17718150 ps
-
-# Simulation time: 19620090 ps
-
-# Simulation time: 19620090 ps
-# ** Note: $finish    : Waveform2.vwf.vt(180)
-#    Time: 20 us  Iteration: 0  Instance: /TopDE_vlg_vec_tst
-# End time: 22:49:00 on May 31,2018, Elapsed time: 0:03:47
+# ** Note: $finish    : Waveform.vwf.vt(180)
+#    Time: 1 us  Iteration: 0  Instance: /TopDE_vlg_vec_tst
+# End time: 00:21:05 on Jun 02,2018, Elapsed time: 0:00:17
 # Errors: 0, Warnings: 139
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Waveform2.vwf...
+Reading D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Waveform.vwf...
 
 Reading D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/RISCV.msim.vcd...
 
 Processing channel transitions... 
 
-Warning: BR_Escrita[31] - signal not found in VCD.
+Warning: DwAddress[31] - signal not found in VCD.
 
-Warning: BR_Escrita[30] - signal not found in VCD.
+Warning: DwAddress[30] - signal not found in VCD.
 
-Warning: BR_Escrita[29] - signal not found in VCD.
+Warning: DwAddress[29] - signal not found in VCD.
 
-Warning: BR_Escrita[28] - signal not found in VCD.
+Warning: DwAddress[28] - signal not found in VCD.
 
-Warning: BR_Escrita[27] - signal not found in VCD.
+Warning: DwAddress[27] - signal not found in VCD.
 
-Warning: BR_Escrita[26] - signal not found in VCD.
+Warning: DwAddress[26] - signal not found in VCD.
 
-Warning: BR_Escrita[25] - signal not found in VCD.
+Warning: DwAddress[25] - signal not found in VCD.
 
-Warning: BR_Escrita[24] - signal not found in VCD.
+Warning: DwAddress[24] - signal not found in VCD.
 
-Warning: BR_Escrita[23] - signal not found in VCD.
+Warning: DwAddress[23] - signal not found in VCD.
 
-Warning: BR_Escrita[22] - signal not found in VCD.
+Warning: DwAddress[22] - signal not found in VCD.
 
-Warning: BR_Escrita[21] - signal not found in VCD.
+Warning: DwAddress[21] - signal not found in VCD.
 
-Warning: BR_Escrita[20] - signal not found in VCD.
+Warning: DwAddress[20] - signal not found in VCD.
 
-Warning: BR_Escrita[19] - signal not found in VCD.
+Warning: DwAddress[19] - signal not found in VCD.
 
-Warning: BR_Escrita[18] - signal not found in VCD.
+Warning: DwAddress[18] - signal not found in VCD.
 
-Warning: BR_Escrita[17] - signal not found in VCD.
+Warning: DwAddress[17] - signal not found in VCD.
 
-Warning: BR_Escrita[16] - signal not found in VCD.
+Warning: DwAddress[16] - signal not found in VCD.
 
-Warning: BR_Escrita[15] - signal not found in VCD.
+Warning: DwAddress[15] - signal not found in VCD.
 
-Warning: BR_Escrita[14] - signal not found in VCD.
+Warning: DwAddress[14] - signal not found in VCD.
 
-Warning: BR_Escrita[13] - signal not found in VCD.
+Warning: DwAddress[13] - signal not found in VCD.
 
-Warning: BR_Escrita[12] - signal not found in VCD.
+Warning: DwAddress[12] - signal not found in VCD.
 
-Warning: BR_Escrita[11] - signal not found in VCD.
+Warning: DwAddress[11] - signal not found in VCD.
 
-Warning: BR_Escrita[10] - signal not found in VCD.
+Warning: DwAddress[10] - signal not found in VCD.
 
-Warning: BR_Escrita[9] - signal not found in VCD.
+Warning: DwAddress[9] - signal not found in VCD.
 
-Warning: BR_Escrita[8] - signal not found in VCD.
+Warning: DwAddress[8] - signal not found in VCD.
 
-Warning: BR_Escrita[7] - signal not found in VCD.
+Warning: DwAddress[7] - signal not found in VCD.
 
-Warning: BR_Escrita[6] - signal not found in VCD.
+Warning: DwAddress[6] - signal not found in VCD.
 
-Warning: BR_Escrita[5] - signal not found in VCD.
+Warning: DwAddress[5] - signal not found in VCD.
 
-Warning: BR_Escrita[4] - signal not found in VCD.
+Warning: DwAddress[4] - signal not found in VCD.
 
-Warning: BR_Escrita[3] - signal not found in VCD.
+Warning: DwAddress[3] - signal not found in VCD.
 
-Warning: BR_Escrita[2] - signal not found in VCD.
+Warning: DwAddress[2] - signal not found in VCD.
 
-Warning: BR_Escrita[1] - signal not found in VCD.
+Warning: DwAddress[1] - signal not found in VCD.
 
-Warning: BR_Escrita[0] - signal not found in VCD.
+Warning: DwAddress[0] - signal not found in VCD.
 
-Warning: BR_Leitura1[31] - signal not found in VCD.
+Warning: DwByteEnable[3] - signal not found in VCD.
 
-Warning: BR_Leitura1[30] - signal not found in VCD.
+Warning: DwByteEnable[2] - signal not found in VCD.
 
-Warning: BR_Leitura1[29] - signal not found in VCD.
+Warning: DwByteEnable[1] - signal not found in VCD.
 
-Warning: BR_Leitura1[28] - signal not found in VCD.
+Warning: DwByteEnable[0] - signal not found in VCD.
 
-Warning: BR_Leitura1[27] - signal not found in VCD.
+Warning: DwReadData[31] - signal not found in VCD.
 
-Warning: BR_Leitura1[26] - signal not found in VCD.
+Warning: DwReadData[30] - signal not found in VCD.
 
-Warning: BR_Leitura1[25] - signal not found in VCD.
+Warning: DwReadData[29] - signal not found in VCD.
 
-Warning: BR_Leitura1[24] - signal not found in VCD.
+Warning: DwReadData[28] - signal not found in VCD.
 
-Warning: BR_Leitura1[23] - signal not found in VCD.
+Warning: DwReadData[27] - signal not found in VCD.
 
-Warning: BR_Leitura1[22] - signal not found in VCD.
+Warning: DwReadData[26] - signal not found in VCD.
 
-Warning: BR_Leitura1[21] - signal not found in VCD.
+Warning: DwReadData[25] - signal not found in VCD.
 
-Warning: BR_Leitura1[20] - signal not found in VCD.
+Warning: DwReadData[24] - signal not found in VCD.
 
-Warning: BR_Leitura1[19] - signal not found in VCD.
+Warning: DwReadData[23] - signal not found in VCD.
 
-Warning: BR_Leitura1[18] - signal not found in VCD.
+Warning: DwReadData[22] - signal not found in VCD.
 
-Warning: BR_Leitura1[17] - signal not found in VCD.
+Warning: DwReadData[21] - signal not found in VCD.
 
-Warning: BR_Leitura1[16] - signal not found in VCD.
+Warning: DwReadData[20] - signal not found in VCD.
 
-Warning: BR_Leitura1[15] - signal not found in VCD.
+Warning: DwReadData[19] - signal not found in VCD.
 
-Warning: BR_Leitura1[14] - signal not found in VCD.
+Warning: DwReadData[18] - signal not found in VCD.
 
-Warning: BR_Leitura1[13] - signal not found in VCD.
+Warning: DwReadData[17] - signal not found in VCD.
 
-Warning: BR_Leitura1[12] - signal not found in VCD.
+Warning: DwReadData[16] - signal not found in VCD.
 
-Warning: BR_Leitura1[11] - signal not found in VCD.
+Warning: DwReadData[15] - signal not found in VCD.
 
-Warning: BR_Leitura1[10] - signal not found in VCD.
+Warning: DwReadData[14] - signal not found in VCD.
 
-Warning: BR_Leitura1[9] - signal not found in VCD.
+Warning: DwReadData[13] - signal not found in VCD.
 
-Warning: BR_Leitura1[8] - signal not found in VCD.
+Warning: DwReadData[12] - signal not found in VCD.
 
-Warning: BR_Leitura1[7] - signal not found in VCD.
+Warning: DwReadData[11] - signal not found in VCD.
 
-Warning: BR_Leitura1[6] - signal not found in VCD.
+Warning: DwReadData[10] - signal not found in VCD.
 
-Warning: BR_Leitura1[5] - signal not found in VCD.
+Warning: DwReadData[9] - signal not found in VCD.
 
-Warning: BR_Leitura1[4] - signal not found in VCD.
+Warning: DwReadData[8] - signal not found in VCD.
 
-Warning: BR_Leitura1[3] - signal not found in VCD.
+Warning: DwReadData[7] - signal not found in VCD.
 
-Warning: BR_Leitura1[2] - signal not found in VCD.
+Warning: DwReadData[6] - signal not found in VCD.
 
-Warning: BR_Leitura1[1] - signal not found in VCD.
+Warning: DwReadData[5] - signal not found in VCD.
 
-Warning: BR_Leitura1[0] - signal not found in VCD.
+Warning: DwReadData[4] - signal not found in VCD.
 
-Warning: BR_Leitura2[31] - signal not found in VCD.
+Warning: DwReadData[3] - signal not found in VCD.
 
-Warning: BR_Leitura2[30] - signal not found in VCD.
+Warning: DwReadData[2] - signal not found in VCD.
 
-Warning: BR_Leitura2[29] - signal not found in VCD.
+Warning: DwReadData[1] - signal not found in VCD.
 
-Warning: BR_Leitura2[28] - signal not found in VCD.
+Warning: DwReadData[0] - signal not found in VCD.
 
-Warning: BR_Leitura2[27] - signal not found in VCD.
+Warning: iInitialPC[31] - signal not found in VCD.
 
-Warning: BR_Leitura2[26] - signal not found in VCD.
+Warning: iInitialPC[30] - signal not found in VCD.
 
-Warning: BR_Leitura2[25] - signal not found in VCD.
+Warning: iInitialPC[29] - signal not found in VCD.
 
-Warning: BR_Leitura2[24] - signal not found in VCD.
+Warning: iInitialPC[28] - signal not found in VCD.
 
-Warning: BR_Leitura2[23] - signal not found in VCD.
+Warning: iInitialPC[27] - signal not found in VCD.
 
-Warning: BR_Leitura2[22] - signal not found in VCD.
+Warning: iInitialPC[26] - signal not found in VCD.
 
-Warning: BR_Leitura2[21] - signal not found in VCD.
+Warning: iInitialPC[25] - signal not found in VCD.
 
-Warning: BR_Leitura2[20] - signal not found in VCD.
+Warning: iInitialPC[24] - signal not found in VCD.
 
-Warning: BR_Leitura2[19] - signal not found in VCD.
+Warning: iInitialPC[23] - signal not found in VCD.
 
-Warning: BR_Leitura2[18] - signal not found in VCD.
+Warning: iInitialPC[22] - signal not found in VCD.
 
-Warning: BR_Leitura2[17] - signal not found in VCD.
+Warning: iInitialPC[21] - signal not found in VCD.
 
-Warning: BR_Leitura2[16] - signal not found in VCD.
+Warning: iInitialPC[20] - signal not found in VCD.
 
-Warning: BR_Leitura2[15] - signal not found in VCD.
+Warning: iInitialPC[19] - signal not found in VCD.
 
-Warning: BR_Leitura2[14] - signal not found in VCD.
+Warning: iInitialPC[18] - signal not found in VCD.
 
-Warning: BR_Leitura2[13] - signal not found in VCD.
+Warning: iInitialPC[17] - signal not found in VCD.
 
-Warning: BR_Leitura2[12] - signal not found in VCD.
+Warning: iInitialPC[16] - signal not found in VCD.
 
-Warning: BR_Leitura2[11] - signal not found in VCD.
+Warning: iInitialPC[15] - signal not found in VCD.
 
-Warning: BR_Leitura2[10] - signal not found in VCD.
+Warning: iInitialPC[14] - signal not found in VCD.
 
-Warning: BR_Leitura2[9] - signal not found in VCD.
+Warning: iInitialPC[13] - signal not found in VCD.
 
-Warning: BR_Leitura2[8] - signal not found in VCD.
+Warning: iInitialPC[12] - signal not found in VCD.
 
-Warning: BR_Leitura2[7] - signal not found in VCD.
+Warning: iInitialPC[11] - signal not found in VCD.
 
-Warning: BR_Leitura2[6] - signal not found in VCD.
+Warning: iInitialPC[10] - signal not found in VCD.
 
-Warning: BR_Leitura2[5] - signal not found in VCD.
+Warning: iInitialPC[9] - signal not found in VCD.
 
-Warning: BR_Leitura2[4] - signal not found in VCD.
+Warning: iInitialPC[8] - signal not found in VCD.
 
-Warning: BR_Leitura2[3] - signal not found in VCD.
+Warning: iInitialPC[7] - signal not found in VCD.
 
-Warning: BR_Leitura2[2] - signal not found in VCD.
+Warning: iInitialPC[6] - signal not found in VCD.
 
-Warning: BR_Leitura2[1] - signal not found in VCD.
+Warning: iInitialPC[5] - signal not found in VCD.
 
-Warning: BR_Leitura2[0] - signal not found in VCD.
+Warning: iInitialPC[4] - signal not found in VCD.
 
-Warning: Debug[31] - signal not found in VCD.
+Warning: iInitialPC[3] - signal not found in VCD.
 
-Warning: Debug[30] - signal not found in VCD.
+Warning: iInitialPC[2] - signal not found in VCD.
 
-Warning: Debug[29] - signal not found in VCD.
+Warning: iInitialPC[1] - signal not found in VCD.
 
-Warning: Debug[28] - signal not found in VCD.
+Warning: iInitialPC[0] - signal not found in VCD.
 
-Warning: Debug[27] - signal not found in VCD.
+Warning: flagBank[7] - signal not found in VCD.
 
-Warning: Debug[26] - signal not found in VCD.
+Warning: flagBank[6] - signal not found in VCD.
 
-Warning: Debug[25] - signal not found in VCD.
+Warning: flagBank[5] - signal not found in VCD.
 
-Warning: Debug[24] - signal not found in VCD.
+Warning: flagBank[4] - signal not found in VCD.
 
-Warning: Debug[23] - signal not found in VCD.
+Warning: flagBank[3] - signal not found in VCD.
 
-Warning: Debug[22] - signal not found in VCD.
+Warning: flagBank[2] - signal not found in VCD.
 
-Warning: Debug[21] - signal not found in VCD.
+Warning: flagBank[1] - signal not found in VCD.
 
-Warning: Debug[20] - signal not found in VCD.
+Warning: flagBank[0] - signal not found in VCD.
 
-Warning: Debug[19] - signal not found in VCD.
+Warning: iCLK - signal not found in VCD.
 
-Warning: Debug[18] - signal not found in VCD.
+Warning: iCLK50 - signal not found in VCD.
 
-Warning: Debug[17] - signal not found in VCD.
+Warning: wBRReadA[31] - signal not found in VCD.
 
-Warning: Debug[16] - signal not found in VCD.
+Warning: wBRReadA[30] - signal not found in VCD.
 
-Warning: Debug[15] - signal not found in VCD.
+Warning: wBRReadA[29] - signal not found in VCD.
 
-Warning: Debug[14] - signal not found in VCD.
+Warning: wBRReadA[28] - signal not found in VCD.
 
-Warning: Debug[13] - signal not found in VCD.
+Warning: wBRReadA[27] - signal not found in VCD.
 
-Warning: Debug[12] - signal not found in VCD.
+Warning: wBRReadA[26] - signal not found in VCD.
 
-Warning: Debug[11] - signal not found in VCD.
+Warning: wBRReadA[25] - signal not found in VCD.
 
-Warning: Debug[10] - signal not found in VCD.
+Warning: wBRReadA[24] - signal not found in VCD.
 
-Warning: Debug[9] - signal not found in VCD.
+Warning: wBRReadA[23] - signal not found in VCD.
 
-Warning: Debug[8] - signal not found in VCD.
+Warning: wBRReadA[22] - signal not found in VCD.
 
-Warning: Debug[7] - signal not found in VCD.
+Warning: wBRReadA[21] - signal not found in VCD.
 
-Warning: Debug[6] - signal not found in VCD.
+Warning: wBRReadA[20] - signal not found in VCD.
 
-Warning: Debug[5] - signal not found in VCD.
+Warning: wBRReadA[19] - signal not found in VCD.
 
-Warning: Debug[4] - signal not found in VCD.
+Warning: wBRReadA[18] - signal not found in VCD.
 
-Warning: Debug[3] - signal not found in VCD.
+Warning: wBRReadA[17] - signal not found in VCD.
 
-Warning: Debug[2] - signal not found in VCD.
+Warning: wBRReadA[16] - signal not found in VCD.
 
-Warning: Debug[1] - signal not found in VCD.
+Warning: wBRReadA[15] - signal not found in VCD.
 
-Warning: Debug[0] - signal not found in VCD.
+Warning: wBRReadA[14] - signal not found in VCD.
 
-Warning: Estado[6] - signal not found in VCD.
+Warning: wBRReadA[13] - signal not found in VCD.
 
-Warning: Estado[5] - signal not found in VCD.
+Warning: wBRReadA[12] - signal not found in VCD.
 
-Warning: Estado[4] - signal not found in VCD.
+Warning: wBRReadA[11] - signal not found in VCD.
 
-Warning: Estado[3] - signal not found in VCD.
+Warning: wBRReadA[10] - signal not found in VCD.
 
-Warning: Estado[2] - signal not found in VCD.
+Warning: wBRReadA[9] - signal not found in VCD.
 
-Warning: Estado[1] - signal not found in VCD.
+Warning: wBRReadA[8] - signal not found in VCD.
 
-Warning: Estado[0] - signal not found in VCD.
+Warning: wBRReadA[7] - signal not found in VCD.
 
-Warning: FlagsFPU[7] - signal not found in VCD.
+Warning: wBRReadA[6] - signal not found in VCD.
 
-Warning: FlagsFPU[6] - signal not found in VCD.
+Warning: wBRReadA[5] - signal not found in VCD.
 
-Warning: FlagsFPU[5] - signal not found in VCD.
+Warning: wBRReadA[4] - signal not found in VCD.
 
-Warning: FlagsFPU[4] - signal not found in VCD.
+Warning: wBRReadA[3] - signal not found in VCD.
 
-Warning: FlagsFPU[3] - signal not found in VCD.
+Warning: wBRReadA[2] - signal not found in VCD.
 
-Warning: FlagsFPU[2] - signal not found in VCD.
+Warning: wBRReadA[1] - signal not found in VCD.
 
-Warning: FlagsFPU[1] - signal not found in VCD.
+Warning: wBRReadA[0] - signal not found in VCD.
 
-Warning: FlagsFPU[0] - signal not found in VCD.
+Warning: wBRReadB[31] - signal not found in VCD.
 
-Warning: Instrucao[31] - signal not found in VCD.
+Warning: wBRReadB[30] - signal not found in VCD.
 
-Warning: Instrucao[30] - signal not found in VCD.
+Warning: wBRReadB[29] - signal not found in VCD.
 
-Warning: Instrucao[29] - signal not found in VCD.
+Warning: wBRReadB[28] - signal not found in VCD.
 
-Warning: Instrucao[28] - signal not found in VCD.
+Warning: wBRReadB[27] - signal not found in VCD.
 
-Warning: Instrucao[27] - signal not found in VCD.
+Warning: wBRReadB[26] - signal not found in VCD.
 
-Warning: Instrucao[26] - signal not found in VCD.
+Warning: wBRReadB[25] - signal not found in VCD.
 
-Warning: Instrucao[25] - signal not found in VCD.
+Warning: wBRReadB[24] - signal not found in VCD.
 
-Warning: Instrucao[24] - signal not found in VCD.
+Warning: wBRReadB[23] - signal not found in VCD.
 
-Warning: Instrucao[23] - signal not found in VCD.
+Warning: wBRReadB[22] - signal not found in VCD.
 
-Warning: Instrucao[22] - signal not found in VCD.
+Warning: wBRReadB[21] - signal not found in VCD.
 
-Warning: Instrucao[21] - signal not found in VCD.
+Warning: wBRReadB[20] - signal not found in VCD.
 
-Warning: Instrucao[20] - signal not found in VCD.
+Warning: wBRReadB[19] - signal not found in VCD.
 
-Warning: Instrucao[19] - signal not found in VCD.
+Warning: wBRReadB[18] - signal not found in VCD.
 
-Warning: Instrucao[18] - signal not found in VCD.
+Warning: wBRReadB[17] - signal not found in VCD.
 
-Warning: Instrucao[17] - signal not found in VCD.
+Warning: wBRReadB[16] - signal not found in VCD.
 
-Warning: Instrucao[16] - signal not found in VCD.
+Warning: wBRReadB[15] - signal not found in VCD.
 
-Warning: Instrucao[15] - signal not found in VCD.
+Warning: wBRReadB[14] - signal not found in VCD.
 
-Warning: Instrucao[14] - signal not found in VCD.
+Warning: wBRReadB[13] - signal not found in VCD.
 
-Warning: Instrucao[13] - signal not found in VCD.
+Warning: wBRReadB[12] - signal not found in VCD.
 
-Warning: Instrucao[12] - signal not found in VCD.
+Warning: wBRReadB[11] - signal not found in VCD.
 
-Warning: Instrucao[11] - signal not found in VCD.
+Warning: wBRReadB[10] - signal not found in VCD.
 
-Warning: Instrucao[10] - signal not found in VCD.
+Warning: wBRReadB[9] - signal not found in VCD.
 
-Warning: Instrucao[9] - signal not found in VCD.
+Warning: wBRReadB[8] - signal not found in VCD.
 
-Warning: Instrucao[8] - signal not found in VCD.
+Warning: wBRReadB[7] - signal not found in VCD.
 
-Warning: Instrucao[7] - signal not found in VCD.
+Warning: wBRReadB[6] - signal not found in VCD.
 
-Warning: Instrucao[6] - signal not found in VCD.
+Warning: wBRReadB[5] - signal not found in VCD.
 
-Warning: Instrucao[5] - signal not found in VCD.
+Warning: wBRReadB[4] - signal not found in VCD.
 
-Warning: Instrucao[4] - signal not found in VCD.
+Warning: wBRReadB[3] - signal not found in VCD.
 
-Warning: Instrucao[3] - signal not found in VCD.
+Warning: wBRReadB[2] - signal not found in VCD.
 
-Warning: Instrucao[2] - signal not found in VCD.
+Warning: wBRReadB[1] - signal not found in VCD.
 
-Warning: Instrucao[1] - signal not found in VCD.
+Warning: wBRReadB[0] - signal not found in VCD.
 
-Warning: Instrucao[0] - signal not found in VCD.
+Warning: wControlSignals[17] - signal not found in VCD.
 
-Warning: MemD_ByteEnable[3] - signal not found in VCD.
+Warning: wControlSignals[16] - signal not found in VCD.
 
-Warning: MemD_ByteEnable[2] - signal not found in VCD.
+Warning: wControlSignals[15] - signal not found in VCD.
 
-Warning: MemD_ByteEnable[1] - signal not found in VCD.
+Warning: wControlSignals[14] - signal not found in VCD.
 
-Warning: MemD_ByteEnable[0] - signal not found in VCD.
+Warning: wControlSignals[13] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[31] - signal not found in VCD.
+Warning: wControlSignals[12] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[30] - signal not found in VCD.
+Warning: wControlSignals[11] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[29] - signal not found in VCD.
+Warning: wControlSignals[10] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[28] - signal not found in VCD.
+Warning: wControlSignals[9] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[27] - signal not found in VCD.
+Warning: wControlSignals[8] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[26] - signal not found in VCD.
+Warning: wControlSignals[7] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[25] - signal not found in VCD.
+Warning: wControlSignals[6] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[24] - signal not found in VCD.
+Warning: wControlSignals[5] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[23] - signal not found in VCD.
+Warning: wControlSignals[4] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[22] - signal not found in VCD.
+Warning: wControlSignals[3] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[21] - signal not found in VCD.
+Warning: wControlSignals[2] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[20] - signal not found in VCD.
+Warning: wControlSignals[1] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[19] - signal not found in VCD.
+Warning: wControlSignals[0] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[18] - signal not found in VCD.
+Warning: wInstr[31] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[17] - signal not found in VCD.
+Warning: wInstr[30] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[16] - signal not found in VCD.
+Warning: wInstr[29] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[15] - signal not found in VCD.
+Warning: wInstr[28] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[14] - signal not found in VCD.
+Warning: wInstr[27] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[13] - signal not found in VCD.
+Warning: wInstr[26] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[12] - signal not found in VCD.
+Warning: wInstr[25] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[11] - signal not found in VCD.
+Warning: wInstr[24] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[10] - signal not found in VCD.
+Warning: wInstr[23] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[9] - signal not found in VCD.
+Warning: wInstr[22] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[8] - signal not found in VCD.
+Warning: wInstr[21] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[7] - signal not found in VCD.
+Warning: wInstr[20] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[6] - signal not found in VCD.
+Warning: wInstr[19] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[5] - signal not found in VCD.
+Warning: wInstr[18] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[4] - signal not found in VCD.
+Warning: wInstr[17] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[3] - signal not found in VCD.
+Warning: wInstr[16] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[2] - signal not found in VCD.
+Warning: wInstr[15] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[1] - signal not found in VCD.
+Warning: wInstr[14] - signal not found in VCD.
 
-Warning: MemD_DadoEscrita[0] - signal not found in VCD.
+Warning: wInstr[13] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[31] - signal not found in VCD.
+Warning: wInstr[12] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[30] - signal not found in VCD.
+Warning: wInstr[11] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[29] - signal not found in VCD.
+Warning: wInstr[10] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[28] - signal not found in VCD.
+Warning: wInstr[9] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[27] - signal not found in VCD.
+Warning: wInstr[8] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[26] - signal not found in VCD.
+Warning: wInstr[7] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[25] - signal not found in VCD.
+Warning: wInstr[6] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[24] - signal not found in VCD.
+Warning: wInstr[5] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[23] - signal not found in VCD.
+Warning: wInstr[4] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[22] - signal not found in VCD.
+Warning: wInstr[3] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[21] - signal not found in VCD.
+Warning: wInstr[2] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[20] - signal not found in VCD.
+Warning: wInstr[1] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[19] - signal not found in VCD.
+Warning: wInstr[0] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[18] - signal not found in VCD.
+Warning: wPC[31] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[17] - signal not found in VCD.
+Warning: wPC[30] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[16] - signal not found in VCD.
+Warning: wPC[29] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[15] - signal not found in VCD.
+Warning: wPC[28] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[14] - signal not found in VCD.
+Warning: wPC[27] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[13] - signal not found in VCD.
+Warning: wPC[26] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[12] - signal not found in VCD.
+Warning: wPC[25] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[11] - signal not found in VCD.
+Warning: wPC[24] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[10] - signal not found in VCD.
+Warning: wPC[23] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[9] - signal not found in VCD.
+Warning: wPC[22] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[8] - signal not found in VCD.
+Warning: wPC[21] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[7] - signal not found in VCD.
+Warning: wPC[20] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[6] - signal not found in VCD.
+Warning: wPC[19] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[5] - signal not found in VCD.
+Warning: wPC[18] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[4] - signal not found in VCD.
+Warning: wPC[17] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[3] - signal not found in VCD.
+Warning: wPC[16] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[2] - signal not found in VCD.
+Warning: wPC[15] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[1] - signal not found in VCD.
+Warning: wPC[14] - signal not found in VCD.
 
-Warning: MemD_DadoLeitura[0] - signal not found in VCD.
+Warning: wPC[13] - signal not found in VCD.
 
-Warning: MemD_Endereco[31] - signal not found in VCD.
+Warning: wPC[12] - signal not found in VCD.
 
-Warning: MemD_Endereco[30] - signal not found in VCD.
+Warning: wPC[11] - signal not found in VCD.
 
-Warning: MemD_Endereco[29] - signal not found in VCD.
+Warning: wPC[10] - signal not found in VCD.
 
-Warning: MemD_Endereco[28] - signal not found in VCD.
+Warning: wPC[9] - signal not found in VCD.
 
-Warning: MemD_Endereco[27] - signal not found in VCD.
+Warning: wPC[8] - signal not found in VCD.
 
-Warning: MemD_Endereco[26] - signal not found in VCD.
+Warning: wPC[7] - signal not found in VCD.
 
-Warning: MemD_Endereco[25] - signal not found in VCD.
+Warning: wPC[6] - signal not found in VCD.
 
-Warning: MemD_Endereco[24] - signal not found in VCD.
+Warning: wPC[5] - signal not found in VCD.
 
-Warning: MemD_Endereco[23] - signal not found in VCD.
+Warning: wPC[4] - signal not found in VCD.
 
-Warning: MemD_Endereco[22] - signal not found in VCD.
+Warning: wPC[3] - signal not found in VCD.
 
-Warning: MemD_Endereco[21] - signal not found in VCD.
+Warning: wPC[2] - signal not found in VCD.
 
-Warning: MemD_Endereco[20] - signal not found in VCD.
+Warning: wPC[1] - signal not found in VCD.
 
-Warning: MemD_Endereco[19] - signal not found in VCD.
+Warning: wPC[0] - signal not found in VCD.
 
-Warning: MemD_Endereco[18] - signal not found in VCD.
+Warning: wULA[31] - signal not found in VCD.
 
-Warning: MemD_Endereco[17] - signal not found in VCD.
+Warning: wULA[30] - signal not found in VCD.
 
-Warning: MemD_Endereco[16] - signal not found in VCD.
+Warning: wULA[29] - signal not found in VCD.
 
-Warning: MemD_Endereco[15] - signal not found in VCD.
+Warning: wULA[28] - signal not found in VCD.
 
-Warning: MemD_Endereco[14] - signal not found in VCD.
+Warning: wULA[27] - signal not found in VCD.
 
-Warning: MemD_Endereco[13] - signal not found in VCD.
+Warning: wULA[26] - signal not found in VCD.
 
-Warning: MemD_Endereco[12] - signal not found in VCD.
+Warning: wULA[25] - signal not found in VCD.
 
-Warning: MemD_Endereco[11] - signal not found in VCD.
+Warning: wULA[24] - signal not found in VCD.
 
-Warning: MemD_Endereco[10] - signal not found in VCD.
+Warning: wULA[23] - signal not found in VCD.
 
-Warning: MemD_Endereco[9] - signal not found in VCD.
+Warning: wULA[22] - signal not found in VCD.
 
-Warning: MemD_Endereco[8] - signal not found in VCD.
+Warning: wULA[21] - signal not found in VCD.
 
-Warning: MemD_Endereco[7] - signal not found in VCD.
+Warning: wULA[20] - signal not found in VCD.
 
-Warning: MemD_Endereco[6] - signal not found in VCD.
+Warning: wULA[19] - signal not found in VCD.
 
-Warning: MemD_Endereco[5] - signal not found in VCD.
+Warning: wULA[18] - signal not found in VCD.
 
-Warning: MemD_Endereco[4] - signal not found in VCD.
+Warning: wULA[17] - signal not found in VCD.
 
-Warning: MemD_Endereco[3] - signal not found in VCD.
+Warning: wULA[16] - signal not found in VCD.
 
-Warning: MemD_Endereco[2] - signal not found in VCD.
+Warning: wULA[15] - signal not found in VCD.
 
-Warning: MemD_Endereco[1] - signal not found in VCD.
+Warning: wULA[14] - signal not found in VCD.
 
-Warning: MemD_Endereco[0] - signal not found in VCD.
+Warning: wULA[13] - signal not found in VCD.
 
-Warning: PC[31] - signal not found in VCD.
+Warning: wULA[12] - signal not found in VCD.
 
-Warning: PC[30] - signal not found in VCD.
+Warning: wULA[11] - signal not found in VCD.
 
-Warning: PC[29] - signal not found in VCD.
+Warning: wULA[10] - signal not found in VCD.
 
-Warning: PC[28] - signal not found in VCD.
+Warning: wULA[9] - signal not found in VCD.
 
-Warning: PC[27] - signal not found in VCD.
+Warning: wULA[8] - signal not found in VCD.
 
-Warning: PC[26] - signal not found in VCD.
+Warning: wULA[7] - signal not found in VCD.
 
-Warning: PC[25] - signal not found in VCD.
+Warning: wULA[6] - signal not found in VCD.
 
-Warning: PC[24] - signal not found in VCD.
+Warning: wULA[5] - signal not found in VCD.
 
-Warning: PC[23] - signal not found in VCD.
+Warning: wULA[4] - signal not found in VCD.
 
-Warning: PC[22] - signal not found in VCD.
+Warning: wULA[3] - signal not found in VCD.
 
-Warning: PC[21] - signal not found in VCD.
+Warning: wULA[2] - signal not found in VCD.
 
-Warning: PC[20] - signal not found in VCD.
+Warning: wULA[1] - signal not found in VCD.
 
-Warning: PC[19] - signal not found in VCD.
+Warning: wULA[0] - signal not found in VCD.
 
-Warning: PC[18] - signal not found in VCD.
-
-Warning: PC[17] - signal not found in VCD.
-
-Warning: PC[16] - signal not found in VCD.
-
-Warning: PC[15] - signal not found in VCD.
-
-Warning: PC[14] - signal not found in VCD.
-
-Warning: PC[13] - signal not found in VCD.
-
-Warning: PC[12] - signal not found in VCD.
-
-Warning: PC[11] - signal not found in VCD.
-
-Warning: PC[10] - signal not found in VCD.
-
-Warning: PC[9] - signal not found in VCD.
-
-Warning: PC[8] - signal not found in VCD.
-
-Warning: PC[7] - signal not found in VCD.
-
-Warning: PC[6] - signal not found in VCD.
-
-Warning: PC[5] - signal not found in VCD.
-
-Warning: PC[4] - signal not found in VCD.
-
-Warning: PC[3] - signal not found in VCD.
-
-Warning: PC[2] - signal not found in VCD.
-
-Warning: PC[1] - signal not found in VCD.
-
-Warning: PC[0] - signal not found in VCD.
-
-Warning: RegDisp[31] - signal not found in VCD.
-
-Warning: RegDisp[30] - signal not found in VCD.
-
-Warning: RegDisp[29] - signal not found in VCD.
-
-Warning: RegDisp[28] - signal not found in VCD.
-
-Warning: RegDisp[27] - signal not found in VCD.
-
-Warning: RegDisp[26] - signal not found in VCD.
-
-Warning: RegDisp[25] - signal not found in VCD.
-
-Warning: RegDisp[24] - signal not found in VCD.
-
-Warning: RegDisp[23] - signal not found in VCD.
-
-Warning: RegDisp[22] - signal not found in VCD.
-
-Warning: RegDisp[21] - signal not found in VCD.
-
-Warning: RegDisp[20] - signal not found in VCD.
-
-Warning: RegDisp[19] - signal not found in VCD.
-
-Warning: RegDisp[18] - signal not found in VCD.
-
-Warning: RegDisp[17] - signal not found in VCD.
-
-Warning: RegDisp[16] - signal not found in VCD.
-
-Warning: RegDisp[15] - signal not found in VCD.
-
-Warning: RegDisp[14] - signal not found in VCD.
-
-Warning: RegDisp[13] - signal not found in VCD.
-
-Warning: RegDisp[12] - signal not found in VCD.
-
-Warning: RegDisp[11] - signal not found in VCD.
-
-Warning: RegDisp[10] - signal not found in VCD.
-
-Warning: RegDisp[9] - signal not found in VCD.
-
-Warning: RegDisp[8] - signal not found in VCD.
-
-Warning: RegDisp[7] - signal not found in VCD.
-
-Warning: RegDisp[6] - signal not found in VCD.
-
-Warning: RegDisp[5] - signal not found in VCD.
-
-Warning: RegDisp[4] - signal not found in VCD.
-
-Warning: RegDisp[3] - signal not found in VCD.
-
-Warning: RegDisp[2] - signal not found in VCD.
-
-Warning: RegDisp[1] - signal not found in VCD.
-
-Warning: RegDisp[0] - signal not found in VCD.
-
-Warning: RegDispFPU[31] - signal not found in VCD.
-
-Warning: RegDispFPU[30] - signal not found in VCD.
-
-Warning: RegDispFPU[29] - signal not found in VCD.
-
-Warning: RegDispFPU[28] - signal not found in VCD.
-
-Warning: RegDispFPU[27] - signal not found in VCD.
-
-Warning: RegDispFPU[26] - signal not found in VCD.
-
-Warning: RegDispFPU[25] - signal not found in VCD.
-
-Warning: RegDispFPU[24] - signal not found in VCD.
-
-Warning: RegDispFPU[23] - signal not found in VCD.
-
-Warning: RegDispFPU[22] - signal not found in VCD.
-
-Warning: RegDispFPU[21] - signal not found in VCD.
-
-Warning: RegDispFPU[20] - signal not found in VCD.
-
-Warning: RegDispFPU[19] - signal not found in VCD.
-
-Warning: RegDispFPU[18] - signal not found in VCD.
-
-Warning: RegDispFPU[17] - signal not found in VCD.
-
-Warning: RegDispFPU[16] - signal not found in VCD.
-
-Warning: RegDispFPU[15] - signal not found in VCD.
-
-Warning: RegDispFPU[14] - signal not found in VCD.
-
-Warning: RegDispFPU[13] - signal not found in VCD.
-
-Warning: RegDispFPU[12] - signal not found in VCD.
-
-Warning: RegDispFPU[11] - signal not found in VCD.
-
-Warning: RegDispFPU[10] - signal not found in VCD.
-
-Warning: RegDispFPU[9] - signal not found in VCD.
-
-Warning: RegDispFPU[8] - signal not found in VCD.
-
-Warning: RegDispFPU[7] - signal not found in VCD.
-
-Warning: RegDispFPU[6] - signal not found in VCD.
-
-Warning: RegDispFPU[5] - signal not found in VCD.
-
-Warning: RegDispFPU[4] - signal not found in VCD.
-
-Warning: RegDispFPU[3] - signal not found in VCD.
-
-Warning: RegDispFPU[2] - signal not found in VCD.
-
-Warning: RegDispFPU[1] - signal not found in VCD.
-
-Warning: RegDispFPU[0] - signal not found in VCD.
-
-Warning: RegDispSelect[4] - signal not found in VCD.
-
-Warning: RegDispSelect[3] - signal not found in VCD.
-
-Warning: RegDispSelect[2] - signal not found in VCD.
-
-Warning: RegDispSelect[1] - signal not found in VCD.
-
-Warning: RegDispSelect[0] - signal not found in VCD.
-
-Warning: Saida_ULA[31] - signal not found in VCD.
-
-Warning: Saida_ULA[30] - signal not found in VCD.
-
-Warning: Saida_ULA[29] - signal not found in VCD.
-
-Warning: Saida_ULA[28] - signal not found in VCD.
-
-Warning: Saida_ULA[27] - signal not found in VCD.
-
-Warning: Saida_ULA[26] - signal not found in VCD.
-
-Warning: Saida_ULA[25] - signal not found in VCD.
-
-Warning: Saida_ULA[24] - signal not found in VCD.
-
-Warning: Saida_ULA[23] - signal not found in VCD.
-
-Warning: Saida_ULA[22] - signal not found in VCD.
-
-Warning: Saida_ULA[21] - signal not found in VCD.
-
-Warning: Saida_ULA[20] - signal not found in VCD.
-
-Warning: Saida_ULA[19] - signal not found in VCD.
-
-Warning: Saida_ULA[18] - signal not found in VCD.
-
-Warning: Saida_ULA[17] - signal not found in VCD.
-
-Warning: Saida_ULA[16] - signal not found in VCD.
-
-Warning: Saida_ULA[15] - signal not found in VCD.
-
-Warning: Saida_ULA[14] - signal not found in VCD.
-
-Warning: Saida_ULA[13] - signal not found in VCD.
-
-Warning: Saida_ULA[12] - signal not found in VCD.
-
-Warning: Saida_ULA[11] - signal not found in VCD.
-
-Warning: Saida_ULA[10] - signal not found in VCD.
-
-Warning: Saida_ULA[9] - signal not found in VCD.
-
-Warning: Saida_ULA[8] - signal not found in VCD.
-
-Warning: Saida_ULA[7] - signal not found in VCD.
-
-Warning: Saida_ULA[6] - signal not found in VCD.
-
-Warning: Saida_ULA[5] - signal not found in VCD.
-
-Warning: Saida_ULA[4] - signal not found in VCD.
-
-Warning: Saida_ULA[3] - signal not found in VCD.
-
-Warning: Saida_ULA[2] - signal not found in VCD.
-
-Warning: Saida_ULA[1] - signal not found in VCD.
-
-Warning: Saida_ULA[0] - signal not found in VCD.
-
-Warning: MClock - signal not found in VCD.
-
-Warning: LeMem - signal not found in VCD.
-
-Warning: EscreveMem - signal not found in VCD.
-
-Writing the resulting VWF to D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/RISCV_20180531224900.sim.vwf
+Writing the resulting VWF to D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim/RISCV_20180602002105.sim.vwf
 
 Finished VCD to VWF conversion.
 

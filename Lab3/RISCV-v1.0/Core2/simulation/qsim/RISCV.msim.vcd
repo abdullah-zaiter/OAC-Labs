@@ -3,7 +3,7 @@ $comment
 		vcd file RISCV.msim.vcd -direction
 $end
 $date
-	Thu May 31 22:12:44 2018
+	Sat Jun 02 00:20:50 2018
 $end
 $version
 	ModelSim Version 10.5b
@@ -15412,6 +15412,3 @@ xjq
 xiq
 $end
 #1000000
-#1000000
-#20000000
-#20000000

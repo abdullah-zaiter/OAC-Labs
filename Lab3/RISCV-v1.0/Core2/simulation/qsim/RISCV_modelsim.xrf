@@ -1,6 +1,4 @@
 vendor_name = ModelSim
-source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/WaveformTestbenchSimples.vwf
-source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Waveform2.vwf
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_text.mif
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/de1_data.mif
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/Sintetizador/SyscallSynthControl.sv
@@ -93,8 +91,8 @@ source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/AudioCODEC/audio_cl
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Registers.v
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Parametros.v
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Imm_Generator.v
-source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/HazardUnitM.v
-source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/ForwardUnitM.v
+source_file = 1, CPU/HazardUnitM.v
+source_file = 1, CPU/ForwardUnitM.v
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Datapath_UNI.v
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/Ctrl_Transf.v
 source_file = 1, D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/CPU/CPU.v

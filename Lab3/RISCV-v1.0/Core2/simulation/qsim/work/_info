@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dD:/Documents/OAC-Labs/Lab3/RISCV-v1.0/Core2/simulation/qsim
 vTopDE
-Z1 !s110 1527818211
+Z1 !s110 1527909648
 !i10b 1
-!s100 ozFSG@iQT<4YQ@dCj732z1
-IOk>MUTT:HR9>iD<n;ZFl00
+!s100 MBbiZ:l;SQ00[iFIJMPSo0
+I=fdHJC>aW2]3EFeLFbGf;1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1527818209
+w1527909646
 8RISCV.vo
 FRISCV.vo
 L0 31
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1527818210.000000
+!s108 1527909647.000000
 !s107 RISCV.vo|
 !s90 -work|work|RISCV.vo|
 !i113 1
@@ -33,21 +33,21 @@ n@top@d@e
 vTopDE_vlg_vec_tst
 R1
 !i10b 1
-!s100 OJSf<SRW_l>lM267YmFB63
-Ik;3DQCM8GVoRROEUH>MBo1
+!s100 6EOhBlh<d;198QUDfIkSH3
+IibLT_144eofGEaMz]lhj_2
 R2
 R0
-w1527818206
-8Waveform2.vwf.vt
-FWaveform2.vwf.vt
+w1527909643
+8Waveform.vwf.vt
+FWaveform.vwf.vt
 L0 29
 R3
 r1
 !s85 0
 31
-!s108 1527818211.000000
-!s107 Waveform2.vwf.vt|
-!s90 -work|work|Waveform2.vwf.vt|
+!s108 1527909648.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
 !i113 1
 R4
 R5
