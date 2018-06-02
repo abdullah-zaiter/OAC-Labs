@@ -96,30 +96,9 @@ wire        wOverflow;
 wire [31:0] wExtZeroImm;
 wire        wCMemRead, wCMemWrite;
 wire [5:0]  wOpcode, wFunct; // VOU DEIXAR O wFunct PQ ELE ENTRA NO FPALU
+wire [1:0] wCStore;
 
-/*Neste bloco estao definidos os controles dos multiplexadores e outras coisas da FPU*/
-wire        wCRegWriteFPU, wCRegDataFPU, wSelectedFlagValue, wCFPFlagWrite, wCompResult;
-wire [1:0]  wCDataRegFPU, wCRegDstFPU, wCFPUparaMem;
-wire        wZeroFPU, wNanFPU, wUnderflowFPU, wOverflowFPU, wBranchC1;
-wire [4:0]  wAddrFt, wAddrFs, wAddrFd, wFmt, wRegDstFPU;
-wire [2:0]  wFlagSelector, wBranchFlagSelector;
-wire [3:0]  wFPALUControl;
-wire [31:0] wDataRegFPU;
-wire [31:0] wFPALUresult;
-wire [31:0] wRead1FPU, wRead2FPU;
-/*******/
-
-// feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
-wire        wCRegWriteCOP0;
-wire        wCEretCOP0;
-wire        wCExcOccurredCOP0;
-wire        wCBranchDelayCOP0;
-wire [4:0]  wCExcCodeCOP0;
-wire [31:0] wDataRegCOP0;
-wire [31:0] wCOP0ReadData;
-wire [7:0]  wCOP0InterruptMask;
-wire        wCOP0UserMode;
-wire        wCOP0ExcLevel;
+//MemStore
 wire [31:0] wMemStore;
 wire [3:0]  wMemEnableStore;
 wire [3:0]  wMemEnable;
@@ -142,25 +121,11 @@ assign wAddrRs2      = wInstr[24:20];
 assign wAddrRd       = wInstr[11:7];
 assign wFunct3       = wInstr[14:12];
 assign wFunct7       = wInstr[31:25];
-
-//assign wImm         = wInstr[15:0];
-//assign wExtZeroImm  = {{16'b0},wImm};
-//assign wExtImm      = {{16{wImm[15]}},wImm};
 assign woInstr      = wInstr;
 assign wCodeMemoryWrite     = ((PC >= BEGINNING_BOOT && PC <= END_BOOT) ? 1'b1 : 1'b0);
 
 /* Assigns para debug */
 assign wDebug   = 32'h00BEBAD0;//005AD1C0//00F1A5C0//0ACEF0DA;
-
-/*Assigns FPU*/
-assign wFmt                 = wInstr[25:21];
-assign wAddrFt              = wInstr[20:16];
-assign wAddrFs              = wInstr[15:11];
-assign wAddrFd              = wInstr[10:6];
-assign wFlagSelector        = wInstr[10:8];
-assign wBranchFlagSelector  = wInstr[20:18];
-assign wBranchC1            = wInstr[16];
-assign wSelectedFlagValue   = wFPUFlagBank[wBranchFlagSelector];
 
 
 /* Barramento da Memoria de Instrucoes */
@@ -189,55 +154,6 @@ Registers RegsUNI (
     .oVGARead(wVGARead)                 // para mostrar Regs na tela
 	);
 
-`ifdef FPU
-/*Banco de Registradores FPU*/
-FPURegisters memRegFPU(
-    .iCLK(iCLK),
-    .iCLR(iRST),
-    .iReadRegister1(wAddrFs),
-    .iReadRegister2(wAddrFt),
-    .iWriteRegister(wRegDstFPU),
-    .iWriteData(wDataRegFPU),
-    .iRegWrite(wCRegWriteFPU),
-    .oReadData1(wRead1FPU),
-    .oReadData2(wRead2FPU),
-    .iRegDispSelect(wRegDispSelect),    // para mostrar Regs no display
-    .oRegDisp(wRegDispFPU),             // para mostrar Regs no display
-    .iVGASelect(wVGASelectFPU),         // para mostrar Regs na tela
-    .oVGARead(wVGAReadFPU)              // para mostrar Regs na tela
-	);
-	
-/* FP ALU Control */
-FPALUControl FPALUControlUnit (
-    .iFunct(wFunct),
-    .oControlSignal(wFPALUControl)
-);
-
-/*ULA FPU*/
-ula_fp FPALUunit (
-    .iclock(iCLK50),
-    .idataa(wRead1FPU),
-    .idatab(wRead2FPU),
-    .icontrol(wFPALUControl),
-    .oresult(wFPALUresult),
-    .onan(wNanFPU),
-    .ozero(wZeroFPU),
-    .ounderflow(wUnderflowFPU),
-    .ooverflow(wOverflowFPU),
-    .oCompResult(wCompResult)
-	);
-
-/* Banco de flags da FPU*/
-FlagBank FlagBankModule(
-    .iCLK(iCLK),
-    .iCLR(iRST),
-    .iFlag(wFlagSelector),
-    .iFlagWrite(wCFPFlagWrite),
-    .iData(wCompResult),
-    .oFlags(wFPUFlagBank)
-	);
-`endif
-
 /* ALU CTRL */
 ALUControl ALUControlunit (
     .iFunct3(wFunct3),
@@ -261,7 +177,7 @@ ALU ALUunit(
 
 Imm_Generator ImmGen(
     .inst(wInstr),
-    .wImm(wImm), // TODO ver se funfa assim
+    .oImm(wImm)
 	);
 
 Ctrl_Transf CtrlT(
@@ -309,6 +225,7 @@ Controle CtrUNI (
     .oEscreveMem(wCMemWrite),
     .oOpALU(wCALUOp),
     .oOrigPC(wCOrigPC),
+    .oCStore(wCStore)
 	);
 
 
@@ -356,33 +273,10 @@ always @(*)
         default:    wDataReg <= 32'b0;
     endcase
 
-
-/*Decide em qual registrador sera escrito o dado na FPU*/
-always @(*)
-    case(wCRegDstFPU)
-        2'b00:      wRegDstFPU <= wAddrFd;
-        2'b01:      wRegDstFPU <= wAddrFs;
-        2'b10:      wRegDstFPU <= wAddrFt;
-        default:    wRegDstFPU <= 5'b0;
-    endcase
-
-
-/*Decide o que sera escrito no banco de registradores da FPU*/
-wire [31:0] wx1;
-assign wx1 = (wReadData==32'hzzzzzzzz ? 32'h00000000 : wReadData);
-always @(*)
-    case(wCDataRegFPU)
-        2'b00:      wDataRegFPU <= wFPALUresult;
-        2'b01:      wDataRegFPU <= wx1;
-        2'b10:      wDataRegFPU <= wRead2;
-        2'b11:      wDataRegFPU <= wRead1FPU;
-        default:    wDataRegFPU <= 5'bx;
-    endcase
-
 	 
 /*Decide o que sera escrito na Memoria de Dados*/
 always @(*)
-    case(wCFPUparaMem)
+    case(wCStore)
         2'b00:                                          // Nao deve estar mais sendo usado para sw
            begin
             wMemDataWrite   <= wRead2;
@@ -390,7 +284,7 @@ always @(*)
            end
         2'b01:
            begin
-            wMemDataWrite   <= wRead2FPU;
+            //wMemDataWrite   <= wRead2FPU;
             wMemEnable      <= 4'b1111;
            end
         2'b10:
@@ -405,15 +299,6 @@ always @(*)
            end
     endcase
 
-// feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
-/* Decide o que sera escrito no banco de registradores do Coprocessador 0 */
-always @(*)
-    case(wCExcOccurredCOP0)
-        1'b0:   wDataRegCOP0 <= wRead2;
-        1'b1:   wDataRegCOP0 <= PCgambs - 4;   //////  VERIFICAR SE -4 ESTA CORRETO PARA FICAR IGUAL AO MARS
-		  default: wDataRegCOP0 <= 32'bx;
-    endcase
-
 
 /* Para cada ciclo de Clock */
 
@@ -424,11 +309,8 @@ begin
         PC      <= iInitialPC;
         PCgambs <= iInitialPC;
     end
-    else begin
+    else
         PC 	<= wiPC;
-        if (~wCExcOccurredCOP0)
-            PCgambs <= wiPC;
-    end
 end
 
 endmodule

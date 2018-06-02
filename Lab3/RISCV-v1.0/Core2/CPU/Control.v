@@ -12,13 +12,15 @@ module control (
 	 output wire EscreveMem,
 	 output wire [1:0] OpALU,
 	 output wire [1:0] OrigPC,
-	 output wire OPBJ
+	 output wire OPBJ,
+	 output [1:0] oCStore
 );
 
 always @ ( * ) begin
     case (opc[6:0]) // Opcode
         OPC_OP:      // Opcodes do tipo R
         begin
+
 					OrigALU = 1'b0;
 					MemparaReg = 2'b00;
 					EscreveReg = 1'b1;
@@ -27,9 +29,12 @@ always @ ( * ) begin
 					OpALU = 2'b10;
 					OrigPC = 2'b00;
 					OPBJ = 1'bx;
+					oCStore = 2'b00;
 				end
         OPC_OP_IMM:     // Opcodes com uso de imediatos
 				begin
+					
+					oCStore = 2'b00;
 					OrigALU = 1'b1;
 					MemparaReg = 2'b00;
 					EscreveReg = 1'b1;
@@ -41,6 +46,8 @@ always @ ( * ) begin
 				end
         OPC_AUIPC:    // Opcode dp auiPC 
 				begin
+					
+					oCStore = 2'b00;
 					OrigALU = 1'bx;
 					MemparaReg = 2'b11;
 					EscreveReg = 1'b1;
@@ -52,6 +59,8 @@ always @ ( * ) begin
 				end
         OPC_LUI:    // Opcode do lui
 				begin
+					
+					oCStore = 2'b00;
 					OrigALU = 1'b1;
 					MemparaReg = 2'b00;
 					EscreveReg = 1'b1;
@@ -63,6 +72,8 @@ always @ ( * ) begin
 				end	
         OPC_BRANCH:    // Opcodes 
 				begin
+					
+					oCStore = 2'b00;
 					OrigALU = 1'b0;
 					MemparaReg = 2'bxx;
 					EscreveReg = 1'b0;
@@ -74,6 +85,8 @@ always @ ( * ) begin
 				end	
         OPC_JAL:    // Opcodes 
 				begin
+					
+					oCStore = 2'b00;
 					OrigALU = 1'bx;
 					MemparaReg = 2'b10;
 					EscreveReg = 1'b1;
@@ -85,6 +98,8 @@ always @ ( * ) begin
 				end	
 			OPC_JALR:    // Opcodes 
 				begin
+					
+					oCStore = 2'b00;
 					OrigALU = 1'bx;
 					MemparaReg = 2'b10;
 					EscreveReg = 1'b1;
@@ -96,6 +111,8 @@ always @ ( * ) begin
 				end	
 			OPC_LOAD:    // Opcodes 
 				begin
+					
+					oCStore = 2'b00;
 					OrigALU = 1'b1;
 					MemparaReg = 2'b01;
 					EscreveReg = 1'b1;
@@ -107,6 +124,7 @@ always @ ( * ) begin
 				end	
         OPC_STORE:    // Opcodes 
 				begin
+          oCStore = 2'b10;
 					OrigALU = 1'b1;
 					MemparaReg = 2'bxx;
 					EscreveReg = 1'b0;
@@ -118,6 +136,8 @@ always @ ( * ) begin
 				end
         default:
 				begin
+					
+          oCStore = 2'b00;
 					OrigALU = 1'b0;
 					MemparaReg = 2'b00;
 					EscreveReg = 1'b0;
