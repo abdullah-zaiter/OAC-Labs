@@ -1,0 +1,96 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/simulation/qsim
+vPLL_Main
+!s110 1527918811
+!i10b 1
+!s100 Rh>nBQ:R>O0nn6B6NHDfz1
+IgMDbDkV6>98Z;C:650]KO3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1522639139
+8D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/Tempo/PLL_Main_sim/PLL_Main.vo
+FD:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/Tempo/PLL_Main_sim/PLL_Main.vo
+Z2 L0 31
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1527918810.000000
+!s107 D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/Tempo/PLL_Main_sim/PLL_Main.vo|
+!s90 -reportprogress|300|D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/Tempo/PLL_Main_sim/PLL_Main.vo|
+!i113 1
+Z5 tCvgOpt 0
+n@p@l@l_@main
+vTopDE
+!s110 1527919351
+!i10b 1
+!s100 jAGd`d_Ej?5bjC9fOMhhd2
+IKRl=e5Q_3Vd;Ii=L^BH2F3
+R1
+R0
+w1527918481
+8TopDE.vo
+FTopDE.vo
+R2
+R3
+r1
+!s85 0
+31
+!s108 1527919350.000000
+!s107 TopDE.vo|
+!s90 -reportprogress|300|-work|work|TopDE.vo|
+!i113 1
+Z6 o-work work
+R5
+n@top@d@e
+vTopDE_vlg_vec_tst
+!s110 1527919352
+!i10b 1
+!s100 k]iI`;5JTk@KX?Y;`V:WQ2
+I>kbl>2mY8H[nSZCQ<JcY[2
+R1
+R0
+w1527919048
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 29
+R3
+r1
+!s85 0
+31
+!s108 1527919351.000000
+!s107 Waveform.vwf.vt|
+!s90 -reportprogress|300|-work|work|Waveform.vwf.vt|
+!i113 1
+R6
+R5
+n@top@d@e_vlg_vec_tst
+vVgaPll
+!s110 1527918810
+!i10b 1
+!s100 c7[THAZf[Hi34LAB`oDEB3
+IS=_`9SDHd^YXRFbPE]F`U2
+R1
+R0
+w1526238551
+8D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/VGA/VgaPll_sim/VgaPll.vo
+FD:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/VGA/VgaPll_sim/VgaPll.vo
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/VGA/VgaPll_sim/VgaPll.vo|
+!s90 -reportprogress|300|D:/Documents/OAC-Labs/Lab3/RISCV-v1.0/CoreNowOrNever/VGA/VgaPll_sim/VgaPll.vo|
+!i113 1
+R5
+n@vga@pll
