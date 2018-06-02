@@ -20,7 +20,7 @@ module ALUControl (
 	input wire [1:0] iALUOp,
 	output reg [4:0] oControlSignal
 	);
-	
+
 always @(*)
 begin
     case (iALUOp)
@@ -42,7 +42,7 @@ begin
 					oControlSignal  = OPSLTU;
 				default:
 					oControlSignal  = 5'b00000;
-			endcase	 
+			endcase
         2'b10:
             case (iFunct3)
                 F3_SLL:
@@ -55,11 +55,16 @@ begin
 									oControlSignal  = OPSRL;
 								default:
 									oControlSignal  = 5'b00000;
-						  endcase    
+						  endcase
                 F3_ADD:
-                    oControlSignal  = OPADD;
-                F3_SUB:
-                    oControlSignal  = OPSUB;
+                  case (iFunct7)
+                    F7_ADD:
+                      oControlSignal  = OPADD;
+                    F7_SUB:
+                      oControlSignal  = OPSUB;
+                    default:
+                      oControlSignal  = 5'b00000;
+                  endcase
                 F3_AND:
                     oControlSignal  = OPAND;
                 F3_OR:
