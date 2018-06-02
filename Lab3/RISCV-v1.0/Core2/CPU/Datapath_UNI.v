@@ -219,11 +219,11 @@ Controle CtrUNI (
     .iOp(wOpcode),
     .oOrigALU(wCOrigALU),
     .oOPBJ(wOPBJ),
-    .oMemparaReg(wCMem2Reg),
-    .oEscreveReg(wCRegWrite),
-    .oLeMem(wCMemRead),
-    .oEscreveMem(wCMemWrite),
-    .oOpALU(wCALUOp),
+    .oMem2Reg(wCMem2Reg),
+    .oRegWrite(wCRegWrite),
+    .oMemRead(wCMemRead),
+    .oMemWrite(wCMemWrite),
+    .oALUOp(wCALUOp),
     .oOrigPC(wCOrigPC),
     .oCStore(wCStore)
 	);

@@ -6,11 +6,11 @@
 module control (
     input  [6:0] opc,
     output wire OrigALU,
-	 output wire [1:0] MemparaReg,
-	 output wire EscreveReg,
-	 output wire LeMem,
-	 output wire EscreveMem,
-	 output wire [1:0] OpALU,
+	 output wire [1:0] Mem2Reg,
+	 output wire RegWrite,
+	 output wire MemRead,
+	 output wire MemWrite,
+	 output wire [1:0] ALUOp,
 	 output wire [1:0] OrigPC,
 	 output wire OPBJ,
 	 output [1:0] oCStore
@@ -22,11 +22,11 @@ always @ ( * ) begin
         begin
 
 					OrigALU = 1'b0;
-					MemparaReg = 2'b00;
-					EscreveReg = 1'b1;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'b10;
+					Mem2Reg = 2'b00;
+					RegWrite = 1'b1;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'b10;
 					OrigPC = 2'b00;
 					OPBJ = 1'bx;
 					oCStore = 2'b00;
@@ -36,11 +36,11 @@ always @ ( * ) begin
 					
 					oCStore = 2'b00;
 					OrigALU = 1'b1;
-					MemparaReg = 2'b00;
-					EscreveReg = 1'b1;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'b10;
+					Mem2Reg = 2'b00;
+					RegWrite = 1'b1;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'b10;
 					OrigPC = 2'b00;
 					OPBJ = 1'bx;
 				end
@@ -49,11 +49,11 @@ always @ ( * ) begin
 					
 					oCStore = 2'b00;
 					OrigALU = 1'bx;
-					MemparaReg = 2'b11;
-					EscreveReg = 1'b1;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'bxx;
+					Mem2Reg = 2'b11;
+					RegWrite = 1'b1;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'bxx;
 					OrigPC = 2'b00;
 					OPBJ = 1'b0;
 				end
@@ -62,11 +62,11 @@ always @ ( * ) begin
 					
 					oCStore = 2'b00;
 					OrigALU = 1'b1;
-					MemparaReg = 2'b00;
-					EscreveReg = 1'b1;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'b11;
+					Mem2Reg = 2'b00;
+					RegWrite = 1'b1;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'b11;
 					OrigPC = 2'b00;
 					OPBJ = 1'b0;
 				end	
@@ -75,11 +75,11 @@ always @ ( * ) begin
 					
 					oCStore = 2'b00;
 					OrigALU = 1'b0;
-					MemparaReg = 2'bxx;
-					EscreveReg = 1'b0;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'b01;
+					Mem2Reg = 2'bxx;
+					RegWrite = 1'b0;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'b01;
 					OrigPC = 2'b01;
 					OPBJ = 1'b0;
 				end	
@@ -88,11 +88,11 @@ always @ ( * ) begin
 					
 					oCStore = 2'b00;
 					OrigALU = 1'bx;
-					MemparaReg = 2'b10;
-					EscreveReg = 1'b1;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'bxx;
+					Mem2Reg = 2'b10;
+					RegWrite = 1'b1;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'bxx;
 					OrigPC = 2'b10;
 					OPBJ = 1'b0;
 				end	
@@ -101,11 +101,11 @@ always @ ( * ) begin
 					
 					oCStore = 2'b00;
 					OrigALU = 1'bx;
-					MemparaReg = 2'b10;
-					EscreveReg = 1'b1;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'bxx;
+					Mem2Reg = 2'b10;
+					RegWrite = 1'b1;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'bxx;
 					OrigPC = 2'b11;
 					OPBJ = 1'b1;
 				end	
@@ -114,11 +114,11 @@ always @ ( * ) begin
 					
 					oCStore = 2'b00;
 					OrigALU = 1'b1;
-					MemparaReg = 2'b01;
-					EscreveReg = 1'b1;
-					LeMem = 1'b1;
-					EscreveMem = 1'b0;
-					OpALU = 2'b00;
+					Mem2Reg = 2'b01;
+					RegWrite = 1'b1;
+					MemRead = 1'b1;
+					MemWrite = 1'b0;
+					ALUOp = 2'b00;
 					OrigPC = 2'b00;
 					OPBJ = 1'b0;
 				end	
@@ -126,11 +126,11 @@ always @ ( * ) begin
 				begin
           oCStore = 2'b10;
 					OrigALU = 1'b1;
-					MemparaReg = 2'bxx;
-					EscreveReg = 1'b0;
-					LeMem = 1'b0;
-					EscreveMem = 1'b1;
-					OpALU = 2'b00;
+					Mem2Reg = 2'bxx;
+					RegWrite = 1'b0;
+					MemRead = 1'b0;
+					MemWrite = 1'b1;
+					ALUOp = 2'b00;
 					OrigPC = 2'b00;
 					OPBJ = 1'b0;
 				end
@@ -139,11 +139,11 @@ always @ ( * ) begin
 					
           oCStore = 2'b00;
 					OrigALU = 1'b0;
-					MemparaReg = 2'b00;
-					EscreveReg = 1'b0;
-					LeMem = 1'b0;
-					EscreveMem = 1'b0;
-					OpALU = 2'b00;
+					Mem2Reg = 2'b00;
+					RegWrite = 1'b0;
+					MemRead = 1'b0;
+					MemWrite = 1'b0;
+					ALUOp = 2'b00;
 					OrigPC = 2'b00;
 					OPBJ = 1'b0;
 				end
