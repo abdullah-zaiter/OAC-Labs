@@ -68,15 +68,9 @@ Datapath_UNI Processor (
     .wDebug(wDebug),
     .wRegDispSelect(wRegDispSelect),
     .wRegDisp(wRegDisp),
-    .wRegDispCOP0(wRegDispCOP0),
     .wVGASelect(wVGASelect),
     .wVGARead(wVGARead),
-`ifdef FPU
-    .wRegDispFPU(wRegDispFPU),
-    .wVGASelectFPU(wVGASelectFPU),
-    .wVGAReadFPU(wVGAReadFPU),
-	 .wFPUFlagBank(flagBank),
-`endif
+
     .wCALUOp(ALUOp),
     .wCRegWrite(RegWrite),
     .wCOrigALU(OrigALU),
@@ -99,9 +93,7 @@ Datapath_UNI Processor (
     .IwByteEnable(IwByteEnable),
     .IwWriteData(IwWriteData),
     .IwReadData(IwReadData),
-    .IwAddress(IwAddress),
-
-    .iPendingInterrupt(iPendingInterrupt)    // feito no semestre 2013/1 para implementar a deteccao de excecoes (COP0)
+    .IwAddress(IwAddress)
 );
  `endif
 
