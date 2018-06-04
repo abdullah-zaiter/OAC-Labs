@@ -1,0 +1,26 @@
+
+
+C:/Users/Adm/Desktop/UnB/CIC/OAC-Lamar/Lab3-Jose/Tempo/PLL_Main.v
+
+Jun 03 05PM:31:52>: Megafunction PLL Intel FPGA IP v18.0 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/Adm/Desktop/UnB/CIC/OAC-Lamar/Lab3-Jose/Tempo/PLL_Main.v
+
+Jun 03 05PM:33:45>: Megafunction PLL Intel FPGA IP v18.0 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/Adm/Desktop/UnB/CIC/OAC-Lamar/Lab3-Jose/Tempo/PLL_Main.v
+
+Jun 03 05PM:33:59>: Megafunction PLL Intel FPGA IP v18.0 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/Adm/Desktop/UnB/CIC/OAC-Lamar/Lab3-Jose/Tempo/PLL_Main.v
+
+Jun 03 05PM:35:45>: Megafunction PLL Intel FPGA IP v18.0 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/Adm/Desktop/UnB/CIC/OAC-Lamar/Lab3-Jose/Tempo/PLL_Main.v
+
+Jun 03 05PM:44:03>: Megafunction PLL Intel FPGA IP v18.0 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted

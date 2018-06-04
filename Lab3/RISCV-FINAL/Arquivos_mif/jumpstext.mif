@@ -1,0 +1,15 @@
+DEPTH = 4096;
+WIDTH = 32;
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+CONTENT
+BEGIN
+00000000 : 018000ef;   % 2: 	jal	ra, pula_man %
+00000001 : 01c0006f;   % 3: 	jal	zero, eh_tetra %
+00000002 : 00a00293;   % 4: 	addi	t0, zero, 10 %
+00000003 : 005282b3;   % 5: 	add	t0, t0, t0 %
+00000004 : 005282b3;   % 6: 	add	t0, t0, t0 %
+00000005 : 005282b3;   % 7: 	add	t0, t0, t0 %
+00000006 : 00008067;   % 8: pula_man:	jr	ra, 0 %
+00000007 : 00f00293;   % 9: 		addi	t0, zero, 15 %
+END;

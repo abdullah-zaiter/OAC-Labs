@@ -1,0 +1,55 @@
+`ifndef PARAM
+	`include "../Parametros.v"
+`endif
+
+/*
+ * Bloco de Controle UNICICLO
+ *
+ */
+
+ module Control_UNI(
+    input wire  	     	iCLK, iBranchC1,
+    input wire  [6:0]  	iOp,
+	 input wire  [2:0] 	iFunct3,
+	 input wire  [6:0] 	iFunct7,	 
+    output reg    	 	oEscreveReg, oLeMem, oEscreveMem,
+    output reg [1:0]  	oOpALU, oOrigALU,
+    output reg [2:0]  	oOrigPC, oMemparaReg,
+);
+
+
+
+initial
+begin
+    oOrigALU            = 2'b00;
+    oMemparaReg         = 3'b000;
+    oEscreveReg         = 1'b0;
+    oLeMem              = 1'b0;
+    oEscreveMem         = 1'b0;
+    oOrigPC             = 3'b000;
+    oOpALU              = 2'b00;
+end
+
+
+always @(*)
+begin
+    case(iOp)
+	 
+	 
+	 
+	 
+        // instrucao invalida
+        default:
+        begin
+            oOrigALU            = 2'b00;
+            oMemparaReg         = 3'b000;
+            oEscreveReg         = 1'b0;
+            oLeMem              = 1'b0;
+            oEscreveMem         = 1'b0;
+            oOrigPC             = 3'b000;
+            oOpALU              = 2'b00;
+        end
+    endcase
+end
+
+endmodule
