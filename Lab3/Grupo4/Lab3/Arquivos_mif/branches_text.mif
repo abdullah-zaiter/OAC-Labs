@@ -1,0 +1,19 @@
+DEPTH = 4096;
+WIDTH = 32;
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+CONTENT
+BEGIN
+00000000 : 00a00293;   % 2: li	t0, 10 %
+00000001 : 00a00313;   % 3: li	t1, 10 %
+00000002 : 00628463;   % 4: beq	t0, t1, pulo1 %
+00000003 : 0200006f;   % 5: jal	zero, ERRO %
+00000004 : 00028e63;   % 6: pulo1:	beq	t0, zero, ERRO %
+00000005 : 00029463;   % 7: bne	t0, zero, pulo2 %
+00000006 : 0140006f;   % 8: jal	zero, ERRO %
+00000007 : 00629863;   % 9: pulo2:	bne	t0, t1, ERRO %
+00000008 : 00504463;   % 10: blt	zero, t0, pulo3 %
+00000009 : 0080006f;   % 11: jal	zero, ERRO %
+0000000a : 0080006f;   % 12: pulo3: jal	zero, FIM %
+0000000b : 005282b3;   % 14: ERRO:	add	t0, t0, t0 %
+END;
