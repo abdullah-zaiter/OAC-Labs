@@ -1,8 +1,0 @@
-Datapath: Na instanciação do banco de registradores alterado wire com o número do registrador destino (.iWriteRegister(wAddrRd)) é o correto.
-
-ALUcontrol: Alterado o caso default do F3_ADD para OPADD (ainda há um caso que pode dar erro)
-
-Datapath: arrumando auipc, passar wPC+wImm ao invés de wiPC no switch do que será escrito no banco de registradores.
-
-Datapath: arrumando branches, na instanciação do ctrl_transf ligar o iZero no wZero [ .iZero(wZero) ]
-
