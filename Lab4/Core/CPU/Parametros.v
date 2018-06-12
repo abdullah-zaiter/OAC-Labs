@@ -37,7 +37,7 @@ parameter
 		OPADD		= 5'd3,
 		OPSUB		= 5'd4,
 		OPSLT		= 5'd5,
-		OPSLTU	= 5'd6,
+		OPSLTU		= 5'd6,
 		OPGE		= 5'd7,
 		OPGEU		= 5'd8,
 		OPSLL		= 5'd9,
@@ -45,15 +45,15 @@ parameter
 		OPSRA		= 5'd11,
 		OPLUI		= 5'd12,
 		OPMUL		= 5'd13,
-		OPMULH	= 5'd14,
-		OPMULHU	= 5'd15,
+		OPMULH		= 5'd14,
+		OPMULHU		= 5'd15,
 		OPMULHSU	= 5'd16,
 		OPDIV		= 5'd17,
-		OPDIVU	= 5'd18,
+		OPDIVU		= 5'd18,
 		OPREM		= 5'd19,
-		OPREMU	= 5'd20,
+		OPREMU		= 5'd20,
 
-		OPCLUI = 1'b0,
+		OPCLUI 		= 1'b0,
 
 // Interpretação do campo funct3 para a Unidade Lógica e Aritmética
 	F3_ADD         = 3'b000,
@@ -196,8 +196,21 @@ parameter
 
 	INITIAL_INTERRUPT = 32'h00000911,
 /* STATES ************************************************************************************************************/
-    FETCH           = 6'd0,
-    DECODE          = 6'd1,
+    STATE_FETCH           = 4'd0,
+    STATE_DECODE          = 4'd1,
+	STATE_LWSW			= 4'd2,
+	STATE_LW				= 4'd3,
+	STATE_SW				= 4'd4,
+	STATE_LW2				= 4'd5,
+	STATE_R1				= 4'd6,
+	STATE_R2				= 4'd7,
+	STATE_BRANCH			= 4'd8,
+	STATE_JAL				= 4'd9,
+	STATE_IMM				= 4'd10,
+	STATE_JALR			= 4'd11,
+
+
+/*
     LWSW            = 6'd2,
     LW              = 6'd3,
     LW2             = 6'd4,
