@@ -8,10 +8,6 @@ module Datapath_MULTI (
 input  wire 			iCLK, iCLK50, iRST,
 input  wire [31:0] 	iInitialPC,
 
-reg  [31:0] PC, PCgambs;        // registrador do PC
-wire [31:0] wPC4;
-wire [31:0] wiPC, wInstr;
-wire [31:0] wImm;       		//Saida Imediato
 
 // Para monitoramento
 output wire [31:0] wDebug,
@@ -22,8 +18,7 @@ output wire [31:0] 	wVGARead,
 output wire [31:0] 	wBRReadA,
 output wire [31:0] 	wBRReadB,
 output wire [31:0] 	wBRWrite,
-output wire [31:0] 	wULA, wPCBack,    
-wire [4:0]  wAddrRs1, wAddrRs2, wAddrRd, wRegDst,// enderecos dos reg rs,rt ,rd e saida do Mux regDst
+output wire [31:0] 	wULA,    
 output wire wCTransf,
 
 //Sinais Controle
@@ -34,22 +29,14 @@ output wire [2:0] 	oALUSrcB,
 output wire 			oIRWrite, oIorD, oPCWrite, oRegWrite,
 output wire [1:0] oPCSource,
 //Sinais Instrução
-wire [2:0] wFunct3,
-wire [6:0] wFunct7,
-wire [6:0]  wOpcode,
 
 //Load/STORES
-wire [31:0] wTreatedToRegister;
-
-
 
 //Barramento de Dados
 output wire [31:0] DwAddress, DwWriteData,
 input  wire	[31:0] DwReadData,
 output wire DwWriteEnable, DwReadEnable,
 output wire [3:0] DwByteEnable
-
-
 
 );
 
@@ -58,16 +45,22 @@ output wire [3:0] DwByteEnable
 wire [2:0] 	wLoadCase;
 wire [1:0] 	wWriteCase;
 wire [3:0] 	wByteEnabler;
-wire [31:0] wTreatedToRegister;
 wire [31:0] wTreatedToMemory;
+wire [31:0] wTreatedToRegister;
 	
 /* ****************************************************** */
 /* Definicao dos fios e registradores							 */
-
-reg [31:0] PC;
 reg [31:0] A, B, MDR, IR, ALUOut;
 
 
+wire [2:0] wFunct3;
+wire [6:0] wFunct7;
+wire [6:0]  wOpcode;
+
+reg  [31:0] PC, PCBack;        // registrador do PC
+wire [31:0] wPC4;
+wire [31:0] wiPC, wInstr;
+wire [31:0] wImm;					//Saida Imediato
 
 /* ****************************************************** */
 /* Inicializacao dos registradores		  						 */
@@ -90,9 +83,9 @@ wire [2:0] 	ALUSrcB, Store;
 wire [1:0] PCSource;
 wire [4:0] 	wALUControl;
 
-wire [31:0] wALUMuxA, wALUMuxB, wALUResult,
-	wReadData1, wReadData2, wRegWriteData, wMemorALU, wMemWriteData, 
-				wMemReadData, wMemAddress, wPCMux;
+wire [4:0] 	wRs1, wRs2, wRD;
+
+wire [31:0] wALUMuxA, wALUMuxB, wALUResult, wReadData1, wReadData2, wRegWriteData, wMemorALU, wMemWriteData, wMemReadData, wMemAddress, wPCMux;
 /* ****************************************************** */
 /* Definicao das estruturas assign		  						 */
 
@@ -101,12 +94,13 @@ assign wBRReadB		= wReadData2;
 assign wBRWrite		= wTreatedToRegister;
 assign wULA			= wALUResult;
 
-/* Barramento da Memoria de Instrucoes */
-assign    IwReadEnable      = ON;
-assign    IwWriteEnable     = wCodeMemoryWrite;
-assign    IwByteEnable      = wMemEnable;
-assign    IwAddress         = wPC;
-assign    IwWriteData       = ZERO;
+
+// /* Barramento da Memoria de Instrucoes */
+// assign    IwReadEnable      = ON;
+// assign    IwWriteEnable     = wCodeMemoryWrite;
+// assign    IwByteEnable      = wMemEnable;
+// assign    IwAddress         = wPC;
+// assign    IwWriteData       = ZERO;
 
 /* Output wires */
 assign oPC			= PC;
@@ -118,24 +112,19 @@ assign oIorD		= IorD;
 assign oPCWrite	= PCWrite;
 assign oALUSrcA	= ALUSrcA;
 assign oRegWrite	= RegWrite;
-assign oRegDst		= RegDst;
 assign oInstr 		= IR;
 
+/* Barramento da memoria de dados - RAM Memory bus module */
 
-/* Barramento da memoria de dados */
-assign DwReadEnable     = wCMemRead;
-assign DwWriteEnable    = wCMemWrite;
-assign DwByteEnable     = wMemEnable;
-assign DwWriteData      = wMemDataWrite;
-assign wReadData        = DwReadData;
-assign DwAddress        = wALUresult;
-
-
+assign DwAddress 		= wMemAddress;
+assign DwWriteData 		= wTreatedToMemory;
+assign wMemReadData 	= DwReadData;
+assign DwWriteEnable 	= MemWrite;
+assign DwReadEnable 	= MemRead;
+assign DwByteEnable 	= wByteEnabler;
 
 //Condicionais
-assign wMemorALU		= MemtoReg ? MDR : ALUOut;
 assign wMemAddress	= IorD ? ALUOut : PC;
-assign wMemWriteData  =	B; //TODO
 
 /* ****************************************************** */
 /* Inicializacao dos registradores		  						 */
@@ -145,14 +134,15 @@ assign wMemWriteData  =	B; //TODO
 assign wPC4         = wPC + 32'h4;                          /* Calculo PC+4 */
 assign wPC          = PC;
 assign wOpcode      = IR[6:0];
-assign wAddrRs1      = IR[19:15];
-assign wAddrRs2      = IR[24:20];
-assign wAddrRd       = IR[11:7];
-assign wFunct3       = IR[14:12];
-assign wFunct7       = IR[31:25];
-assign wInstr      = IR;
+assign wRs1      	= IR[19:15];
+assign wRs2     	= IR[24:20];
+assign wRD       	= IR[11:7];
+assign wFunct3      = IR[14:12];
+assign wFunct7      = IR[31:25];
+assign wInstr      	= IR;
 assign wCodeMemoryWrite     = ((PC >= BEGINNING_BOOT && PC <= END_BOOT) ? 1'b1 : 1'b0);
-
+assign wMemWriteData  =	B;
+		
 
 /* ****************************************************** */
 /* Instanciacao das estruturas 	 		  						 */
@@ -162,7 +152,6 @@ Control_MULTI CrlMULTI (
 	.iCLK(iCLK),
 	.iRST(iRST),
 	.iOp(wOpcode),
-	.iFunct7(wFunct7),
 	.oIRWrite(IRWrite),
 	.oMemtoReg(MemtoReg),
 	.oMemWrite(MemWrite),
@@ -183,8 +172,8 @@ Registers RegsMULTI (
 	.iCLR(iRST),
 	.iReadRegister1(wRs1),
 	.iReadRegister2(wRs2),
-	.iWriteRegister(wWriteRegister),
-	.iWriteData(wTreatedToRegister),
+	.iWriteRegister(wRD),
+	.iWriteData(wTreatedToRegister),//wRegWriteData),
 	.iRegWrite(RegWrite),
 	.oReadData1(wReadData1),
 	.oReadData2(wReadData2),
@@ -237,15 +226,6 @@ MemStore MemStore0 (
 	.oException()
 	);
 
-/* RAM Memory bus module */
-
-assign DwAddress 		= wMemAddress;
-assign DwWriteData 	= wTreatedToMemory;
-assign wMemReadData 	= DwReadData;
-assign DwWriteEnable = MemWrite;
-assign DwReadEnable 	= MemRead;
-assign DwByteEnable 	= wByteEnabler;
-
 MemLoad MemLoad0 (
     .iAlignment(wMemAddress[1:0]),
     .iLoadTypeF(LOAD_TYPE_DUMMY),
@@ -261,19 +241,30 @@ MemLoad MemLoad0 (
 
 
 
+// Mux WriteData
+always @(*)
+	case(MemtoReg)
+		2'd0: wRegWriteData <= ALUOut;
+		2'd1: wRegWriteData <= PC;
+		2'd2: wRegWriteData <= MDR;
+	endcase
+
 // Mux OrigPC
 always @(*)
-	case (wCTransf)//(wCOrigPC)
-		1'd0: wRegWriteData <= ALUOut; 	//Saída anterior da ula
-		1'd1: wRegWriteData <= wALUResult;	//Saída atual
-		default: wRegWriteData <= ZERO;
+	case (wCTransf)//PCSource)
+		1'd0: wPCMux <= wALUResult;//PC+4 - Normal		
+		1'd1: wPCMux <= ALUOut;//Valor calculado pra pular				 					
+		default: wPCMux <= 32'd0;
 	endcase
+
+
+
 
 
 // Mux ALU input 'A'
 always @(*)
 	case (ALUSrcA)
-		2'd0: wALUMuxA <= PC;
+		2'd0: wALUMuxA <= PCBack;
 		2'd1: wALUMuxA <= A;
 		default: wALUMuxA <= 32'd0;
 	endcase
@@ -290,20 +281,6 @@ always @(*)
 	endcase
 
 
-
-// Mux OrigPC
-always @(*)
-	case (PCSource)
-		3'd0: wPCMux <= wALUResult;		
-		3'd1: wPCMux <= ALUOut;				 
-		3'd2: wPCMux <= wJalAddress;		
-		3'd3: wPCMux <= wALUResult & ~(32'h1);					
-		default: wPCMux <= 32'd0;
-	endcase
-
-
-
-
 /* ****************************************************** */
 /* A cada ciclo de clock					  						 */
 
@@ -312,6 +289,7 @@ begin
 	if (iRST)
 	begin
 		PC			<= iInitialPC;
+		PCBack		<= 32'b0;
 		IR			<= 32'b0;
 		ALUOut	<= 32'b0;
 		MDR 		<= 32'b0;
@@ -321,11 +299,11 @@ begin
 	else
 	begin
 		/* Unconditional */
+		PCBack <= PC;
 		ALUOut	<= wALUResult;
 		A			<= wReadData1;
 		B			<= wReadData2;
 		MDR		<= wMemReadData;
-
 		/* Conditional */
 		if (PCWrite /*|| (PCWriteBEQ && wZero) || (PCWriteBNE && ~wZero)*/)
 			PC	<= wPCMux;

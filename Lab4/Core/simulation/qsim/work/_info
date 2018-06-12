@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab4/Core/simulation/qsim
+vTopDE
+Z1 !s110 1528831312
+!i10b 1
+!s100 Z]Be0jJSF7K[M^N1ZT[=l0
+IlR1CJ7BgDJ^<E7nOXB?C:3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1528831308
+8TopDE.vo
+FTopDE.vo
+L0 31
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1528831310.000000
+!s107 TopDE.vo|
+!s90 -work|work|TopDE.vo|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@top@d@e
+vTopDE_vlg_vec_tst
+R1
+!i10b 1
+!s100 ^9F^k[maGQ5:EKW>b?k[h2
+IkYW8:0h?TQDK97gi0@F4T1
+R2
+R0
+w1528831302
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 29
+R3
+r1
+!s85 0
+31
+!s108 1528831312.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R4
+R5
+n@top@d@e_vlg_vec_tst

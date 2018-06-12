@@ -1,7 +1,7 @@
 /* **************************************************** */
 /* * Escolha o tipo de processador a ser implementado * */
-`define UNICICLO
-//`define MULTICICLO 
+//`define UNICICLO
+`define MULTICICLO 
 //`define PIPELINE
 
 
@@ -15,9 +15,9 @@
 // Define se será utilizado simulação ou síntese (não sintetiza dispositivos de IO)
 //`define SIMULACAO
 
-`ifndef PARAM
-	`include "Parametros.v"
-`endif
+//`ifndef PARAM
+//	`include "CPU/Parametros.v"
+//`endif
 
 /*   ******************  Historico ***********************
 	Colocar os nomes e matriculas dos autores

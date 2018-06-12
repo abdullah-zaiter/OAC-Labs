@@ -1,0 +1,1011 @@
+Determining the location of the ModelSim executable...
+
+Using: C:\intelFPGA\17.1\modelsim_ase\win32aloem
+
+To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
+Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
+
+**** Generating the ModelSim Testbench ****
+
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISC-V -c TopDE --vector_source="..\Core\" --testbench_file="simulation\qsim\Waveform.vwf.vt"
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details.
+    Info: Processing started: Tue Jun 12 16:10:58 2018
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off RISC-V -c TopDE --vector_source=..\Core\ --testbench_file=simulation\qsim\Waveform.vwf.vt
+Info (119006): Selected device 5CSEMA5F31C6 for design "TopDE"
+Warning: RST port on the PLL is not properly connected on instance VGA_Interface:VGA0|VgaAdapter:VGA0|VgaPll:xx|VgaPll_0002:vgapll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
+    Info: Must be connected
+Warning (21300): LOCKED port on the PLL is not properly connected on instance "VGA_Interface:VGA0|VgaAdapter:VGA0|VgaPll:xx|VgaPll_0002:vgapll_inst|altera_pll:altera_pll_i|general[0].gpll". The LOCKED port on the PLL should be connected when the FBOUTCLK port is connected. Although it is unnecessary to connect the LOCKED signal, any logic driven off of an output clock of the PLL will not know when the PLL is locked and ready.
+Warning (18550): Found RAM instances implemented as ROM because the write logic is disabled. One instance is listed below as an example.
+    Info (119043): Atom "VGA_Interface:VGA0|VgaAdapter:VGA0|MemoryVGA:memVGA|altsyncram:altsyncram_component|altsyncram_noo2:auto_generated|ram_block1a14" is instantiated as RAM, but it is actually implemented as ROM function because the write logic is always disabled
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4778 megabytes
+    Info: Processing ended: Tue Jun 12 16:11:03 2018
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:03
+
+Completed successfully. 
+
+Completed successfully. 
+
+**** Generating the functional simulation netlist ****
+
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="simulation\qsim\" RISC-V -c TopDE
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details.
+    Info: Processing started: Tue Jun 12 16:11:04 2018
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=simulation\qsim\ RISC-V -c TopDE
+Info (119006): Selected device 5CSEMA5F31C6 for design "TopDE"
+Warning: RST port on the PLL is not properly connected on instance VGA_Interface:VGA0|VgaAdapter:VGA0|VgaPll:xx|VgaPll_0002:vgapll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
+    Info: Must be connected
+Warning (21300): LOCKED port on the PLL is not properly connected on instance "VGA_Interface:VGA0|VgaAdapter:VGA0|VgaPll:xx|VgaPll_0002:vgapll_inst|altera_pll:altera_pll_i|general[0].gpll". The LOCKED port on the PLL should be connected when the FBOUTCLK port is connected. Although it is unnecessary to connect the LOCKED signal, any logic driven off of an output clock of the PLL will not know when the PLL is locked and ready.
+Warning (18550): Found RAM instances implemented as ROM because the write logic is disabled. One instance is listed below as an example.
+    Info (119043): Atom "VGA_Interface:VGA0|VgaAdapter:VGA0|MemoryVGA:memVGA|altsyncram:altsyncram_component|altsyncram_noo2:auto_generated|ram_block1a14" is instantiated as RAM, but it is actually implemented as ROM function because the write logic is always disabled
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (204019): Generated file TopDE.vo in folder "C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab4/Core/simulation/qsim//" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4894 megabytes
+    Info: Processing ended: Tue Jun 12 16:11:13 2018
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:05
+
+Completed successfully. 
+
+**** Generating the ModelSim .do script ****
+
+C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab4/Core/simulation/qsim/RISC-V.do generated.
+
+Completed successfully. 
+
+**** Running the ModelSim simulation ****
+
+C:/intelFPGA/17.1/modelsim_ase/win32aloem/vsim -c -do RISC-V.do
+
+Reading C:/intelFPGA/17.1/modelsim_ase/tcl/vsim/pref.tcl
+
+# 10.5b
+
+# do RISC-V.do
+
+# ** Warning: (vlib-34) Library already exists at "work".
+
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:11:17 on Jun 12,2018
+# vlog -work work TopDE.vo 
+# -- Compiling module TopDE
+
+# 
+# Top level modules:
+# 	TopDE
+# End time: 16:11:18 on Jun 12,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:11:18 on Jun 12,2018
+# vlog -work work Waveform.vwf.vt 
+
+# -- Compiling module TopDE_vlg_vec_tst
+# 
+# Top level modules:
+# 	TopDE_vlg_vec_tst
+
+# End time: 16:11:18 on Jun 12,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+# vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.TopDE_vlg_vec_tst 
+# Start time: 16:11:19 on Jun 12,2018
+# Loading work.TopDE_vlg_vec_tst
+# Loading work.TopDE
+# Loading altera_ver.dffeas
+# Loading sv_std.std
+# Loading altera_lnsim_ver.generic_m10k
+# Loading altera_lnsim_ver.altera_lnsim_functions
+# Loading altera_lnsim_ver.common_28nm_ram_block
+# Loading altera_lnsim_ver.common_28nm_ram_register
+# Loading altera_lnsim_ver.common_28nm_ram_pulse_generator
+# Loading altera_lnsim_ver.altera_pll_reconfig_tasks
+# Loading altera_lnsim_ver.generic_device_pll
+# Loading altera_lnsim_ver.altera_generic_pll_functions
+# Loading altera_lnsim_ver.generic_pll
+# ** Warning: (vsim-3017) Waveform.vwf.vt(117): [TFMPC] - Too few port connections. Expected 62, found 58.
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1 File: TopDE.vo
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tms'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tck'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tdi'.
+# ** Warning: (vsim-3722) Waveform.vwf.vt(117): [TFMPC] - Missing connection for port 'altera_reserved_tdo'.
+# Loading altera_ver.PRIM_GDFF_LOW
+# ** Warning: (vsim-3017) TopDE.vo(8263): [TFMPC] - Too few port connections. Expected 15, found 14.
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  File: nofile
+# ** Warning: (vsim-3722) TopDE.vo(8263): [TFMPC] - Missing connection for port 'pllen'.
+# ** Warning: (vsim-3017) (): [TFMPC] - Too few port connections. Expected , found .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT // File: nofile
+# ** Warning: (vsim-3722) (): [TFMPC] - Missing connection for port ''.
+# ** Warning: (vsim-3017) TopDE.vo(8404): [TFMPC] - Too few port connections. Expected 24, found 23.
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  File: nofile
+# ** Warning: (vsim-3722) TopDE.vo(8404): [TFMPC] - Missing connection for port 'vsspl'.
+# ** Warning: (vsim-3017) (): [TFMPC] - Too few port connections. Expected , found .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~PLL_RECONFIG / File: nofile
+# ** Warning: (vsim-3722) (): [TFMPC] - Missing connection for port ''.
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~PLL_RECONFIG // File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ax').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ax').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ax').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ax').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ax').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(21628): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21628): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21628): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21628): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21628): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21628): [PCDPC] - Port size (8) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21628): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult4~mac // File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21705): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21705): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21705): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21705): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21705): [PCDPC] - Port size (18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21705): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_llmac // File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21789): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21789): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21789): [PCDPC] - Port size (15) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21789): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_hlmac // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult0~mult_hlmac // File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21879): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21879): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21879): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21879): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21879): [PCDPC] - Port size (18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21879): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_llmac // File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21963): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21963): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21963): [PCDPC] - Port size (16) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(21963): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_hlmac  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_hlmac // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult2~mult_hlmac // File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(33468): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(33468): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(33468): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(33468): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(33468): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33468): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33468): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33468): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33468): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33468): [PCDPC] - Port size (8) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33468): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8 // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult3~8 // File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33552): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult1~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33552): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult1~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33552): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult1~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33552): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult1~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33552): [PCDPC] - Port size (16) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult1~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(33552): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|digitalFilter|Mult1~mac  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43831): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43831): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43831): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43831): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43831): [PCDPC] - Port size (8) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43831): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8 // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult2~8 // File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3016) TopDE.vo(43910): Port type is incompatible with connection (port 'ay').
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43910): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43910): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43910): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43910): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43910): [PCDPC] - Port size (8) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43910): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8 // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult1~8 // File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43988): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43988): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43988): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43988): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43988): [PCDPC] - Port size (8) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(43988): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8 // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|envelope|Mult0~8 // File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(45582): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8  File: nofile
+
+# ** Warning: (vsim-3015) TopDE.vo(45582): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(45582): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(45582): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(45582): [PCDPC] - Port size (8) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) TopDE.vo(45582): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8  File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8 // File: nofile
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\Sintetizador0|S1|synth|sampleSynthesizer|Mult0~8 // File: nofile
+# ** Warning: (vsim-3017) TopDE.vo(50828): [TFMPC] - Too few port connections. Expected 15, found 14.
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  File: nofile
+# ** Warning: (vsim-3722) TopDE.vo(50828): [TFMPC] - Missing connection for port 'pllen'.
+# ** Warning: (vsim-3017) (): [TFMPC] - Too few port connections. Expected , found .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT // File: nofile
+# ** Warning: (vsim-3722) (): [TFMPC] - Missing connection for port ''.
+# ** Warning: (vsim-3017) TopDE.vo(50854): [TFMPC] - Too few port connections. Expected 24, found 23.
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  File: nofile
+# ** Warning: (vsim-3722) TopDE.vo(50854): [TFMPC] - Missing connection for port 'vsspl'.
+# ** Warning: (vsim-3017) (): [TFMPC] - Too few port connections. Expected , found .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~PLL_RECONFIG / File: nofile
+# ** Warning: (vsim-3722) (): [TFMPC] - Missing connection for port ''.
+# ** Warning: (vsim-3015) (): [PCDPC] - Port size () does not match connection size () for .
+#    Time: 0 ps  Iteration: 0  Protected: /TopDE_vlg_vec_tst/i1/\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~PLL_RECONFIG // File: nofile
+# ** Warning: (vsim-3017) TopDE.vo(52402): [TFMPC] - Too few port connections. Expected 21, found 14.
+#    Time: 0 ps  Iteration: 0  Instance: /TopDE_vlg_vec_tst/i1/altera_internal_jtag File: nofile
+# ** Warning: (vsim-3722) TopDE.vo(52402): [TFMPC] - Missing connection for port 'ntrst'.
+# ** Warning: (vsim-3722) TopDE.vo(52402): [TFMPC] - Missing connection for port 'corectl'.
+# ** Warning: (vsim-3722) TopDE.vo(52402): [TFMPC] - Missing connection for port 'ntdopinena'.
+# ** Warning: (vsim-3722) TopDE.vo(52402): [TFMPC] - Missing connection for port 'tckcore'.
+# ** Warning: (vsim-3722) TopDE.vo(52402): [TFMPC] - Missing connection for port 'tdicore'.
+# ** Warning: (vsim-3722) TopDE.vo(52402): [TFMPC] - Missing connection for port 'tmscore'.
+# ** Warning: (vsim-3722) TopDE.vo(52402): [TFMPC] - Missing connection for port 'tdocore'.
+# ** Warning: Design size of 28203 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#31
+
+# 
+# Warning: por to CB BFM is not connected, internal por is used.
+# 
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_0.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_0.no_need_to_gen
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 1200.0 mhz
+# Info: phase_shift = 0 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 416.666667
+# Info: output_clock_low_period = 416.666667
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_1.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_1.no_need_to_gen
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 1200.0 mhz
+# Info: phase_shift = 104 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 416.666667
+# Info: output_clock_low_period = 416.666667
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_2.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_2.no_need_to_gen
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 1200.0 mhz
+# Info: phase_shift = 208 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 416.666667
+# Info: output_clock_low_period = 416.666667
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_3.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_3.no_need_to_gen
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 1200.0 mhz
+# Info: phase_shift = 312 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 416.666667
+# Info: output_clock_low_period = 416.666667
+# 
+# Warning: por to CB BFM is not connected, internal por is used.
+# 
+# 
+# Warning: por to CB BFM is not connected, internal por is used.
+# 
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_0.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_0.no_need_to_gen
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 300.0 mhz
+# Info: phase_shift = 0 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 1666.666667
+# Info: output_clock_low_period = 1666.666667
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_1.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_1.no_need_to_gen
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 300.0 mhz
+# Info: phase_shift = 416 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 1666.666667
+# Info: output_clock_low_period = 1666.666667
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_2.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_2.no_need_to_gen
+
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 300.0 mhz
+# Info: phase_shift = 832 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 1666.666667
+# Info: output_clock_low_period = 1666.666667
+# Info: =================================================
+# Info:           Generic PLL Summary
+# Info: =================================================
+# Time scale of (TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_3.no_need_to_gen) is  1ps /  1ps
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\VGA0|VGA0|xx|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_3.no_need_to_gen
+# Info: reference_clock_frequency = 50.0 mhz
+# Info: output_clock_frequency = 300.0 mhz
+# Info: phase_shift = 1248 ps
+# Info: duty_cycle = 50
+# Info: sim_additional_refclk_cycles_to_lock = 0
+# Info: output_clock_high_period = 1666.666667
+# Info: output_clock_low_period = 1666.666667
+# 
+# Warning: por to CB BFM is not connected, internal por is used.
+# 
+# Simulation time: 0 ps
+
+# Simulation time: 0 ps
+
+# Simulation time: 0 ps
+
+# Simulation time: 0 ps
+
+# Simulation time: 0 ps
+
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_0.UI
+# Warning: The frequency of the reference clock signal differs from the specified frequency (50.0 mhz).
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_1.UI
+# Warning: The frequency of the reference clock signal differs from the specified frequency (50.0 mhz).
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_2.UI
+# Warning: The frequency of the reference clock signal differs from the specified frequency (50.0 mhz).
+# Info: hierarchical_name = TopDE_vlg_vec_tst.i1.\CLOCK0|PLL1|pll_main_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL ....inst_pll_phase_3.UI
+# Warning: The frequency of the reference clock signal differs from the specified frequency (50.0 mhz).
+# Simulation time: 0 ps
+
+# Simulation time: 521679 ps
+
+# Simulation time: 521679 ps
+
+# ** Note: $finish    : Waveform.vwf.vt(180)
+#    Time: 1 us  Iteration: 0  Instance: /TopDE_vlg_vec_tst
+
+# End time: 16:11:49 on Jun 12,2018, Elapsed time: 0:00:30
+# Errors: 0, Warnings: 137
+
+Completed successfully. 
+
+**** Converting ModelSim VCD to vector waveform ****
+
+Reading C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab4/Core/Waveform.vwf...
+
+Reading C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab4/Core/simulation/qsim/RISC-V.msim.vcd...
+
+Processing channel transitions... 
+
+Warning: BR_Escrita[31] - signal not found in VCD.
+
+Warning: BR_Escrita[30] - signal not found in VCD.
+
+Warning: BR_Escrita[29] - signal not found in VCD.
+
+Warning: BR_Escrita[28] - signal not found in VCD.
+
+Warning: BR_Escrita[27] - signal not found in VCD.
+
+Warning: BR_Escrita[26] - signal not found in VCD.
+
+Warning: BR_Escrita[25] - signal not found in VCD.
+
+Warning: BR_Escrita[24] - signal not found in VCD.
+
+Warning: BR_Escrita[23] - signal not found in VCD.
+
+Warning: BR_Escrita[22] - signal not found in VCD.
+
+Warning: BR_Escrita[21] - signal not found in VCD.
+
+Warning: BR_Escrita[20] - signal not found in VCD.
+
+Warning: BR_Escrita[19] - signal not found in VCD.
+
+Warning: BR_Escrita[18] - signal not found in VCD.
+
+Warning: BR_Escrita[17] - signal not found in VCD.
+
+Warning: BR_Escrita[16] - signal not found in VCD.
+
+Warning: BR_Escrita[15] - signal not found in VCD.
+
+Warning: BR_Escrita[14] - signal not found in VCD.
+
+Warning: BR_Escrita[13] - signal not found in VCD.
+
+Warning: BR_Escrita[12] - signal not found in VCD.
+
+Warning: BR_Escrita[11] - signal not found in VCD.
+
+Warning: BR_Escrita[10] - signal not found in VCD.
+
+Warning: BR_Escrita[9] - signal not found in VCD.
+
+Warning: BR_Escrita[8] - signal not found in VCD.
+
+Warning: BR_Escrita[7] - signal not found in VCD.
+
+Warning: BR_Escrita[6] - signal not found in VCD.
+
+Warning: BR_Escrita[5] - signal not found in VCD.
+
+Warning: BR_Escrita[4] - signal not found in VCD.
+
+Warning: BR_Escrita[3] - signal not found in VCD.
+
+Warning: BR_Escrita[2] - signal not found in VCD.
+
+Warning: BR_Escrita[1] - signal not found in VCD.
+
+Warning: BR_Escrita[0] - signal not found in VCD.
+
+Warning: BR_Leitura1[31] - signal not found in VCD.
+
+Warning: BR_Leitura1[30] - signal not found in VCD.
+
+Warning: BR_Leitura1[29] - signal not found in VCD.
+
+Warning: BR_Leitura1[28] - signal not found in VCD.
+
+Warning: BR_Leitura1[27] - signal not found in VCD.
+
+Warning: BR_Leitura1[26] - signal not found in VCD.
+
+Warning: BR_Leitura1[25] - signal not found in VCD.
+
+Warning: BR_Leitura1[24] - signal not found in VCD.
+
+Warning: BR_Leitura1[23] - signal not found in VCD.
+
+Warning: BR_Leitura1[22] - signal not found in VCD.
+
+Warning: BR_Leitura1[21] - signal not found in VCD.
+
+Warning: BR_Leitura1[20] - signal not found in VCD.
+
+Warning: BR_Leitura1[19] - signal not found in VCD.
+
+Warning: BR_Leitura1[18] - signal not found in VCD.
+
+Warning: BR_Leitura1[17] - signal not found in VCD.
+
+Warning: BR_Leitura1[16] - signal not found in VCD.
+
+Warning: BR_Leitura1[15] - signal not found in VCD.
+
+Warning: BR_Leitura1[14] - signal not found in VCD.
+
+Warning: BR_Leitura1[13] - signal not found in VCD.
+
+Warning: BR_Leitura1[12] - signal not found in VCD.
+
+Warning: BR_Leitura1[11] - signal not found in VCD.
+
+Warning: BR_Leitura1[10] - signal not found in VCD.
+
+Warning: BR_Leitura1[9] - signal not found in VCD.
+
+Warning: BR_Leitura1[8] - signal not found in VCD.
+
+Warning: BR_Leitura1[7] - signal not found in VCD.
+
+Warning: BR_Leitura1[6] - signal not found in VCD.
+
+Warning: BR_Leitura1[5] - signal not found in VCD.
+
+Warning: BR_Leitura1[4] - signal not found in VCD.
+
+Warning: BR_Leitura1[3] - signal not found in VCD.
+
+Warning: BR_Leitura1[2] - signal not found in VCD.
+
+Warning: BR_Leitura1[1] - signal not found in VCD.
+
+Warning: BR_Leitura1[0] - signal not found in VCD.
+
+Warning: BR_Leitura2[31] - signal not found in VCD.
+
+Warning: BR_Leitura2[30] - signal not found in VCD.
+
+Warning: BR_Leitura2[29] - signal not found in VCD.
+
+Warning: BR_Leitura2[28] - signal not found in VCD.
+
+Warning: BR_Leitura2[27] - signal not found in VCD.
+
+Warning: BR_Leitura2[26] - signal not found in VCD.
+
+Warning: BR_Leitura2[25] - signal not found in VCD.
+
+Warning: BR_Leitura2[24] - signal not found in VCD.
+
+Warning: BR_Leitura2[23] - signal not found in VCD.
+
+Warning: BR_Leitura2[22] - signal not found in VCD.
+
+Warning: BR_Leitura2[21] - signal not found in VCD.
+
+Warning: BR_Leitura2[20] - signal not found in VCD.
+
+Warning: BR_Leitura2[19] - signal not found in VCD.
+
+Warning: BR_Leitura2[18] - signal not found in VCD.
+
+Warning: BR_Leitura2[17] - signal not found in VCD.
+
+Warning: BR_Leitura2[16] - signal not found in VCD.
+
+Warning: BR_Leitura2[15] - signal not found in VCD.
+
+Warning: BR_Leitura2[14] - signal not found in VCD.
+
+Warning: BR_Leitura2[13] - signal not found in VCD.
+
+Warning: BR_Leitura2[12] - signal not found in VCD.
+
+Warning: BR_Leitura2[11] - signal not found in VCD.
+
+Warning: BR_Leitura2[10] - signal not found in VCD.
+
+Warning: BR_Leitura2[9] - signal not found in VCD.
+
+Warning: BR_Leitura2[8] - signal not found in VCD.
+
+Warning: BR_Leitura2[7] - signal not found in VCD.
+
+Warning: BR_Leitura2[6] - signal not found in VCD.
+
+Warning: BR_Leitura2[5] - signal not found in VCD.
+
+Warning: BR_Leitura2[4] - signal not found in VCD.
+
+Warning: BR_Leitura2[3] - signal not found in VCD.
+
+Warning: BR_Leitura2[2] - signal not found in VCD.
+
+Warning: BR_Leitura2[1] - signal not found in VCD.
+
+Warning: BR_Leitura2[0] - signal not found in VCD.
+
+Warning: Debug[31] - signal not found in VCD.
+
+Warning: Debug[30] - signal not found in VCD.
+
+Warning: Debug[29] - signal not found in VCD.
+
+Warning: Debug[28] - signal not found in VCD.
+
+Warning: Debug[27] - signal not found in VCD.
+
+Warning: Debug[26] - signal not found in VCD.
+
+Warning: Debug[25] - signal not found in VCD.
+
+Warning: Debug[24] - signal not found in VCD.
+
+Warning: Debug[23] - signal not found in VCD.
+
+Warning: Debug[22] - signal not found in VCD.
+
+Warning: Debug[21] - signal not found in VCD.
+
+Warning: Debug[20] - signal not found in VCD.
+
+Warning: Debug[19] - signal not found in VCD.
+
+Warning: Debug[18] - signal not found in VCD.
+
+Warning: Debug[17] - signal not found in VCD.
+
+Warning: Debug[16] - signal not found in VCD.
+
+Warning: Debug[15] - signal not found in VCD.
+
+Warning: Debug[14] - signal not found in VCD.
+
+Warning: Debug[13] - signal not found in VCD.
+
+Warning: Debug[12] - signal not found in VCD.
+
+Warning: Debug[11] - signal not found in VCD.
+
+Warning: Debug[10] - signal not found in VCD.
+
+Warning: Debug[9] - signal not found in VCD.
+
+Warning: Debug[8] - signal not found in VCD.
+
+Warning: Debug[7] - signal not found in VCD.
+
+Warning: Debug[6] - signal not found in VCD.
+
+Warning: Debug[5] - signal not found in VCD.
+
+Warning: Debug[4] - signal not found in VCD.
+
+Warning: Debug[3] - signal not found in VCD.
+
+Warning: Debug[2] - signal not found in VCD.
+
+Warning: Debug[1] - signal not found in VCD.
+
+Warning: Debug[0] - signal not found in VCD.
+
+Warning: Instrucao[31] - signal not found in VCD.
+
+Warning: Instrucao[30] - signal not found in VCD.
+
+Warning: Instrucao[29] - signal not found in VCD.
+
+Warning: Instrucao[28] - signal not found in VCD.
+
+Warning: Instrucao[27] - signal not found in VCD.
+
+Warning: Instrucao[26] - signal not found in VCD.
+
+Warning: Instrucao[25] - signal not found in VCD.
+
+Warning: Instrucao[24] - signal not found in VCD.
+
+Warning: Instrucao[23] - signal not found in VCD.
+
+Warning: Instrucao[22] - signal not found in VCD.
+
+Warning: Instrucao[21] - signal not found in VCD.
+
+Warning: Instrucao[20] - signal not found in VCD.
+
+Warning: Instrucao[19] - signal not found in VCD.
+
+Warning: Instrucao[18] - signal not found in VCD.
+
+Warning: Instrucao[17] - signal not found in VCD.
+
+Warning: Instrucao[16] - signal not found in VCD.
+
+Warning: Instrucao[15] - signal not found in VCD.
+
+Warning: Instrucao[14] - signal not found in VCD.
+
+Warning: Instrucao[13] - signal not found in VCD.
+
+Warning: Instrucao[12] - signal not found in VCD.
+
+Warning: Instrucao[11] - signal not found in VCD.
+
+Warning: Instrucao[10] - signal not found in VCD.
+
+Warning: Instrucao[9] - signal not found in VCD.
+
+Warning: Instrucao[8] - signal not found in VCD.
+
+Warning: Instrucao[7] - signal not found in VCD.
+
+Warning: Instrucao[6] - signal not found in VCD.
+
+Warning: Instrucao[5] - signal not found in VCD.
+
+Warning: Instrucao[4] - signal not found in VCD.
+
+Warning: Instrucao[3] - signal not found in VCD.
+
+Warning: Instrucao[2] - signal not found in VCD.
+
+Warning: Instrucao[1] - signal not found in VCD.
+
+Warning: Instrucao[0] - signal not found in VCD.
+
+Warning: MClock - signal not found in VCD.
+
+Warning: PC[31] - signal not found in VCD.
+
+Warning: PC[30] - signal not found in VCD.
+
+Warning: PC[29] - signal not found in VCD.
+
+Warning: PC[28] - signal not found in VCD.
+
+Warning: PC[27] - signal not found in VCD.
+
+Warning: PC[26] - signal not found in VCD.
+
+Warning: PC[25] - signal not found in VCD.
+
+Warning: PC[24] - signal not found in VCD.
+
+Warning: PC[23] - signal not found in VCD.
+
+Warning: PC[22] - signal not found in VCD.
+
+Warning: PC[21] - signal not found in VCD.
+
+Warning: PC[20] - signal not found in VCD.
+
+Warning: PC[19] - signal not found in VCD.
+
+Warning: PC[18] - signal not found in VCD.
+
+Warning: PC[17] - signal not found in VCD.
+
+Warning: PC[16] - signal not found in VCD.
+
+Warning: PC[15] - signal not found in VCD.
+
+Warning: PC[14] - signal not found in VCD.
+
+Warning: PC[13] - signal not found in VCD.
+
+Warning: PC[12] - signal not found in VCD.
+
+Warning: PC[11] - signal not found in VCD.
+
+Warning: PC[10] - signal not found in VCD.
+
+Warning: PC[9] - signal not found in VCD.
+
+Warning: PC[8] - signal not found in VCD.
+
+Warning: PC[7] - signal not found in VCD.
+
+Warning: PC[6] - signal not found in VCD.
+
+Warning: PC[5] - signal not found in VCD.
+
+Warning: PC[4] - signal not found in VCD.
+
+Warning: PC[3] - signal not found in VCD.
+
+Warning: PC[2] - signal not found in VCD.
+
+Warning: PC[1] - signal not found in VCD.
+
+Warning: PC[0] - signal not found in VCD.
+
+Warning: Saida_ULA[31] - signal not found in VCD.
+
+Warning: Saida_ULA[30] - signal not found in VCD.
+
+Warning: Saida_ULA[29] - signal not found in VCD.
+
+Warning: Saida_ULA[28] - signal not found in VCD.
+
+Warning: Saida_ULA[27] - signal not found in VCD.
+
+Warning: Saida_ULA[26] - signal not found in VCD.
+
+Warning: Saida_ULA[25] - signal not found in VCD.
+
+Warning: Saida_ULA[24] - signal not found in VCD.
+
+Warning: Saida_ULA[23] - signal not found in VCD.
+
+Warning: Saida_ULA[22] - signal not found in VCD.
+
+Warning: Saida_ULA[21] - signal not found in VCD.
+
+Warning: Saida_ULA[20] - signal not found in VCD.
+
+Warning: Saida_ULA[19] - signal not found in VCD.
+
+Warning: Saida_ULA[18] - signal not found in VCD.
+
+Warning: Saida_ULA[17] - signal not found in VCD.
+
+Warning: Saida_ULA[16] - signal not found in VCD.
+
+Warning: Saida_ULA[15] - signal not found in VCD.
+
+Warning: Saida_ULA[14] - signal not found in VCD.
+
+Warning: Saida_ULA[13] - signal not found in VCD.
+
+Warning: Saida_ULA[12] - signal not found in VCD.
+
+Warning: Saida_ULA[11] - signal not found in VCD.
+
+Warning: Saida_ULA[10] - signal not found in VCD.
+
+Warning: Saida_ULA[9] - signal not found in VCD.
+
+Warning: Saida_ULA[8] - signal not found in VCD.
+
+Warning: Saida_ULA[7] - signal not found in VCD.
+
+Warning: Saida_ULA[6] - signal not found in VCD.
+
+Warning: Saida_ULA[5] - signal not found in VCD.
+
+Warning: Saida_ULA[4] - signal not found in VCD.
+
+Warning: Saida_ULA[3] - signal not found in VCD.
+
+Warning: Saida_ULA[2] - signal not found in VCD.
+
+Warning: Saida_ULA[1] - signal not found in VCD.
+
+Warning: Saida_ULA[0] - signal not found in VCD.
+
+Warning: Clock25 - signal not found in VCD.
+
+Warning: Clock50 - signal not found in VCD.
+
+Warning: Clock100 - signal not found in VCD.
+
+Writing the resulting VWF to C:/Users/lucas/Downloads/Materias/OAC/GitHub/OAC-Labs/Lab4/Core/simulation/qsim/RISC-V_20180612161149.sim.vwf
+
+Finished VCD to VWF conversion.
+
+Completed successfully. 
+
+All completed.

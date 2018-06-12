@@ -1,6 +1,6 @@
-`ifndef PARAM
-	`include "Parametros.v"
-`endif
+// `ifndef PARAM
+// 	`include "Parametros.v"
+// `endif
 
 /*
  * Bloco de Controle MULTICICLO
@@ -10,10 +10,9 @@ module Control_MULTI (
 	/* I/O type definition */
 	input wire 			iCLK, iRST,
 	input wire 	[6:0] 	iOp,
-	output wire 		oIRWrite, oMemWrite, oMemRead, oIorD, 
-						oPCWrite oPCWriteBNE,oRegWrite, oALUSrcA,
+	output wire 		oIRWrite, oMemWrite, oMemRead, oIorD, oPCWrite,oRegWrite, oALUSrcA,
 	output wire [1:0] 	oALUOp, oALUSrcB, oPCSource, oMemtoReg,
-	output wire [3:0] 	oState,
+	output wire [3:0] 	oState
 );
 
 logic	[14:0] 	word;				// sinais de controle do caminho de dados
@@ -78,7 +77,7 @@ begin
 				OPC_JAL:
 					nx_state <= STATE_JAL;
 				OPC_JALR:
-					nx_state <= STATE_JALR1;
+					nx_state <= STATE_JALR;
 				default:
 					nx_state <= STATE_R1;
 			endcase
