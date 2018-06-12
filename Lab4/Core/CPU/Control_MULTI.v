@@ -126,7 +126,7 @@ begin
 		STATE_IMM:
 		begin
 		  	word		<= 15'b001001000000000;
-			nx_state	<= STATE_FETCH;
+			nx_state	<= STATE_R2;
 		end
 		STATE_JALR:
 		begin
