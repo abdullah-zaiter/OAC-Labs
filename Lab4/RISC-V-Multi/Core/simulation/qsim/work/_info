@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Abdullah-PC/Desktop/Current works/RiscV-Multi/Core/simulation/qsim
+vTopDE
+!s110 1529206373
+!i10b 1
+!s100 7j6LZI?^oP5F[`<KE<IaP1
+IiL0aEgPS8Wol>E<VO3eQe3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1529206372
+8TopDE.vo
+FTopDE.vo
+L0 31
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1529206373.000000
+!s107 TopDE.vo|
+!s90 -work|work|TopDE.vo|
+!i113 1
+Z3 o-work work
+Z4 tCvgOpt 0
+n@top@d@e
+vTopDE_vlg_vec_tst
+!s110 1529206374
+!i10b 1
+!s100 91D>IjD<nM7XK]mE=XBaB3
+I802aLD4R=DVP=IQIUMW4<1
+R1
+R0
+w1529206368
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 29
+R2
+r1
+!s85 0
+31
+!s108 1529206374.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R3
+R4
+n@top@d@e_vlg_vec_tst
