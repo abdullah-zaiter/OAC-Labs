@@ -194,7 +194,7 @@ ALU ALUunit(
     .iControl(wALUControl),
     .iA(wALUMuxA),
     .iB(wALUMuxB),
-    .oALUresult(wALUResult),
+    .oALUresult(wALUresult),
     .oZero(wZero)
 	);
 
@@ -264,7 +264,7 @@ always @(*)
 // Mux ALU input 'A'
 always @(*)
 	case (ALUSrcA)
-		2'd0: wALUMuxA <= PC;
+		2'd0: wALUMuxA <= PCBack;
 		2'd1: wALUMuxA <= A;
 		default: wALUMuxA <= 32'd0;
 	endcase
