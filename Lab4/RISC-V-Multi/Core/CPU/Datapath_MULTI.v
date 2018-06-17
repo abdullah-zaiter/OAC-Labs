@@ -159,7 +159,7 @@ Control_MULTI CrlMULTI (
 	.oIorD(IorD),
 	.oPCWrite(PCWrite),
 	.oPCSource(PCSource),
-	.oALUOp(wCALUOp),
+	.oALUOp(ALUOp),
 	.oALUSrcB(ALUSrcB),
 	.oALUSrcA(ALUSrcA),
 	.oRegWrite(RegWrite),
@@ -204,7 +204,7 @@ ALUControl ALUControlunit (
     .iFunct3(wFunct3),
     .iFunct7(wFunct7),
     .iOpcode(wOpcode),
-    .iALUOp(wCALUOp),
+    .iALUOp(ALUOp),
     .oControlSignal(wALUControl)
 	);
 
@@ -305,8 +305,7 @@ begin
 		B			<= wReadData2;
 		MDR		<= wMemReadData;
 		/* Conditional */
-		//if((owControlState != STATE_BRANCH)&&(owControlState != STATE_JAL)&&(owControlState != STATE_JALR))//precisa disso nao
-		if (PCWrite || wCTransf)//wCTransf já sinaliza se tem que escrever pc ou nao
+		if (PCWrite /*|| (PCWriteBEQ && wZero) || (PCWriteBNE && ~wZero)*/)
 			PC	<= wPCMux;
 
 		if (IRWrite)
