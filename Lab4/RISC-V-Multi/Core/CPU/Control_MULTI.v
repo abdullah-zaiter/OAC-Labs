@@ -58,7 +58,7 @@ begin
             word		<= 15'b000000100010110;
 			nx_state	<= STATE_DECODE;
 		end
-		
+		 
 		STATE_DECODE:
 		begin
 			word		<= 15'b000001100000000;
@@ -69,9 +69,10 @@ begin
 				OPC_OP:
 					nx_state <= STATE_R1;
 				OPC_OP_IMM,
-				OPC_AUIPC,
 				OPC_LUI:
 					nx_state <= STATE_IMM;
+				OPC_AUIPC:
+					nx_state <= STATE_AUIPC;
 				OPC_BRANCH:
 					nx_state <= STATE_BRANCH;
 				OPC_JAL:
@@ -119,7 +120,7 @@ begin
 		end
 		STATE_JAL:
 		begin
-		  	word		<= 15'b100000010100100;
+		  	word		<= 15'b100001010100100;
 			nx_state	<= STATE_FETCH;
 		end
 		STATE_IMM:
@@ -129,12 +130,12 @@ begin
 		end
 		STATE_AUIPC:
 		begin
-		  	word		<= 15'b001001000000000;
+		  	word		<= 15'b000001000000000;
 			nx_state	<= STATE_R2;
 		end
 		STATE_JALR:
 		begin
-		  	word		<= 15'b000011011100100;
+		  	word		<= 15'b000011010100100;
 			nx_state	<= STATE_FETCH;
 		end
 	endcase
