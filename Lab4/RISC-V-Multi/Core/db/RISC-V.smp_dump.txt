@@ -1,0 +1,16 @@
+
+State Machine - |TopDE|CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI|pr_state
+Name pr_state.STATE_AUIPC pr_state.STATE_JALR pr_state.STATE_IMM pr_state.STATE_JAL pr_state.STATE_BRANCH pr_state.STATE_R2 pr_state.STATE_R1 pr_state.STATE_LW2 pr_state.STATE_SW pr_state.STATE_LW pr_state.STATE_LWSW pr_state.STATE_DECODE pr_state.STATE_FETCH 
+pr_state.STATE_FETCH 0 0 0 0 0 0 0 0 0 0 0 0 0 
+pr_state.STATE_DECODE 0 0 0 0 0 0 0 0 0 0 0 1 1 
+pr_state.STATE_LWSW 0 0 0 0 0 0 0 0 0 0 1 0 1 
+pr_state.STATE_LW 0 0 0 0 0 0 0 0 0 1 0 0 1 
+pr_state.STATE_SW 0 0 0 0 0 0 0 0 1 0 0 0 1 
+pr_state.STATE_LW2 0 0 0 0 0 0 0 1 0 0 0 0 1 
+pr_state.STATE_R1 0 0 0 0 0 0 1 0 0 0 0 0 1 
+pr_state.STATE_R2 0 0 0 0 0 1 0 0 0 0 0 0 1 
+pr_state.STATE_BRANCH 0 0 0 0 1 0 0 0 0 0 0 0 1 
+pr_state.STATE_JAL 0 0 0 1 0 0 0 0 0 0 0 0 1 
+pr_state.STATE_IMM 0 0 1 0 0 0 0 0 0 0 0 0 1 
+pr_state.STATE_JALR 0 1 0 0 0 0 0 0 0 0 0 0 1 
+pr_state.STATE_AUIPC 1 0 0 0 0 0 0 0 0 0 0 0 1 
