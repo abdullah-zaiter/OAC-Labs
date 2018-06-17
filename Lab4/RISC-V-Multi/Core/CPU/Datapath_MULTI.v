@@ -305,7 +305,7 @@ begin
 		B			<= wReadData2;
 		MDR		<= wMemReadData;
 		/* Conditional */
-		if (PCWrite /*|| (PCWriteBEQ && wZero) || (PCWriteBNE && ~wZero)*/)
+		if (PCWrite || wCTransf)//wCTransf já sinaliza se tem que escrever pc ou nao 
 			PC	<= wPCMux;
 
 		if (IRWrite)
