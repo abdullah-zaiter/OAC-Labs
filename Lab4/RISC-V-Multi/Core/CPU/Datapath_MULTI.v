@@ -252,8 +252,8 @@ always @(*)
 // Mux OrigPC
 always @(*)
 	case (wCTransf)//PCSource)
-		1'd0: wPCMux <= wALUResult;//PC+4 - Normal		
-		1'd1: wPCMux <= ALUOut;//Valor calculado pra pular				 					
+		1'd0: wPCMux <= ALUOut;//Valor calculado pra pular			
+		1'd1: wPCMux <= wALUResult;//PC+4 - Normal			 					
 		default: wPCMux <= 32'd0;
 	endcase
 
