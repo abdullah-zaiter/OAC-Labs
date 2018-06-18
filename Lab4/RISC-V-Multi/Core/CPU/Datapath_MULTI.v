@@ -213,6 +213,7 @@ Ctrl_Transf CtrlT(
     .iFunct3(wFunct3),
     .iCOrigPC(PCSource), 
 	.iZero(wZero),
+	.iState(owControlState),
     .oCTransf(wCTransf)
     );
 
