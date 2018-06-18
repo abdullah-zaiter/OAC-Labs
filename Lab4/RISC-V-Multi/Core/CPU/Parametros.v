@@ -208,7 +208,7 @@ parameter
 	STATE_JAL				= 4'd9,
 	STATE_IMM				= 4'd10,
 	STATE_JALR			= 4'd11,
-	STATE_AUIPC			= 4'd12,
+
 
 /*
     LWSW            = 6'd2,

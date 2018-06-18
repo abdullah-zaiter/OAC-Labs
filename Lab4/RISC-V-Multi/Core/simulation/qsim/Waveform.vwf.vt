@@ -211,7 +211,7 @@ TopDE i1 (
 );
 initial 
 begin 
-#1000000 $finish;
+#1000000 $stop;
 end 
 // KEY[ 3 ]
 initial

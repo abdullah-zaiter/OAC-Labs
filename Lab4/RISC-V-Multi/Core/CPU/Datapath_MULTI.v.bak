@@ -78,8 +78,9 @@ end
  * Local wires
  */
 
-wire [1:0] 	ALUOp, ALUSrcA;
-wire [2:0] 	ALUSrcB, Store;
+wire ALUSrcA;
+wire [1:0] 	ALUOp, ALUSrcB;
+wire [2:0] 	Store;
 wire [1:0] PCSource;
 wire [4:0] 	wALUControl;
 
@@ -194,7 +195,7 @@ ALU ALUunit(
     .iControl(wALUControl),
     .iA(wALUMuxA),
     .iB(wALUMuxB),
-    .oALUresult(wALUresult),
+    .oALUresult(wALUResult),
     .oZero(wZero)
 	);
 
@@ -209,11 +210,14 @@ ALUControl ALUControlunit (
 	);
 
 
+
 Ctrl_Transf CtrlT(
     .iFunct3(wFunct3),
     .iCOrigPC(PCSource), 
 	.iZero(wZero),
-    .oCTransf(wCTransf)
+	.iState(owControlState),
+    .oCTransf(wCTransf),
+	.oWriteCond(wWriteCond)
     );
 
 MemStore MemStore0 (
@@ -264,7 +268,7 @@ always @(*)
 // Mux ALU input 'A'
 always @(*)
 	case (ALUSrcA)
-		2'd0: wALUMuxA <= PCBack;
+		2'd0: wALUMuxA <= PC;
 		2'd1: wALUMuxA <= A;
 		default: wALUMuxA <= 32'd0;
 	endcase
@@ -280,6 +284,9 @@ always @(*)
 		default: wALUMuxB <= 32'd0;
 	endcase
 
+assign oDebug[0] = wCTransf;
+assign oDebug[1] = wWriteCond;
+assign oDebug[2] = PCWrite;
 
 /* ****************************************************** */
 /* A cada ciclo de clock					  						 */
@@ -305,9 +312,22 @@ begin
 		B			<= wReadData2;
 		MDR		<= wMemReadData;
 		/* Conditional */
-		if (PCWrite /*|| (PCWriteBEQ && wZero) || (PCWriteBNE && ~wZero)*/)
-			PC	<= wPCMux;
-
+		if (PCWrite || wWriteCond/*|| (PCWriteBEQ && wZero) || (PCWriteBNE && ~wZero)*/)
+			begin
+				case(owControlState):	
+					STATE_FETCH:
+						PC	<= wPCMux;
+					STATE_BRANCH:
+						PC	<= wPCMux - 32'h4;
+					STATE_JAL:
+						PC	<= wPCMux - 32'h4;
+					STATE_JALR:
+						PC	<= wPCMux - 32'h4;
+					default: 
+						PC	<= wPCMux;
+				endcase
+			end
+			
 		if (IRWrite)
 			IR	<= wMemReadData;
 

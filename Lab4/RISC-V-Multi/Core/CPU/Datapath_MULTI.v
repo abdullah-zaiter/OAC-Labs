@@ -19,7 +19,7 @@ output wire [31:0] 	wBRReadA,
 output wire [31:0] 	wBRReadB,
 output wire [31:0] 	wBRWrite,
 output wire [31:0] 	wULA,    
-output wire wCTransf,wWriteCond,
+output wire wCTransf,
 
 //Sinais Controle
 output wire [5:0] 	owControlState,
@@ -78,8 +78,9 @@ end
  * Local wires
  */
 
-wire [1:0] 	ALUOp, ALUSrcA;
-wire [2:0] 	ALUSrcB, Store;
+wire ALUSrcA;
+wire [1:0] 	ALUOp, ALUSrcB;
+wire [2:0] 	Store;
 wire [1:0] PCSource;
 wire [4:0] 	wALUControl;
 
@@ -159,7 +160,7 @@ Control_MULTI CrlMULTI (
 	.oIorD(IorD),
 	.oPCWrite(PCWrite),
 	.oPCSource(PCSource),
-	.oALUOp(ALUOp),
+	.oALUOp(wCALUOp),
 	.oALUSrcB(ALUSrcB),
 	.oALUSrcA(ALUSrcA),
 	.oRegWrite(RegWrite),
@@ -204,9 +205,10 @@ ALUControl ALUControlunit (
     .iFunct3(wFunct3),
     .iFunct7(wFunct7),
     .iOpcode(wOpcode),
-    .iALUOp(ALUOp),
+    .iALUOp(wCALUOp),
     .oControlSignal(wALUControl)
 	);
+
 
 
 Ctrl_Transf CtrlT(
@@ -254,8 +256,8 @@ always @(*)
 // Mux OrigPC
 always @(*)
 	case (wCTransf)//PCSource)
-		1'd0: wPCMux <= ALUOut;//Valor calculado pra pular			
-		1'd1: wPCMux <= wALUResult;//PC+4 - Normal			 					
+		1'd0: wPCMux <= wALUResult;//PC+4 - Normal		
+		1'd1: wPCMux <= ALUOut;//Valor calculado pra pular				 					
 		default: wPCMux <= 32'd0;
 	endcase
 
@@ -282,6 +284,9 @@ always @(*)
 		default: wALUMuxB <= 32'd0;
 	endcase
 
+assign oDebug[0] = wCTransf;
+assign oDebug[1] = wWriteCond;
+assign oDebug[2] = PCWrite;
 
 /* ****************************************************** */
 /* A cada ciclo de clock					  						 */
@@ -307,9 +312,22 @@ begin
 		B			<= wReadData2;
 		MDR		<= wMemReadData;
 		/* Conditional */
-		if (PCWrite && wWriteCond)//wCTransf já sinaliza se tem que escrever pc ou nao 
-			PC	<= wPCMux;
-
+		if (PCWrite || wWriteCond/*|| (PCWriteBEQ && wZero) || (PCWriteBNE && ~wZero)*/)
+			begin
+				case(owControlState)
+					STATE_FETCH:
+						PC	<= wPCMux;
+					STATE_BRANCH:
+						PC	<= wPCMux - 32'h4;
+					STATE_JAL:
+						PC	<= wPCMux - 32'h4;
+					STATE_JALR:
+						PC	<= wPCMux - 32'h4;
+					default: 
+						PC	<= wPCMux;
+				endcase
+			end
+			
 		if (IRWrite)
 			IR	<= wMemReadData;
 
