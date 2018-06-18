@@ -19,7 +19,7 @@ output wire [31:0] 	wBRReadA,
 output wire [31:0] 	wBRReadB,
 output wire [31:0] 	wBRWrite,
 output wire [31:0] 	wULA,    
-output wire wCTransf,
+output wire wCTransf,wWriteCond,
 
 //Sinais Controle
 output wire [5:0] 	owControlState,
@@ -215,6 +215,7 @@ Ctrl_Transf CtrlT(
 	.iZero(wZero),
 	.iState(owControlState),
     .oCTransf(wCTransf)
+	.oWriteCond(wWriteCond)
     );
 
 MemStore MemStore0 (
@@ -306,7 +307,7 @@ begin
 		B			<= wReadData2;
 		MDR		<= wMemReadData;
 		/* Conditional */
-		if (PCWrite || wCTransf)//wCTransf já sinaliza se tem que escrever pc ou nao 
+		if (PCWrite && wWriteCond)//wCTransf já sinaliza se tem que escrever pc ou nao 
 			PC	<= wPCMux;
 
 		if (IRWrite)
