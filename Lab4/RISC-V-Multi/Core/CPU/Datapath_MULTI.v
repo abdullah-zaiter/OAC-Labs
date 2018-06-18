@@ -214,7 +214,7 @@ Ctrl_Transf CtrlT(
     .iCOrigPC(PCSource), 
 	.iZero(wZero),
 	.iState(owControlState),
-    .oCTransf(wCTransf)
+    .oCTransf(wCTransf),
 	.oWriteCond(wWriteCond)
     );
 
