@@ -1,6 +1,7 @@
 .data
-	const: .word 0xB0DEB0B0 0x004000BC
+	const: .word 0xB0DEB0B0 0xA
 .text
+	################################################# Forwards totalmente funcionais #############################################################################################
 	#li	$s0, 1
 	#li	$s1, 2
 	
@@ -21,36 +22,31 @@
 	#add	$t5, $s0, $t3		# Hazard rs2=rd(EX/MEM) com load word
 	#add	$t5, $s1, $t3		# Hazard rs2=rd(MEM/WB) com load word
 	
-	###### Hazards de controle ##############################################################################
+	################################################# Erros no tratamento dos hazards de controle do branch #############################################################################################
 	
-	li	$t0, 10
-	li	$t1, 5
-	li	$s0, 1
-	beq	$zero, $zero, Pulo1	# Salto é tomado
+	li	$t1, 10
+	la	$t2, const
+	lw	$t0, 4($t2)
+	beq	$t0, $zero, FIM
 	addi	$t0, $t0, 1
 	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-Pulo1:	beq	$zero, $t0, Pulo2	# Salto não é tomado
+	lw	$t0, 4($t2)
+	beq	$t0, $t1, FIM_BRANCHS
 	addi	$t0, $t0, -1
-	addi	$t0, $t0, -1	
-Pulo2:	bne	$zero, $t0, Pulo3	# Salto é tomado
-	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-Pulo3:	bne	$zero, $zero, Pulo4	# Salto não é tomado
 	addi	$t0, $t0, -1
-	addi	$t0, $t0, -1		
-Pulo4:	jal	Pulo5
-	addi	$t0, $t0, -1
-	j	Pulo6	
-Pulo5: jr $ra
-Pulo6: 	lui	$t1, 0x1001
-	lw	$t1, 4($t1)
-	jr	$t1
-	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-	addi	$t0, $t0, 1
-FIM:	addi	$t0, $t0, -5
+	
+	################################################# Erro do Forward do $ra do jump and link para o "jr $ra" ############################################################################
+
+FIM_BRANCHS:	li	$t0, 0
+		jal	go_on4
+		addi	$t0, $t0, 1
+		addi	$t0, $t0, 1
+		addi	$t0, $t0, 1
+		addi	$t0, $t0, 1
+		j	FIM
+go_on4:		jr	$ra	
+FIM:
+
+
+
+
