@@ -23,7 +23,7 @@ output wire wCTransf,
 
 //Sinais Controle
 output wire [5:0] 	owControlState,
-output wire [1:0]  wCMem2Reg,
+output wire [1:0]  MemtoReg,
 output wire [1:0] 	oALUOp, oALUSrcA,
 output wire [2:0] 	oALUSrcB,
 output wire 			oIRWrite, oIorD, oPCWrite, oRegWrite,
@@ -160,7 +160,7 @@ Control_MULTI CrlMULTI (
 	.oIorD(IorD),
 	.oPCWrite(PCWrite),
 	.oPCSource(PCSource),
-	.oALUOp(wCALUOp),
+	.oALUOp(ALUOp),
 	.oALUSrcB(ALUSrcB),
 	.oALUSrcA(ALUSrcA),
 	.oRegWrite(RegWrite),
@@ -205,7 +205,7 @@ ALUControl ALUControlunit (
     .iFunct3(wFunct3),
     .iFunct7(wFunct7),
     .iOpcode(wOpcode),
-    .iALUOp(wCALUOp),
+    .iALUOp(ALUOp),
     .oControlSignal(wALUControl)
 	);
 
@@ -284,9 +284,7 @@ always @(*)
 		default: wALUMuxB <= 32'd0;
 	endcase
 
-assign oDebug[0] = wCTransf;
-assign oDebug[1] = wWriteCond;
-assign oDebug[2] = PCWrite;
+assign oDebug[4:0] = wALUControl;
 
 /* ****************************************************** */
 /* A cada ciclo de clock					  						 */
