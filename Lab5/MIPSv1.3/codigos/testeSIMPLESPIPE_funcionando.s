@@ -1,6 +1,6 @@
 # Teste para verificacao da simulacao por forma de onda e na DE1-SoC
 .data
-	WORD: .word 0xB0DEB0B0, 0xF0CAF0FA, 0x0040006C #0x00400074 
+	WORD: .word 0xB0DEB0B0, 0xF0CAF0FA, 0x00400070 #0x00400074 
 .text
 	lui $t0,0x1001
 	ori $t0,$t0,0x0000
@@ -18,11 +18,13 @@ PULA:	lw $t2,0($t1)		# t2 <- bodebobo
 	addi $t0,$t0,-1
 PULA2:  addi $t0,$t0,1		# t0 <- bodebob4
 	jal PROC
+	#nop	#		(testado e funcionando)
 	lw $t2,8($t1)		# t2 <- 0x00400068
-	#nop
 	nop
-	nop			# funciona com dois nops
+	nop
+	nop
 	jr $t2
+	#nop			#(testado e funcionando)
 VOLTA:	addi $t0,$t0,1
 	j FIM1
 	addi $t0,$t0,-1
